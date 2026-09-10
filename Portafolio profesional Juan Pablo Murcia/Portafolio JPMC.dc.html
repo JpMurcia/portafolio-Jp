@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-944dcd56-ae79-4718-890f-ec2498678107/styles.css">
+<script src="_ds/modernist-944dcd56-ae79-4718-890f-ec2498678107/_ds_bundle.js"></script>
+<style>
+:root{
+--color-accent:#2f83cc;
+--color-accent-100:#eef6fd;--color-accent-200:#d6e9f9;--color-accent-300:#b3d6f3;
+--color-accent-400:#7ab6e8;--color-accent-500:#4a97d8;--color-accent-600:#256fb0;
+--color-accent-700:#1a5789;--color-accent-800:#154566;--color-accent-900:#123449;
+--jp-poster:#2779b4;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-text);transition:background .2s linear,color .2s linear}
+body[data-theme="dark"]{
+--color-bg:#141312;--color-surface:#242221;--color-text:#f3f2f2;
+--color-divider:color-mix(in srgb,#f3f2f2 32%,transparent);
+--color-neutral-500:#8a8686;--color-neutral-600:#a5a1a1;--color-neutral-700:#c2bfbf;--color-neutral-800:#e2dfdf;
+--color-accent:#6cb2ea;--color-accent-600:#4a97d8;--color-accent-700:#a6d2f4;--jp-poster:#1b5b8c;
+}
+a{color:var(--color-accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--color-accent) 40%,transparent)}
+a:hover{color:var(--color-accent-700);border-bottom-color:var(--color-accent-700)}
+section[id]{scroll-margin-top:74px}
+details>summary{cursor:pointer;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details[open]>summary .jp-plus{transform:rotate(45deg)}
+.jp-dim{opacity:.22;transition:opacity .18s linear}
+</style>
+</helmet>
+
+<div style="min-height:100vh">
+
+<div id="jp-progress" style="position:fixed;top:0;left:0;height:3px;width:0;background:var(--color-accent);z-index:60"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav style="position:sticky;top:0;z-index:50;background:var(--color-bg);border-bottom:2px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:11px 40px;min-height:64px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px">
+    <a href="#top" style="font:800 14px/1 var(--font-heading);letter-spacing:-.01em;color:var(--color-text);border:0;flex:none">JUAN PABLO MURCIA<span style="color:var(--color-accent)">.</span></a>
+    <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;min-width:0">
+      <a href="#sobre" style="font:800 11px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border:0">Perfil</a>
+      <a href="#skills" style="font:800 11px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border:0">Stack</a>
+      <a href="#casos" style="font:800 11px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border:0">Casos</a>
+      <a href="#trayectoria" style="font:800 11px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border:0">Trayectoria</a>
+      <a href="#formacion" style="font:800 11px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border:0">Formación</a>
+      <a href="#contacto" style="font:800 11px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700);border:0">Contacto</a>
+      <button onClick="{{ toggleTheme }}" title="Cambiar tema" style="flex:none;width:34px;height:34px;padding:0;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--color-divider);color:var(--color-text);cursor:pointer;font:800 11px var(--font-heading)" style-hover="background:color-mix(in srgb, var(--color-text) 8%, transparent)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ 01 HERO ═══ -->
+<header id="top" style="max-width:1200px;margin:0 auto;padding:72px 40px 0">
+  <div style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:48px;align-items:start">
+    <div style="min-width:0">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;flex-wrap:wrap">
+        <span style="width:8px;height:8px;background:var(--color-accent);flex:none"></span>
+        <span style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700)">Florencia, Caquetá · Colombia</span>
+      </div>
+      <h1 style="font-size:clamp(44px,6.2vw,82px);line-height:1;letter-spacing:-.035em;margin:0 0 28px">Desarrollador<br>de Software</h1>
+      <p style="font-size:20px;line-height:1.45;max-width:52ch;margin:0 0 14px;color:var(--color-text)">Construyo el puente entre sistemas que no fueron hechos para hablarse: aplicaciones web, ERP corporativos y hardware de planta.</p>
+      <p style="font-size:16px;line-height:1.6;max-width:56ch;margin:0 0 32px;color:var(--color-neutral-800)">Ingeniero de Sistemas de la Universidad de la Amazonia. Desde 2021 en Synergy Work integrando aplicaciones propias con Oracle Applications Cloud mediante APEX, REST y SOAP, y modelando la capa de reportes en Oracle Analytics.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="assets/CV-Juan-Pablo-Murcia-Cortes.pdf" download style="border:0;display:inline-flex;align-items:center;gap:9px;background:var(--jp-poster);color:#fff;padding:14px 20px;font:800 13px/1 var(--font-heading);letter-spacing:.02em" style-hover="background:var(--color-accent-600)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"></path></svg>
+          Descargar CV
+        </a>
+        <a href="#contacto" style="border:1px solid var(--color-divider);display:inline-flex;align-items:center;gap:9px;color:var(--color-text);padding:14px 20px;font:800 13px/1 var(--font-heading)" style-hover="background:color-mix(in srgb, var(--color-text) 7%, transparent)">Contáctame</a>
+      </div>
+    </div>
+
+    <div style="min-width:0;border-top:2px solid var(--color-divider)">
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+        <span style="font:800 10px/1.4 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Rol actual</span>
+        <span style="font:800 13px/1.3 var(--font-heading);text-align:right">Ingeniero de Desarrollo<br><span style="font:400 12px var(--font-body);color:var(--color-neutral-700)">Synergy Work · 2021 — hoy</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+        <span style="font:800 10px/1.4 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Experiencia</span>
+        <span style="font:800 13px/1.3 var(--font-heading);text-align:right">Desde 2019</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+        <span style="font:800 10px/1.4 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Núcleo técnico</span>
+        <span style="font:800 13px/1.3 var(--font-heading);text-align:right">Oracle APEX · PL/SQL<br>React · NestJS · .NET</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+        <span style="font:800 10px/1.4 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Integración</span>
+        <span style="font:800 13px/1.3 var(--font-heading);text-align:right">REST · SOAP · Socket<br>Puerto serial COM</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+        <span style="font:800 10px/1.4 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Formación</span>
+        <span style="font:800 13px/1.3 var(--font-heading);text-align:right">Ingeniería de Sistemas<br><span style="font:400 12px var(--font-body);color:var(--color-neutral-700)">Universidad de la Amazonia</span></span>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:16px;padding:13px 0">
+        <span style="font:800 10px/1.4 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700)">Enlaces</span>
+        <span style="font:800 13px/1.5 var(--font-heading);text-align:right"><a href="https://www.linkedin.com/in/juan-pablo-murcia-cortes-294b0315a/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/JpMurcia" target="_blank" rel="noopener">GitHub</a></span>
+      </div>
+    </div>
+  </div>
+  <hr class="hr" style="margin:72px 0 0;height:2px;background:var(--color-divider);border:0">
+</header>
+
+<!-- ═══ 02 SOBRE MÍ ═══ -->
+<section id="sobre" style="max-width:1200px;margin:0 auto;padding:64px 40px">
+  <div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px">
+    <div style="min-width:0">
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">01 — Perfil</div>
+      <h2 style="font-size:34px;line-height:1.06;letter-spacing:-.025em;margin:0">Qué hago y cómo trabajo</h2>
+    </div>
+    <div style="min-width:0">
+      <p style="font-size:17px;line-height:1.6;max-width:62ch">Mi trabajo casi siempre empieza en el mismo punto: un proceso que funciona a mano y un sistema que no expone lo que se necesita. Levanto el requerimiento con quien opera el proceso, diseño la capa de integración y me quedo hasta que el flujo corre solo y es auditable.</p>
+      <p style="font-size:17px;line-height:1.6;max-width:62ch">He trabajado los dos extremos del stack: interfaces en React e Ionic, backends en NestJS y .NET, y la parte que menos se ve pero más sostiene — procedimientos, funciones y tipos en Oracle, modelos SQL para Oracle Analytics y contratos de servicio hacia un ERP corporativo.</p>
+      <p style="font-size:17px;line-height:1.6;max-width:62ch">Antes de estudiar Ingeniería de Sistemas me formé en contabilización de operaciones comerciales y financieras en el SENA. Eso explica por qué me muevo con soltura en integraciones contables: entiendo el proceso que estoy automatizando, no solo el endpoint.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-top:2px solid var(--color-divider);margin-top:32px">
+        <div style="padding:22px 24px 0 0;border-right:1px solid var(--color-divider)">
+          <div style="font:800 15px/1.25 var(--font-heading);margin-bottom:7px">Trazabilidad antes que velocidad</div>
+          <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Una integración sin bitácora ni reproceso no está terminada, por rápido que corra.</div>
+        </div>
+        <div style="padding:22px 24px 0;border-right:1px solid var(--color-divider)">
+          <div style="font:800 15px/1.25 var(--font-heading);margin-bottom:7px">El proceso manda sobre el stack</div>
+          <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Levanto el requerimiento con quien lo opera antes de elegir la herramienta.</div>
+        </div>
+        <div style="padding:22px 0 0 24px">
+          <div style="font:800 15px/1.25 var(--font-heading);margin-bottom:7px">Documentar es parte del trabajo</div>
+          <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Historias de usuario, modelado de proceso y API documentada con Swagger.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto;height:2px;background:var(--color-divider);border:0;width:calc(100% - 80px)">
+
+<!-- ═══ 03 SKILLS ═══ -->
+<section id="skills" style="max-width:1200px;margin:0 auto;padding:64px 40px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+    <div>
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">02 — Stack</div>
+      <h2 style="font-size:34px;line-height:1.06;letter-spacing:-.025em;margin:0">Habilidades técnicas</h2>
+    </div>
+    <div style="font-size:13px;color:var(--color-neutral-700);max-width:38ch">Pasa el cursor sobre una tecnología y se atenúan los casos donde no la usé.</div>
+  </div>
+
+  <div id="jp-skills" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+    <div style="padding:24px 24px 24px 0;border-right:1px solid var(--color-divider)">
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px">Lenguajes</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <span data-skill="plsql" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">PL/SQL</span>
+        <span data-skill="sql" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">SQL</span>
+        <span data-skill="csharp" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">C#</span>
+        <span data-skill="js" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">JavaScript</span>
+        <span data-skill="ts" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">TypeScript</span>
+        <span data-skill="python" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Python</span>
+      </div>
+    </div>
+    <div style="padding:24px;border-right:1px solid var(--color-divider)">
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px">Datos y BI</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <span data-skill="oracle" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Oracle DB</span>
+        <span data-skill="analytics" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Oracle Analytics / BI</span>
+        <span data-skill="postgres" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">PostgreSQL</span>
+        <span data-skill="mysql" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">MySQL</span>
+        <span data-skill="sqlite" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">SQLite</span>
+        <span data-skill="powerbi" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Power BI</span>
+      </div>
+    </div>
+    <div style="padding:24px;border-right:1px solid var(--color-divider)">
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px">Frameworks y herramientas</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <span data-skill="apex" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Oracle APEX</span>
+        <span data-skill="react" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">React</span>
+        <span data-skill="nest" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">NestJS · TypeORM</span>
+        <span data-skill="node" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Node.js · Express</span>
+        <span data-skill="dotnet" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">.NET · Ext.NET</span>
+        <span data-skill="ionic" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Ionic</span>
+        <span data-skill="unity" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Unity</span>
+        <span data-skill="aws" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">AWS</span>
+      </div>
+    </div>
+    <div style="padding:24px 0 24px 24px">
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px">Integración y método</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px">
+        <span data-skill="rest" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">API REST</span>
+        <span data-skill="soap" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">SOAP</span>
+        <span data-skill="socket" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Socket · Serial COM</span>
+        <span data-skill="swagger" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Swagger</span>
+        <span data-skill="git" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Git · TFS</span>
+        <span data-skill="scrum" style="font:600 12px/1 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px;cursor:default">Scrum</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 04 CASOS ═══ -->
+<section id="casos" style="max-width:1200px;margin:0 auto;padding:24px 40px 64px">
+  <div style="margin-bottom:36px">
+    <div style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">03 — Casos de estudio</div>
+    <h2 style="font-size:34px;line-height:1.06;letter-spacing:-.025em;margin:0 0 12px">Tres sistemas, contados por dentro</h2>
+    <p style="font-size:15px;line-height:1.6;max-width:70ch;color:var(--color-neutral-800)">Arquitectura, protocolos y decisiones de diseño. Los diagramas son reconstrucciones conceptuales y los fragmentos de código usan datos ficticios: no hay información operativa de ningún cliente en esta página.</p>
+  </div>
+
+  <!-- CASO 01 -->
+  <article id="jp-caso-1" data-skills="apex plsql oracle rest soap analytics react js socket node ts sql" style="border:2px solid var(--color-divider);margin-bottom:32px">
+    <div style="padding:32px 34px;border-bottom:2px solid var(--color-divider)">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;background:var(--jp-poster);color:#fff;padding:7px 9px">Caso 01</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Integración ERP</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Industria · Báscula</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Synergy Work</span>
+      </div>
+      <h3 style="font-size:clamp(26px,3.4vw,40px);line-height:1.04;letter-spacing:-.025em;margin:0 0 16px;max-width:26ch">Del peso en la báscula al asiento en el ERP, sin digitar</h3>
+      <p style="font-size:16px;line-height:1.55;max-width:60ch;margin:0;color:var(--color-neutral-800)">InfoMetal es la aplicación de supervisión y seguimiento del proceso de báscula. Diseñé la cadena completa: la lectura del instrumento por puerto serial, la aplicación web que la muestra en tiempo real, y las integraciones que empujan la operación hacia Oracle Applications Cloud y la devuelven como reportes de BI.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-bottom:2px solid var(--color-divider)">
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Rol</div><div style="font:800 15px var(--font-heading);margin-top:5px">Ingeniero de Desarrollo</div></div>
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Periodo</div><div style="font:800 15px var(--font-heading);margin-top:5px">2021 — hoy</div></div>
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Stack</div><div style="font:800 15px var(--font-heading);margin-top:5px">APEX · React · Express</div></div>
+      <div style="padding:18px 22px"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Protocolos</div><div style="font:800 15px var(--font-heading);margin-top:5px">Serial · Socket · REST · SOAP</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-bottom:2px solid var(--color-divider)">
+      <div style="padding:26px 30px;border-right:1px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">El problema</div>
+        <p style="font-size:14px;line-height:1.65;margin:0;color:var(--color-neutral-800)">El peso lo lee un instrumento que solo habla por puerto serial. Sin integración, alguien mira el display, lo transcribe a una planilla y más tarde otra persona lo vuelve a digitar en el ERP. Dos transcripciones manuales por operación, y una diferencia de un dígito solo aparece en la conciliación del cierre.</p>
+      </div>
+      <div style="padding:26px 30px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Restricciones</div>
+        <ul style="margin:0;padding-left:17px;font-size:14px;line-height:1.65;color:var(--color-neutral-800)">
+          <li>El ERP es SaaS: no hay acceso a su base de datos, solo servicios publicados.</li>
+          <li>La báscula no se puede modificar ni reemplazar.</li>
+          <li>La operación no puede detenerse si el ERP no responde.</li>
+          <li>El navegador no habla con el puerto serial.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="padding:28px 30px;border-bottom:2px solid var(--color-divider)">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px">Casos de uso</div>
+      <div style="font-size:12px;color:var(--color-neutral-700);margin-bottom:18px">Quién hace qué y qué sistemas participan. Reemplaza las capturas: describe la funcionalidad sin mostrar datos de la operación.</div>
+      <div style="color:var(--color-text);overflow-x:auto">
+        <svg viewBox="0 0 1032 460" width="100%" style="min-width:640px;display:block" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="200" y="20" width="520" height="420"></rect>
+          <text x="460" y="46" text-anchor="middle" stroke="none" fill="currentColor" style="font:800 15px var(--font-heading);letter-spacing:.06em;text-transform:uppercase">InfoMetal + capa de integración</text>
+          <g stroke-width="1.5">
+            <line x1="70" y1="95" x2="355" y2="95"></line>
+            <line x1="70" y1="95" x2="355" y2="235"></line>
+            <line x1="70" y1="245" x2="355" y2="305"></line>
+            <line x1="70" y1="385" x2="355" y2="375"></line>
+            <line x1="565" y1="95" x2="930" y2="95"></line>
+            <line x1="565" y1="165" x2="930" y2="245"></line>
+            <line x1="565" y1="375" x2="930" y2="375"></line>
+          </g>
+          <g stroke-width="1.5" stroke-dasharray="6 5"><line x1="460" y1="122" x2="460" y2="138"></line></g>
+          <text x="472" y="136" stroke="none" fill="currentColor" style="font:400 11px var(--font-body)">«include»</text>
+          <g>
+            <ellipse cx="460" cy="95" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="165" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="235" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="305" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="375" rx="105" ry="27"></ellipse>
+          </g>
+          <g stroke="none" fill="currentColor" text-anchor="middle" style="font:600 14px var(--font-body)">
+            <text x="460" y="100">Registrar pesaje</text>
+            <text x="460" y="163">Sincronizar con el ERP</text>
+            <text x="460" y="177" style="font:400 11px var(--font-body)">REST · SOAP · cola</text>
+            <text x="460" y="240">Emitir tiquete</text>
+            <text x="460" y="310">Reprocesar envío fallido</text>
+            <text x="460" y="380">Supervisar el proceso</text>
+          </g>
+          <g stroke-linecap="round">
+            <g><circle cx="70" cy="60" r="9"></circle><line x1="70" y1="69" x2="70" y2="97"></line><line x1="55" y1="79" x2="85" y2="79"></line><line x1="70" y1="97" x2="58" y2="116"></line><line x1="70" y1="97" x2="82" y2="116"></line></g>
+            <g><circle cx="70" cy="210" r="9"></circle><line x1="70" y1="219" x2="70" y2="247"></line><line x1="55" y1="229" x2="85" y2="229"></line><line x1="70" y1="247" x2="58" y2="266"></line><line x1="70" y1="247" x2="82" y2="266"></line></g>
+            <g><circle cx="70" cy="350" r="9"></circle><line x1="70" y1="359" x2="70" y2="387"></line><line x1="55" y1="369" x2="85" y2="369"></line><line x1="70" y1="387" x2="58" y2="406"></line><line x1="70" y1="387" x2="82" y2="406"></line></g>
+          </g>
+          <g stroke="none" fill="currentColor" text-anchor="middle" style="font:800 12px var(--font-heading)">
+            <text x="70" y="134">Operario</text><text x="70" y="149" style="font:400 11px var(--font-body)">de báscula</text>
+            <text x="70" y="284">Supervisor</text><text x="70" y="299" style="font:400 11px var(--font-body)">de planta</text>
+            <text x="70" y="424">Analista</text><text x="70" y="439" style="font:400 11px var(--font-body)">contable</text>
+          </g>
+          <g>
+            <rect x="838" y="70" width="184" height="50"></rect>
+            <rect x="838" y="220" width="184" height="50"></rect>
+            <rect x="838" y="350" width="184" height="50"></rect>
+          </g>
+          <g stroke="none" fill="currentColor" text-anchor="middle">
+            <text x="930" y="88" style="font:400 10px var(--font-body)">«sistema externo»</text>
+            <text x="930" y="106" style="font:800 13px var(--font-heading)">Báscula</text>
+            <text x="930" y="238" style="font:400 10px var(--font-body)">«sistema externo»</text>
+            <text x="930" y="256" style="font:800 13px var(--font-heading)">Oracle Applications Cloud</text>
+            <text x="930" y="368" style="font:400 10px var(--font-body)">«sistema externo»</text>
+            <text x="930" y="386" style="font:800 13px var(--font-heading)">Oracle Analytics</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div style="padding:28px 30px;border-bottom:2px solid var(--color-divider)">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px">Arquitectura y flujo de datos</div>
+      <div style="font-size:12px;color:var(--color-neutral-700);margin-bottom:22px">Diagrama conceptual. Cada tramo indica su protocolo y su modo.</div>
+      <div style="display:flex;gap:0;flex-wrap:wrap;align-items:stretch">
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:150px;flex:1 1 150px">
+          <div style="font:800 13px var(--font-heading)">Báscula</div>
+          <div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Instrumento de pesaje<br>Salida ASCII</div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 12px;min-width:112px;flex:0 1 112px">
+          <div style="font:800 9px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent-700)">Serial COM</div>
+          <div style="height:2px;background:var(--color-text);margin:5px 0"></div>
+          <div style="font:10px ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">continuo</div>
+        </div>
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:150px;flex:1 1 150px;background:var(--color-surface)">
+          <div style="font:800 13px var(--font-heading)">Agente local</div>
+          <div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Node.js + Express<br>lectura y normalización</div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 12px;min-width:112px;flex:0 1 112px">
+          <div style="font:800 9px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent-700)">WebSocket</div>
+          <div style="height:2px;background:var(--color-text);margin:5px 0"></div>
+          <div style="font:10px ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">tiempo real</div>
+        </div>
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:150px;flex:1 1 150px;background:var(--color-surface)">
+          <div style="font:800 13px var(--font-heading)">InfoMetal</div>
+          <div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">SPA en React<br>tiquete y trazabilidad</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;align-items:center;gap:12px;padding:14px 0;flex-wrap:wrap">
+        <div style="width:2px;height:26px;background:var(--color-text)"></div>
+        <div style="font:800 9px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent-700)">Persistencia · Oracle DB</div>
+      </div>
+      <div style="display:flex;gap:0;flex-wrap:wrap;align-items:stretch">
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:150px;flex:1 1 150px;background:var(--color-surface)">
+          <div style="font:800 13px var(--font-heading)">Capa de integración</div>
+          <div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Oracle APEX<br>paquetes PL/SQL, cola y bitácora</div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 12px;min-width:112px;flex:0 1 112px">
+          <div style="font:800 9px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent-700)">REST · SOAP</div>
+          <div style="height:2px;background:var(--color-text);margin:5px 0"></div>
+          <div style="font:10px ui-monospace,Menlo,monospace;color:var(--color-neutral-700);">lote + reintento</div>
+        </div>
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:150px;flex:1 1 150px">
+          <div style="font:800 13px var(--font-heading)">Oracle Applications Cloud</div>
+          <div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">ERP · módulos destino</div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 12px;min-width:112px;flex:0 1 112px">
+          <div style="font:800 9px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent-700)">Modelo SQL</div>
+          <div style="height:2px;background:var(--color-text);margin:5px 0"></div>
+          <div style="font:10px ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">consulta</div>
+        </div>
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:150px;flex:1 1 150px">
+          <div style="font:800 13px var(--font-heading)">Oracle Analytics</div>
+          <div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Reporteador de InfoMetal<br>supervisión del proceso</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border:1px solid var(--color-divider);margin-top:24px">
+        <div style="padding:14px 16px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent);margin-bottom:5px">Falla: puerto caído</div><div style="font-size:12px;line-height:1.55;color:var(--color-neutral-800)">El agente reintenta la apertura y la UI marca la lectura como no confiable en vez de mostrar el último valor.</div></div>
+        <div style="padding:14px 16px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent);margin-bottom:5px">Falla: ERP sin respuesta</div><div style="font-size:12px;line-height:1.55;color:var(--color-neutral-800)">La operación se persiste local y queda en cola; el envío se reintenta sin bloquear al operario.</div></div>
+        <div style="padding:14px 16px"><div style="font:800 10px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent);margin-bottom:5px">Falla: envío duplicado</div><div style="font-size:12px;line-height:1.55;color:var(--color-neutral-800)">Clave de negocio única por operación: el reenvío es idempotente y queda registrado en bitácora.</div></div>
+      </div>
+    </div>
+
+    <div style="padding:28px 30px;border-bottom:2px solid var(--color-divider)">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:16px">Decisiones de diseño</div>
+      <div style="border:1px solid var(--color-divider)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-bottom:1px solid var(--color-divider);font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">
+          <div style="padding:11px 16px;border-right:1px solid var(--color-divider)">Decisión</div>
+          <div style="padding:11px 16px;border-right:1px solid var(--color-divider)">Alternativa descartada</div>
+          <div style="padding:11px 16px">Por qué</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-bottom:1px solid var(--color-divider)">
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55"><strong>Agente local con socket</strong> entre la báscula y el navegador</div>
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55;color:var(--color-neutral-700)">Aplicación de escritorio que reemplace la web</div>
+          <div style="padding:15px 16px;font-size:13px;line-height:1.55;color:var(--color-neutral-800)">El navegador no accede al puerto serial. El agente aísla el driver y deja la UI desplegable y actualizable sin tocar los equipos de planta.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-bottom:1px solid var(--color-divider)">
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55"><strong>Cola en base de datos</strong> antes de llamar al ERP</div>
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55;color:var(--color-neutral-700)">Llamada síncrona en el momento del pesaje</div>
+          <div style="padding:15px 16px;font-size:13px;line-height:1.55;color:var(--color-neutral-800)">Un ERP SaaS tiene latencia y ventanas de mantenimiento. La cola da reproceso, trazabilidad y desacopla la operación de la disponibilidad del ERP.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-bottom:1px solid var(--color-divider)">
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55"><strong>APEX como capa de integración</strong>, no como interfaz de usuario</div>
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55;color:var(--color-neutral-700)">Un microservicio aparte en Node</div>
+          <div style="padding:15px 16px;font-size:13px;line-height:1.55;color:var(--color-neutral-800)">La lógica vive junto a los datos en PL/SQL, y APEX ya aporta despliegue, autenticación y consumo de servicios sin infraestructura adicional que mantener.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55"><strong>Reportes sobre modelo SQL</strong> en Oracle Analytics</div>
+          <div style="padding:15px 16px;border-right:1px solid var(--color-divider);font-size:13px;line-height:1.55;color:var(--color-neutral-700)">Exportar a hoja de cálculo y graficar aparte</div>
+          <div style="padding:15px 16px;font-size:13px;line-height:1.55;color:var(--color-neutral-800)">El modelo se define una vez y todos los reportes leen la misma definición. Sin versiones divergentes del mismo indicador en distintos escritorios.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:28px 30px;border-bottom:2px solid var(--color-divider)">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px">Detalle de implementación</div>
+      <div style="font-size:12px;color:var(--color-neutral-700);margin-bottom:16px">Fragmentos ilustrativos con nombres y datos ficticios.</div>
+      <div style="border:1px solid var(--color-divider)">
+        <details style="border-bottom:1px solid var(--color-divider)">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;font:800 14px var(--font-heading)"><span>Contrato del servicio hacia el ERP</span><span class="jp-plus" style="color:var(--color-accent);font-size:18px;line-height:1;transition:transform .18s ease">+</span></summary>
+          <div style="padding:0 18px 18px">
+            <pre style="font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--color-surface);border-left:2px solid var(--color-accent);padding:16px 18px;margin:0;overflow-x:auto">POST /erp/integrations/weighing-operations
+Content-Type: application/json
+Authorization: Bearer &lt;token&gt;
+
+{
+  "businessKey":  "OP-DEMO-000148",   -- clave idempotente
+  "scaleId":      "SCALE_DEMO_01",
+  "netWeightKg":  18420.5,
+  "capturedAt":   "2026-03-11T09:14:22-05:00",
+  "material":     "MAT_DEMO_A",
+  "vehiclePlate": "XXX000",
+  "source":       "INFOMETAL_AGENT"
+}
+
+201 Created  { "erpDocumentId": "DOC-DEMO-77120" }
+409 Conflict { "reason": "DUPLICATE_BUSINESS_KEY" }</pre>
+            <p style="font-size:13px;line-height:1.6;margin:14px 0 0;color:var(--color-neutral-800)">La clave de negocio la genera el origen, no el ERP. Eso permite reintentar sin miedo: el segundo envío responde 409 y la cola lo marca como ya aplicado en lugar de duplicar el documento.</p>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid var(--color-divider)">
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;font:800 14px var(--font-heading)"><span>Paquete PL/SQL de la cola de envío</span><span class="jp-plus" style="color:var(--color-accent);font-size:18px;line-height:1;transition:transform .18s ease">+</span></summary>
+          <div style="padding:0 18px 18px">
+            <pre style="font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--color-surface);border-left:2px solid var(--color-accent);padding:16px 18px;margin:0;overflow-x:auto">CREATE OR REPLACE PACKAGE pkg_erp_outbox AS
+
+  -- Encola una operación ya persistida localmente.
+  PROCEDURE enqueue (
+    p_business_key  IN  VARCHAR2,
+    p_payload       IN  CLOB,
+    x_queue_id      OUT NUMBER
+  );
+
+  -- Toma los pendientes y los envía en lote.
+  -- Reintento con espera creciente; nunca pierde el registro.
+  PROCEDURE dispatch_pending (
+    p_batch_size    IN  NUMBER  DEFAULT 50,
+    p_max_attempts  IN  NUMBER  DEFAULT 5
+  );
+
+END pkg_erp_outbox;</pre>
+            <p style="font-size:13px;line-height:1.6;margin:14px 0 0;color:var(--color-neutral-800)">Tres estados en la tabla de cola: <span style="font-family:ui-monospace,Menlo,monospace">PENDING</span>, <span style="font-family:ui-monospace,Menlo,monospace">SENT</span>, <span style="font-family:ui-monospace,Menlo,monospace">FAILED</span>. Lo que agota los intentos queda visible en una pantalla de APEX para reproceso manual, con el error del ERP a la vista.</p>
+          </div>
+        </details>
+        <details>
+          <summary style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;font:800 14px var(--font-heading)"><span>Lectura del puerto serial y difusión a la SPA</span><span class="jp-plus" style="color:var(--color-accent);font-size:18px;line-height:1;transition:transform .18s ease">+</span></summary>
+          <div style="padding:0 18px 18px">
+            <pre style="font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--color-surface);border-left:2px solid var(--color-accent);padding:16px 18px;margin:0;overflow-x:auto">// Agente local — normaliza la trama y la difunde.
+port.on('data', (chunk) =&gt; {
+  const reading = parseFrame(chunk);        // "ST,GS,+018420.5kg"
+  if (!reading.stable) return;              // solo peso estable
+  io.emit('weight', {
+    scaleId: 'SCALE_DEMO_01',
+    netWeightKg: reading.kg,
+    capturedAt: new Date().toISOString()
+  });
+});
+
+port.on('error', () =&gt; io.emit('scale:offline'));</pre>
+            <p style="font-size:13px;line-height:1.6;margin:14px 0 0;color:var(--color-neutral-800)">Solo se difunde el peso cuando el instrumento reporta lectura estable. La UI distingue tres estados — estable, inestable y sin conexión — para que el operario nunca registre un valor en movimiento.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div style="padding:26px 30px;border-right:1px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Resultado</div>
+        <ul style="margin:0;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800)">
+          <li>Se eliminaron las dos transcripciones manuales por operación.</li>
+          <li>El peso llega al ERP con marca de tiempo y trazabilidad hasta el instrumento.</li>
+          <li>La supervisión pasó de planillas al Reporteador de InfoMetal sobre Oracle Analytics.</li>
+          <li>La planta sigue operando cuando el ERP no responde; nada se pierde.</li>
+        </ul>
+        <div style="font-size:11px;line-height:1.5;color:var(--color-neutral-700);margin-top:14px">El Reporteador es un sistema interno del cliente; no publico su URL.</div>
+      </div>
+      <div style="padding:26px 30px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Qué aprendí</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;color:var(--color-neutral-800)">Que la parte difícil de integrar con un ERP corporativo no es la llamada al servicio: es decidir qué pasa cuando falla. La idempotencia y la cola fueron lo que volvió confiable el sistema, no la velocidad.</p>
+        <p style="font-size:14px;line-height:1.7;margin:12px 0 0;color:var(--color-neutral-800)">Y que en planta la interfaz tiene que ser honesta sobre lo que no sabe. Mostrar «sin conexión» es mejor que mostrar un número viejo.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- CASO 02 -->
+  <article id="jp-caso-2" data-skills="csharp dotnet oracle plsql sql git" style="border:2px solid var(--color-divider);margin-bottom:32px">
+    <div style="padding:32px 34px;border-bottom:2px solid var(--color-divider)">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;background:var(--jp-poster);color:#fff;padding:7px 9px">Caso 02</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Sistema legado</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Sector público · Educación</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Universidad de la Amazonia</span>
+      </div>
+      <h3 style="font-size:clamp(26px,3.4vw,40px);line-height:1.04;letter-spacing:-.025em;margin:0 0 16px;max-width:26ch">Sostener y extender «Chaira», el sistema académico-administrativo</h3>
+      <p style="font-size:16px;line-height:1.55;max-width:60ch;margin:0;color:var(--color-neutral-800)">Como técnico administrativo trabajé sobre un sistema en producción del que dependen procesos institucionales, entre ellos los módulos de contratación. El trabajo fue mitad ingeniería y mitad traducción: levantar el requerimiento con el área que opera el proceso y llevarlo a un código base heredado sin romper lo que ya funcionaba.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-bottom:2px solid var(--color-divider)">
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Rol</div><div style="font:800 15px var(--font-heading);margin-top:5px">Técnico administrativo</div></div>
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Periodo</div><div style="font:800 15px var(--font-heading);margin-top:5px">2021 — 2022</div></div>
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Stack</div><div style="font:800 15px var(--font-heading);margin-top:5px">C# · .NET · Ext.NET</div></div>
+      <div style="padding:18px 22px"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Base de datos</div><div style="font:800 15px var(--font-heading);margin-top:5px">Oracle · PL/SQL</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-bottom:2px solid var(--color-divider)">
+      <div style="padding:26px 30px;border-right:1px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">El problema</div>
+        <p style="font-size:14px;line-height:1.65;margin:0;color:var(--color-neutral-800)">Un sistema con años de historia, capas superpuestas y lógica repartida entre la aplicación y la base de datos. Cada cambio pequeño costaba caro porque nadie sabía con certeza qué más tocaba, y los reportes que pedían las áreas se armaban a mano fuera del sistema.</p>
+      </div>
+      <div style="padding:26px 30px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Restricciones</div>
+        <ul style="margin:0;padding-left:17px;font-size:14px;line-height:1.65;color:var(--color-neutral-800)">
+          <li>Sistema en producción con usuarios institucionales todos los días.</li>
+          <li>Nada de reescribir: solo mantener, refactorizar y extender.</li>
+          <li>Procesos con calendario fijo — los cambios entran entre ventanas.</li>
+          <li>Lógica de negocio dentro de procedimientos, funciones y tipos en Oracle.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="padding:28px 30px;border-bottom:2px solid var(--color-divider)">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px">Casos de uso</div>
+      <div style="font-size:12px;color:var(--color-neutral-700);margin-bottom:18px">Los módulos de contratación desde la perspectiva de quien los usa.</div>
+      <div style="color:var(--color-text);overflow-x:auto;margin-bottom:34px">
+        <svg viewBox="0 0 1032 400" width="100%" style="min-width:640px;display:block" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="200" y="20" width="520" height="360"></rect>
+          <text x="460" y="46" text-anchor="middle" stroke="none" fill="currentColor" style="font:800 15px var(--font-heading);letter-spacing:.06em;text-transform:uppercase">Chaira · módulos de contratación</text>
+          <g stroke-width="1.5">
+            <line x1="70" y1="95" x2="355" y2="95"></line>
+            <line x1="70" y1="95" x2="355" y2="245"></line>
+            <line x1="70" y1="265" x2="355" y2="320"></line>
+            <line x1="70" y1="265" x2="355" y2="245"></line>
+            <line x1="565" y1="170" x2="930" y2="170"></line>
+            <line x1="565" y1="95" x2="930" y2="150"></line>
+          </g>
+          <g stroke-width="1.5" stroke-dasharray="6 5"><line x1="460" y1="122" x2="460" y2="143"></line></g>
+          <text x="472" y="139" stroke="none" fill="currentColor" style="font:400 11px var(--font-body)">«include»</text>
+          <g>
+            <ellipse cx="460" cy="95" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="170" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="245" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="320" rx="105" ry="27"></ellipse>
+          </g>
+          <g stroke="none" fill="currentColor" text-anchor="middle" style="font:600 14px var(--font-body)">
+            <text x="460" y="100">Registrar contratación</text>
+            <text x="460" y="168">Validar requisitos</text>
+            <text x="460" y="182" style="font:400 11px var(--font-body)">reglas en PL/SQL</text>
+            <text x="460" y="250">Generar reporte</text>
+            <text x="460" y="325">Administrar plantillas</text>
+          </g>
+          <g stroke-linecap="round">
+            <g><circle cx="70" cy="60" r="9"></circle><line x1="70" y1="69" x2="70" y2="97"></line><line x1="55" y1="79" x2="85" y2="79"></line><line x1="70" y1="97" x2="58" y2="116"></line><line x1="70" y1="97" x2="82" y2="116"></line></g>
+            <g><circle cx="70" cy="230" r="9"></circle><line x1="70" y1="239" x2="70" y2="267"></line><line x1="55" y1="249" x2="85" y2="249"></line><line x1="70" y1="267" x2="58" y2="286"></line><line x1="70" y1="267" x2="82" y2="286"></line></g>
+          </g>
+          <g stroke="none" fill="currentColor" text-anchor="middle" style="font:800 12px var(--font-heading)">
+            <text x="70" y="134">Funcionario</text><text x="70" y="149" style="font:400 11px var(--font-body)">del área usuaria</text>
+            <text x="70" y="304">Técnico</text><text x="70" y="319" style="font:400 11px var(--font-body)">administrativo</text>
+          </g>
+          <rect x="838" y="125" width="184" height="50"></rect>
+          <g stroke="none" fill="currentColor" text-anchor="middle">
+            <text x="930" y="143" style="font:400 10px var(--font-body)">«almacenamiento»</text>
+            <text x="930" y="161" style="font:800 13px var(--font-heading)">Base de datos Oracle</text>
+          </g>
+        </svg>
+      </div>
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px">Flujo de trabajo</div>
+      <div style="font-size:12px;color:var(--color-neutral-700);margin-bottom:22px">Aquí el diagrama no es de arquitectura sino de proceso: así entraba un requerimiento y así salía a producción.</div>
+      <div style="display:flex;gap:0;flex-wrap:wrap;align-items:stretch">
+        <div style="border:2px solid var(--color-text);padding:15px 17px;min-width:145px;flex:1 1 145px"><div style="font:800 12px var(--font-heading)">1 · Requerimiento</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Área usuaria<br>entrevista y alcance</div></div>
+        <div style="display:flex;align-items:center;padding:0 10px;flex:0 1 40px;min-width:40px"><div style="height:2px;background:var(--color-text);width:100%"></div></div>
+        <div style="border:2px solid var(--color-text);padding:15px 17px;min-width:145px;flex:1 1 145px;background:var(--color-surface)"><div style="font:800 12px var(--font-heading)">2 · Rastreo</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Qué toca en C#,<br>qué toca en Oracle</div></div>
+        <div style="display:flex;align-items:center;padding:0 10px;flex:0 1 40px;min-width:40px"><div style="height:2px;background:var(--color-text);width:100%"></div></div>
+        <div style="border:2px solid var(--color-text);padding:15px 17px;min-width:145px;flex:1 1 145px;background:var(--color-surface)"><div style="font:800 12px var(--font-heading)">3 · Cambio</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Refactor mínimo<br>+ funcionalidad</div></div>
+        <div style="display:flex;align-items:center;padding:0 10px;flex:0 1 40px;min-width:40px"><div style="height:2px;background:var(--color-text);width:100%"></div></div>
+        <div style="border:2px solid var(--color-text);padding:15px 17px;min-width:145px;flex:1 1 145px"><div style="font:800 12px var(--font-heading)">4 · Reporte</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Plantilla dentro<br>del sistema</div></div>
+        <div style="display:flex;align-items:center;padding:0 10px;flex:0 1 40px;min-width:40px"><div style="height:2px;background:var(--color-text);width:100%"></div></div>
+        <div style="border:2px solid var(--color-accent);padding:15px 17px;min-width:145px;flex:1 1 145px"><div style="font:800 12px var(--font-heading)">5 · Entrega</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Validación con<br>el área + documento</div></div>
+      </div>
+    </div>
+
+    <div style="padding:28px 30px;border-bottom:2px solid var(--color-divider)">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:16px">Criterios que apliqué</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border:1px solid var(--color-divider)">
+        <div style="padding:18px 20px;border-right:1px solid var(--color-divider)"><div style="font:800 14px var(--font-heading);margin-bottom:7px">Refactor con alcance</div><div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Limpio solo el camino que el requerimiento atraviesa. Un refactor amplio en un sistema sin pruebas es un riesgo, no una mejora.</div></div>
+        <div style="padding:18px 20px;border-right:1px solid var(--color-divider)"><div style="font:800 14px var(--font-heading);margin-bottom:7px">La lógica queda donde vive el dato</div><div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Si la regla ya está en un procedimiento de Oracle, la corrijo allí. Duplicarla en C# crea dos verdades.</div></div>
+        <div style="padding:18px 20px"><div style="font:800 14px var(--font-heading);margin-bottom:7px">El reporte, dentro del sistema</div><div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Convertir en plantilla lo que se armaba a mano cada mes. Es lo que más tiempo devuelve al área usuaria.</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div style="padding:26px 30px;border-right:1px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Resultado</div>
+        <ul style="margin:0;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800)">
+          <li>Nuevas funcionalidades en producción sin interrumpir la operación institucional.</li>
+          <li>Reportes recurrentes convertidos en plantillas del sistema.</li>
+          <li>Código y objetos de base de datos más legibles para quien viniera después.</li>
+        </ul>
+      </div>
+      <div style="padding:26px 30px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Qué aprendí</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;color:var(--color-neutral-800)">A leer código que no escribí y a preguntar antes de cambiarlo. En un sistema legado la habilidad más valiosa no es programar rápido: es entender por qué algo está hecho así antes de decidir que está mal.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- CASO 03 -->
+  <article id="jp-caso-3" data-skills="nest ts node postgres unity csharp sqlite swagger aws js" style="border:2px solid var(--color-divider)">
+    <div style="padding:32px 34px;border-bottom:2px solid var(--color-divider)">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;background:var(--jp-poster);color:#fff;padding:7px 9px">Caso 03</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Investigación</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Móvil sin conexión</span>
+        <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:7px 9px">Grupo GIECOM</span>
+      </div>
+      <h3 style="font-size:clamp(26px,3.4vw,40px);line-height:1.04;letter-spacing:-.025em;margin:0 0 16px;max-width:26ch">Gestor comunitario de selva: captura en campo sin señal</h3>
+      <p style="font-size:16px;line-height:1.55;max-width:60ch;margin:0;color:var(--color-neutral-800)">Proyecto de investigación de la Universidad de la Amazonia. Construí la aplicación móvil de captura, la base de datos local, el backend en NestJS y su despliegue. El requisito que definió toda la arquitectura: en la selva no hay conexión, y el dato no puede esperar a tenerla.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-bottom:2px solid var(--color-divider)">
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Rol</div><div style="font:800 15px var(--font-heading);margin-top:5px">Desarrollador de software</div></div>
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Periodo</div><div style="font:800 15px var(--font-heading);margin-top:5px">2020</div></div>
+      <div style="padding:18px 22px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Cliente móvil</div><div style="font:800 15px var(--font-heading);margin-top:5px">Unity · C# · SQLite</div></div>
+      <div style="padding:18px 22px"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Backend</div><div style="font:800 15px var(--font-heading);margin-top:5px">NestJS · TypeORM · PostgreSQL</div></div>
+    </div>
+
+    <div style="padding:28px 30px;border-bottom:2px solid var(--color-divider)">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:6px">Casos de uso</div>
+      <div style="font-size:12px;color:var(--color-neutral-700);margin-bottom:18px">La captura funciona sin conexión; la sincronización es un caso de uso aparte, no un efecto secundario.</div>
+      <div style="color:var(--color-text);overflow-x:auto;margin-bottom:34px">
+        <svg viewBox="0 0 1032 400" width="100%" style="min-width:640px;display:block" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="200" y="20" width="520" height="360"></rect>
+          <text x="460" y="46" text-anchor="middle" stroke="none" fill="currentColor" style="font:800 15px var(--font-heading);letter-spacing:.06em;text-transform:uppercase">Gestor comunitario de selva</text>
+          <g stroke-width="1.5">
+            <line x1="70" y1="95" x2="355" y2="95"></line>
+            <line x1="70" y1="95" x2="355" y2="170"></line>
+            <line x1="70" y1="265" x2="355" y2="245"></line>
+            <line x1="70" y1="265" x2="355" y2="320"></line>
+            <line x1="565" y1="245" x2="930" y2="190"></line>
+            <line x1="565" y1="320" x2="930" y2="215"></line>
+          </g>
+          <g>
+            <ellipse cx="460" cy="95" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="170" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="245" rx="105" ry="27"></ellipse>
+            <ellipse cx="460" cy="320" rx="105" ry="27"></ellipse>
+          </g>
+          <g stroke="none" fill="currentColor" text-anchor="middle" style="font:600 14px var(--font-body)">
+            <text x="460" y="93">Capturar registro</text>
+            <text x="460" y="107" style="font:400 11px var(--font-body)">sin conexión · SQLite</text>
+            <text x="460" y="175">Consultar registros locales</text>
+            <text x="460" y="250">Sincronizar con el servidor</text>
+            <text x="460" y="325">Consolidar y analizar</text>
+          </g>
+          <g stroke-linecap="round">
+            <g><circle cx="70" cy="60" r="9"></circle><line x1="70" y1="69" x2="70" y2="97"></line><line x1="55" y1="79" x2="85" y2="79"></line><line x1="70" y1="97" x2="58" y2="116"></line><line x1="70" y1="97" x2="82" y2="116"></line></g>
+            <g><circle cx="70" cy="230" r="9"></circle><line x1="70" y1="239" x2="70" y2="267"></line><line x1="55" y1="249" x2="85" y2="249"></line><line x1="70" y1="267" x2="58" y2="286"></line><line x1="70" y1="267" x2="82" y2="286"></line></g>
+          </g>
+          <g stroke="none" fill="currentColor" text-anchor="middle" style="font:800 12px var(--font-heading)">
+            <text x="70" y="134">Encuestador</text><text x="70" y="149" style="font:400 11px var(--font-body)">de campo</text>
+            <text x="70" y="304">Investigador</text><text x="70" y="319" style="font:400 11px var(--font-body)">grupo GIECOM</text>
+          </g>
+          <rect x="838" y="178" width="184" height="50"></rect>
+          <g stroke="none" fill="currentColor" text-anchor="middle">
+            <text x="930" y="196" style="font:400 10px var(--font-body)">«servicio»</text>
+            <text x="930" y="214" style="font:800 13px var(--font-heading)">API NestJS · PostgreSQL</text>
+          </g>
+        </svg>
+      </div>
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:22px">Arquitectura</div>
+      <div style="display:flex;gap:0;flex-wrap:wrap;align-items:stretch">
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:160px;flex:1 1 160px"><div style="font:800 13px var(--font-heading)">APK de campo</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Unity + C#<br>SQLite local · offline</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 12px;min-width:120px;flex:0 1 120px"><div style="font:800 9px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent-700)">REST · JSON</div><div style="height:2px;background:var(--color-text);margin:5px 0"></div><div style="font:10px ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">sincronización diferida</div></div>
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:160px;flex:1 1 160px;background:var(--color-surface)"><div style="font:800 13px var(--font-heading)">API NestJS</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">TypeORM · Swagger<br>servidor Ubuntu</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:0 12px;min-width:120px;flex:0 1 120px"><div style="font:800 9px var(--font-heading);letter-spacing:.07em;text-transform:uppercase;color:var(--color-accent-700)">TypeORM</div><div style="height:2px;background:var(--color-text);margin:5px 0"></div><div style="font:10px ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">persistencia</div></div>
+        <div style="border:2px solid var(--color-text);padding:16px 18px;min-width:160px;flex:1 1 160px"><div style="font:800 13px var(--font-heading)">PostgreSQL</div><div style="font:11px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700);margin-top:5px">Modelo consolidado<br>plataforma web</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div style="padding:26px 30px;border-right:1px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Decisiones</div>
+        <ul style="margin:0;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800)">
+          <li><strong>SQLite como fuente primaria en campo</strong>, no como caché: la app funciona completa sin red y sincroniza cuando la hay.</li>
+          <li><strong>API documentada con Swagger</strong> desde el primer día, porque el equipo que consume el dato no es el que lo escribe.</li>
+          <li><strong>Unity para el cliente móvil</strong>, aprovechando el mismo entorno del componente interactivo del proyecto.</li>
+        </ul>
+      </div>
+      <div style="padding:26px 30px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">Qué aprendí</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;color:var(--color-neutral-800)">Que diseñar para «sin conexión» obliga a decidir de antemano qué pasa cuando dos versiones del mismo registro se encuentran. Es la misma pregunta que años después me volvió a aparecer en la cola de envío al ERP.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- OTROS PROYECTOS -->
+  <div style="margin-top:48px">
+    <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;margin-bottom:18px">Otros proyectos y publicaciones</div>
+    <div style="border-top:2px solid var(--color-divider)">
+      <div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr) minmax(0,2fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--color-divider);align-items:baseline">
+        <div style="font:800 15px/1.3 var(--font-heading)">Cacao Adventure<div style="font:400 12px var(--font-body);color:var(--color-neutral-700);margin-top:3px">Videojuego didáctico · Unity · C# · SQLite</div></div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Diseño y diagramación tecnológica de herramientas didácticas. Modelado y texturizado de assets, entornos y personajes 3D, desarrollo en Unity y documentación del proceso.</div>
+        <div style="font:800 12px var(--font-heading)"><a href="https://play.google.com/store/apps/details?id=com.Cacao_Adventure.Cacao_Adventure&hl=es_BO" target="_blank" rel="noopener">Google Play →</a></div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr) minmax(0,2fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--color-divider);align-items:baseline">
+        <div style="font:800 15px/1.3 var(--font-heading)">Reporteador de InfoMetal<div style="font:400 12px var(--font-body);color:var(--color-neutral-700);margin-top:3px">Oracle Analytics · modelos SQL</div></div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Sistema de supervisión y seguimiento del proceso de báscula. Sistema interno del cliente: se describe en el Caso 01, sin publicar su dirección.</div>
+        <div style="font:12px var(--font-heading);color:var(--color-neutral-700)">Acceso privado</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr) minmax(0,2fr);gap:20px;padding:18px 0;align-items:baseline">
+        <div style="font:800 15px/1.3 var(--font-heading)">Congresos TIC para la Amazonia<div style="font:400 12px var(--font-body);color:var(--color-neutral-700);margin-top:3px">2° edición 2019 · 3ª edición 2021</div></div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Asistencia certificada al 2° Congreso Internacional TIC para la Amazonia y al 3° «Retos para la Transformación Digital».</div>
+        <div style="font:12px var(--font-heading);color:var(--color-neutral-700)">Certificado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto;height:2px;background:var(--color-divider);border:0;width:calc(100% - 80px)">
+
+<!-- ═══ 05 TRAYECTORIA ═══ -->
+<section id="trayectoria" style="max-width:1200px;margin:0 auto;padding:64px 40px">
+  <div style="margin-bottom:36px">
+    <div style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">04 — Trayectoria</div>
+    <h2 style="font-size:34px;line-height:1.06;letter-spacing:-.025em;margin:0">Experiencia laboral</h2>
+  </div>
+
+  <div style="border-top:2px solid var(--color-divider)">
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font:800 13px/1.5 var(--font-heading)">2021-07 —<br>Actualidad<div style="display:inline-block;font:800 9px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;background:var(--jp-poster);color:#fff;padding:4px 6px;margin-top:8px">Actual</div></div>
+      <div style="min-width:0">
+        <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px">
+          <h3 style="font-size:23px;letter-spacing:-.015em;margin:0">Ingeniero de Desarrollo</h3>
+          <span style="font:800 13px var(--font-heading);color:var(--color-accent-700)">Synergy Work</span>
+        </div>
+        <ul style="margin:0 0 14px;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800);max-width:74ch">
+          <li>Creación de la aplicación web InfoMetal con JavaScript y React.</li>
+          <li>Integración de InfoMetal con el ERP Oracle Applications Cloud.</li>
+          <li>Conexión con hardware mediante puerto serial COM, comunicación socket y Express hacia la aplicación web.</li>
+          <li>Creación de aplicaciones de integración con Oracle APEX: conexiones con BI, servicios SOAP y API REST.</li>
+          <li>Creación de reportes BI con modelos SQL de Oracle Analytics.</li>
+          <li>Aplicaciones móviles con Ionic: lectura de QR e impresión de tiquetes en equipos Zebra.</li>
+        </ul>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">React</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Oracle APEX</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">REST · SOAP</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Oracle Analytics</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Express · Socket</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Ionic</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font:800 13px/1.5 var(--font-heading)">2021-06 —<br>2022-06</div>
+      <div style="min-width:0">
+        <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px">
+          <h3 style="font-size:23px;letter-spacing:-.015em;margin:0">Técnico administrativo</h3>
+          <span style="font:800 13px var(--font-heading);color:var(--color-accent-700)">Universidad de la Amazonia</span>
+        </div>
+        <ul style="margin:0 0 14px;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800);max-width:74ch">
+          <li>Levantamiento de requerimientos con las áreas usuarias.</li>
+          <li>Soporte al sistema «Chaira», incluidos los módulos de contratación.</li>
+          <li>Mantenimiento, limpieza y refactorización de código en C# y Ext.NET, y de procedimientos, funciones y tipos en la base de datos Oracle.</li>
+          <li>Desarrollo de nuevas funcionalidades con .NET.</li>
+          <li>Generación de reportes y plantillas dentro del sistema.</li>
+        </ul>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">C# · .NET</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Ext.NET</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Oracle · PL/SQL</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font:800 13px/1.5 var(--font-heading)">2020-10 —<br>2020-12</div>
+      <div style="min-width:0">
+        <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px">
+          <h3 style="font-size:23px;letter-spacing:-.015em;margin:0">Desarrollador de software</h3>
+          <span style="font:800 13px var(--font-heading);color:var(--color-accent-700)">Universidad de la Amazonia</span>
+        </div>
+        <ul style="margin:0 0 14px;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800);max-width:74ch">
+          <li>Desarrollo de una APK con C# y SQLite en Unity para el proyecto «Gestor comunitario de selva», con diseño de la interfaz gráfica.</li>
+          <li>Diseño y creación de las bases de datos móvil y web; PostgreSQL para la plataforma web.</li>
+          <li>Servicios web del backend con NestJS y TypeORM, documentados con Swagger.</li>
+          <li>Despliegue del backend en servidor Ubuntu y soporte del servidor web.</li>
+        </ul>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">NestJS · TypeORM</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">PostgreSQL</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Unity · C#</span>
+          <span style="font:600 11px/1 var(--font-body);border:1px solid var(--color-divider);padding:6px 8px;color:var(--color-neutral-800)">Swagger</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--color-divider)">
+      <div style="font:800 13px/1.5 var(--font-heading)">2019-08 —<br>2019-11</div>
+      <div style="min-width:0">
+        <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px">
+          <h3 style="font-size:23px;letter-spacing:-.015em;margin:0">Desarrollador</h3>
+          <span style="font:800 13px var(--font-heading);color:var(--color-accent-700)">Compuelectrónica</span>
+        </div>
+        <ul style="margin:0;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800);max-width:74ch">
+          <li>Diseño de base de datos.</li>
+          <li>Desarrollo móvil.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);gap:32px;padding:30px 0">
+      <div style="font:800 13px/1.5 var(--font-heading)">2018-01 —<br>2018-04</div>
+      <div style="min-width:0">
+        <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px">
+          <h3 style="font-size:23px;letter-spacing:-.015em;margin:0">Desarrollo y modelado de videojuego 3D</h3>
+          <span style="font:800 13px var(--font-heading);color:var(--color-accent-700)">Universidad de la Amazonia</span>
+        </div>
+        <ul style="margin:0;padding-left:17px;font-size:14px;line-height:1.7;color:var(--color-neutral-800);max-width:74ch">
+          <li>Modelado y texturizado de assets, entornos y personajes 3D; creación de texturas y mapeado de objetos.</li>
+          <li>Desarrollo en Unity y base de datos SQLite.</li>
+          <li>Documentación: historias de usuario y modelado de proceso.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto;height:2px;background:var(--color-divider);border:0;width:calc(100% - 80px)">
+
+<!-- ═══ 06 FORMACIÓN ═══ -->
+<section id="formacion" style="max-width:1200px;margin:0 auto;padding:64px 40px">
+  <div style="margin-bottom:36px">
+    <div style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">05 — Formación</div>
+    <h2 style="font-size:34px;line-height:1.06;letter-spacing:-.025em;margin:0">Educación, cursos y certificaciones</h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);margin-bottom:44px">
+    <div style="padding:26px 30px 26px 0;border-right:1px solid var(--color-divider)">
+      <div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Educación superior</div>
+      <h3 style="font-size:22px;letter-spacing:-.015em;margin:0 0 6px">Ingeniería de Sistemas</h3>
+      <div style="font:800 14px var(--font-heading);margin-bottom:4px">Universidad de la Amazonia</div>
+      <div style="font-size:13px;color:var(--color-neutral-700)">Florencia, Caquetá · Enero 2015 — Febrero 2024</div>
+    </div>
+    <div style="padding:26px 0 26px 30px">
+      <div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Formación técnica</div>
+      <h3 style="font-size:22px;letter-spacing:-.015em;margin:0 0 6px">Contabilización de operaciones comerciales y financieras</h3>
+      <div style="font:800 14px var(--font-heading);margin-bottom:4px">SENA</div>
+      <div style="font-size:13px;color:var(--color-neutral-700)">Florencia, Caquetá · Marzo 2013 — Noviembre 2014</div>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:20px">
+    <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase">Cursos y certificaciones</div>
+    <div style="font-size:12px;color:var(--color-neutral-700)">Los enlaces «Ver credencial» quedan pendientes de tus URLs de verificación.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:2px;background:var(--color-divider);border:2px solid var(--color-divider)">
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 12px var(--font-heading);color:var(--color-neutral-700);flex:none">AWS</div>
+        <span style="font:800 9px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;background:var(--jp-poster);color:#fff;padding:4px 6px">Certificación</span>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">AWS Cloud Practitioner Essentials (Second Edition)</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">Amazon Web Services · Enero 2022</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">SCR</div>
+        <span style="font:800 9px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;background:var(--jp-poster);color:#fff;padding:4px 6px">Certificación</span>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">Scrum Fundamentals Certified</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">SCRUMstudy · Enero 2022</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">UBA</div>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">Módulo Gobernanza de Datos</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">UBA IALAB · Marzo 2022</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">PLZ</div>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">NestJS: Persistencia de Datos con TypeORM</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">Platzi · Junio 2022</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">PLZ</div>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">Curso Profesional de Git y GitHub</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">Platzi · Mayo 2022</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">PLZ</div>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">Fundamentos de Ingeniería de Software</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">Platzi · Mayo 2022</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">IN</div>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">Power BI avanzado</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">LinkedIn Learning · Marzo 2021</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">IN</div>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">Data scientist: Minería de datos esencial</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">LinkedIn Learning · Abril 2021</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+    <div style="background:var(--color-bg);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+        <div style="width:34px;height:34px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font:800 10px var(--font-heading);color:var(--color-neutral-700);flex:none">IN</div>
+      </div>
+      <div style="font:800 15px/1.25 var(--font-heading);flex:1">Fundamentos de programación: Diseño orientado a objetos</div>
+      <div style="font-size:12px;color:var(--color-neutral-700)">LinkedIn Learning · Mayo 2021</div>
+      <a href="#" style="font:800 12px var(--font-heading);border:0;align-self:flex-start">Ver credencial →</a>
+    </div>
+  </div>
+
+  <sc-if value="{{ showAllCourses }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:24px;border:1px solid var(--color-divider);padding:20px 22px">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-neutral-700);margin-bottom:12px">Otros cursos completados</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Data scientist: Azure ML y Power BI para minería de datos · LinkedIn · abr 2021</span>
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Fundamentos esenciales de la programación · LinkedIn · may 2021</span>
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Power BI para principiantes: Análisis de datos · LinkedIn · nov 2020</span>
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Introducción a la Nube con Azure · Platzi · dic 2021</span>
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Curso Básico de Python · Platzi · oct 2021</span>
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Introducción a la Terminal y Línea de Comandos · Platzi · abr 2022</span>
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Bitcoin y Blockchain · Platzi · mar 2022</span>
+        <span style="font:600 12px/1.4 var(--font-body);border:1px solid var(--color-divider);padding:7px 9px">Inglés Básico A1 · Platzi · abr 2022</span>
+      </div>
+    </div>
+  </sc-if>
+</section>
+
+<hr class="hr" style="max-width:1200px;margin:0 auto;height:2px;background:var(--color-divider);border:0;width:calc(100% - 80px)">
+
+<!-- ═══ 07 GITHUB ═══ -->
+<sc-if value="{{ showGithub }}" hint-placeholder-val="{{ true }}">
+<section id="github" style="max-width:1200px;margin:0 auto;padding:64px 40px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+    <div>
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">06 — Código</div>
+      <h2 style="font-size:34px;line-height:1.06;letter-spacing:-.025em;margin:0">Repositorios públicos</h2>
+    </div>
+    <a href="https://github.com/JpMurcia" target="_blank" rel="noopener" style="font:800 13px var(--font-heading)">github.com/JpMurcia →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;background:var(--color-divider);border:2px solid var(--color-divider)">
+    <div style="background:var(--color-bg);padding:22px 24px">
+      <div style="font:800 17px var(--font-heading);margin-bottom:8px"><a href="https://github.com/JpMurcia/finance-backend" target="_blank" rel="noopener">finance-backend</a></div>
+      <div style="font:11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">TypeScript</div>
+      <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Backend de una aplicación financiera. El cruce entre mi formación contable del SENA y el desarrollo de servicios.</div>
+    </div>
+    <div style="background:var(--color-bg);padding:22px 24px">
+      <div style="font:800 17px var(--font-heading);margin-bottom:8px"><a href="https://github.com/JpMurcia/Jp_asig_2018-S2" target="_blank" rel="noopener">Jp_asig_2018-S2</a></div>
+      <div style="font:11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">PLpgSQL</div>
+      <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">SQL procedural sobre PostgreSQL. La misma disciplina que después apliqué a paquetes PL/SQL en Oracle.</div>
+    </div>
+    <div style="background:var(--color-bg);padding:22px 24px">
+      <div style="font:800 17px var(--font-heading);margin-bottom:8px"><a href="https://github.com/JpMurcia/proyecto_web_2018" target="_blank" rel="noopener">proyecto_web_2018</a></div>
+      <div style="font:11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">JavaScript</div>
+      <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Proyecto web de formación. Punto de partida del trabajo de front que hoy hago en React.</div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- ═══ 08 NOTAS ═══ -->
+<sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+<section id="notas" style="max-width:1200px;margin:0 auto;padding:0 40px 64px">
+  <div style="border-top:2px solid var(--color-divider);padding-top:48px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:28px">
+      <div>
+        <div style="font:800 11px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">07 — Notas técnicas</div>
+        <h2 style="font-size:34px;line-height:1.06;letter-spacing:-.025em;margin:0">Lo que estoy escribiendo</h2>
+      </div>
+      <div style="font-size:12px;color:var(--color-neutral-700);max-width:34ch">Estructura lista. Los tres títulos son los temas que propongo; el contenido lo escribes tú.</div>
+    </div>
+    <div style="border-top:2px solid var(--color-divider)">
+      <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,7fr) minmax(0,2fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--color-divider);align-items:baseline">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Integración</div>
+        <div><div style="font:800 18px/1.3 var(--font-heading);margin-bottom:5px">Idempotencia en integraciones con ERP SaaS</div><div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Por qué la clave de negocio la debe generar el origen y no el destino.</div></div>
+        <div style="font:800 11px var(--font-heading);color:var(--color-neutral-600);text-transform:uppercase;letter-spacing:.08em">Borrador</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,7fr) minmax(0,2fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--color-divider);align-items:baseline">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Oracle APEX</div>
+        <div><div style="font:800 18px/1.3 var(--font-heading);margin-bottom:5px">APEX como capa de integración, no como interfaz</div><div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Un uso poco discutido de la herramienta y cuándo tiene sentido.</div></div>
+        <div style="font:800 11px var(--font-heading);color:var(--color-neutral-600);text-transform:uppercase;letter-spacing:.08em">Borrador</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,7fr) minmax(0,2fr);gap:24px;padding:22px 0;align-items:baseline">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Hardware</div>
+        <div><div style="font:800 18px/1.3 var(--font-heading);margin-bottom:5px">Del puerto serial al navegador sin mentirle al usuario</div><div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Estados de lectura y por qué «sin conexión» es mejor que un número viejo.</div></div>
+        <div style="font:800 11px var(--font-heading);color:var(--color-neutral-600);text-transform:uppercase;letter-spacing:.08em">Borrador</div>
+      </div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<!-- ═══ 09 CONTACTO ═══ -->
+<footer id="contacto" style="background:var(--jp-poster);color:#fff">
+  <div style="max-width:1200px;margin:0 auto;padding:76px 40px 44px">
+    <h2 style="font-size:clamp(36px,5.4vw,68px);line-height:1.02;letter-spacing:-.035em;margin:0 0 24px;max-width:22ch;color:#fff">¿Tiene un sistema que no se habla con otro? Hablemos.</h2>
+    <p style="font-size:17px;line-height:1.5;max-width:52ch;margin:0 0 44px;color:rgba(255,255,255,.92)">Busco un equipo donde la integración entre sistemas sea parte del producto y no un parche. Respondo por correo o LinkedIn.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;background:rgba(255,255,255,.3);border:2px solid rgba(255,255,255,.3)">
+      <div style="background:var(--jp-poster);padding:20px 22px">
+        <div style="font:800 10px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px">Correo</div>
+        <a href="mailto:juanpablomurciacortes@gmail.com" style="font:800 14px/1.4 var(--font-heading);color:#fff;border-bottom-color:rgba(255,255,255,.45);word-break:break-all">juanpablomurciacortes@gmail.com</a>
+      </div>
+      <div style="background:var(--jp-poster);padding:20px 22px">
+        <div style="font:800 10px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px">Teléfono</div>
+        <a href="tel:+573102828537" style="font:800 14px/1.4 var(--font-heading);color:#fff;border-bottom-color:rgba(255,255,255,.45)">(57) 310 282 8537</a>
+      </div>
+      <div style="background:var(--jp-poster);padding:20px 22px">
+        <div style="font:800 10px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/juan-pablo-murcia-cortes-294b0315a/" target="_blank" rel="noopener" style="font:800 14px/1.4 var(--font-heading);color:#fff;border-bottom-color:rgba(255,255,255,.45)">juan-pablo-murcia-cortes</a>
+      </div>
+      <div style="background:var(--jp-poster);padding:20px 22px">
+        <div style="font:800 10px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px">GitHub</div>
+        <a href="https://github.com/JpMurcia" target="_blank" rel="noopener" style="font:800 14px/1.4 var(--font-heading);color:#fff;border-bottom-color:rgba(255,255,255,.45)">JpMurcia</a>
+      </div>
+      <div style="background:var(--jp-poster);padding:20px 22px">
+        <div style="font:800 10px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px">Ubicación</div>
+        <div style="font:800 14px/1.4 var(--font-heading);color:#fff">Florencia, Caquetá<br><span style="font:400 12px var(--font-body);color:rgba(255,255,255,.8)">Colombia · abierto a remoto</span></div>
+      </div>
+      <div style="background:var(--jp-poster);padding:20px 22px;display:flex;align-items:flex-end">
+        <a href="assets/CV-Juan-Pablo-Murcia-Cortes.pdf" download style="border:0;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--jp-poster);padding:12px 16px;font:800 12px/1 var(--font-heading)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"></path></svg>
+          Descargar CV
+        </a>
+      </div>
+    </div>
+    <div style="border-top:2px solid rgba(255,255,255,.3);margin-top:44px;padding-top:20px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font:11px var(--font-heading);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75)">
+      <span>Juan Pablo Murcia Cortés · Desarrollador de Software</span>
+      <span>Diagramas y fragmentos de código con datos ficticios</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'light' | 'dark'&quot;,&quot;section&quot;:&quot;Apariencia&quot;},&quot;showAllCourses&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contenido&quot;},&quot;showGithub&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contenido&quot;},&quot;showNotes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contenido&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const t = this.props.theme === "dark" ? "dark" : "light";
+    document.body.dataset.theme = t;
+
+    this._onScroll = () => {
+      const el = document.getElementById("jp-progress");
+      if (!el) return;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      el.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    this._onScroll();
+
+    const wrap = document.getElementById("jp-skills");
+    const cases = Array.from(document.querySelectorAll("[data-skills]"));
+    if (wrap && cases.length) {
+      const clear = () => cases.forEach(c => c.classList.remove("jp-dim"));
+      this._over = e => {
+        const tag = e.target.closest("[data-skill]");
+        if (!tag) return;
+        const k = tag.dataset.skill;
+        cases.forEach(c => {
+          const has = (c.dataset.skills || "").split(" ").includes(k);
+          c.classList.toggle("jp-dim", !has);
+        });
+      };
+      wrap.addEventListener("mouseover", this._over);
+      wrap.addEventListener("mouseleave", clear);
+      this._clear = clear;
+      this._wrap = wrap;
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._onScroll);
+    if (this._wrap) {
+      this._wrap.removeEventListener("mouseover", this._over);
+      this._wrap.removeEventListener("mouseleave", this._clear);
+    }
+  }
+  renderVals() {
+    return {
+      showAllCourses: this.props.showAllCourses ?? false,
+      showGithub: this.props.showGithub ?? true,
+      showNotes: this.props.showNotes ?? true,
+      toggleTheme: () => {
+        const b = document.body;
+        b.dataset.theme = b.dataset.theme === "dark" ? "light" : "dark";
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-944dcd56-ae79-4718-890f-ec2498678107/styles.css">
+<script src="_ds/modernist-944dcd56-ae79-4718-890f-ec2498678107/_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--color-bg)}a:hover{color:var(--color-accent-700)}</style>
+</helmet>
+
+<div style="max-width:1120px;margin:0 auto;padding:64px 48px 96px">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:2px solid var(--color-divider);padding-bottom:16px">
+    <div style="font:800 13px/1 var(--font-heading);letter-spacing:.1em;text-transform:uppercase">Juan Pablo Murcia Cortés — Portafolio</div>
+    <div style="font-size:12px;color:var(--color-neutral-700)">Propuesta de dirección · v1 · pendiente de contenido real</div>
+  </div>
+
+  <h1 style="font-size:64px;line-height:1.02;letter-spacing:-.03em;margin:56px 0 20px;max-width:16ch">Propuesta de diseño y arquitectura de contenido</h1>
+  <p style="font-size:19px;line-height:1.5;max-width:62ch;color:var(--color-neutral-800);margin-bottom:0">Documento de trabajo previo al diseño en alta fidelidad. Define la dirección visual, la estructura de cada sección, los componentes de interfaz recomendados y el molde de los casos de estudio técnicos. Todavía no es la página: es el plano.</p>
+
+  <hr class="hr" style="margin:48px 0">
+
+  <!-- ═══ 0. SUPUESTOS ═══ -->
+  <section style="margin-bottom:72px">
+    <div style="display:flex;gap:12px;align-items:baseline;margin-bottom:24px">
+      <span style="font:800 13px/1.6 var(--font-heading);color:var(--color-accent)">00</span>
+      <h2 style="font-size:30px;margin:0">Supuestos y vacíos de información</h2>
+    </div>
+    <p style="max-width:62ch;color:var(--color-neutral-800)">El PDF de la hoja de vida / LinkedIn no llegó adjunto al proyecto, así que ninguna fecha, cargo, institución ni URL de credencial de este documento es real. Todo lo marcado en rojo es un placeholder que reemplazo en cuanto suba el archivo.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--color-divider);border:2px solid var(--color-divider);margin-top:24px">
+      <div style="background:var(--color-bg);padding:20px 22px">
+        <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Asumo</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.65;color:var(--color-neutral-800)">
+          <li>Perfil de desarrollador Oracle / integraciones, no de diseñador ni de front puro.</li>
+          <li>Audiencia: reclutadores técnicos y líderes de TI en banca, sector público y consultoría.</li>
+          <li>Idioma principal español, con opción de versión en inglés después.</li>
+          <li>Una sola página larga con navegación por anclas, no un sitio multipágina.</li>
+          <li>Sin backend: el formulario de contacto es un enlace mailto o LinkedIn.</li>
+        </ul>
+      </div>
+      <div style="background:var(--color-bg);padding:20px 22px">
+        <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Necesito de ti</div>
+        <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.65;color:var(--color-neutral-800)">
+          <li>El PDF de hoja de vida / LinkedIn (fechas, cargos, certificados).</li>
+          <li>URLs reales de las credenciales verificables.</li>
+          <li>Confirmación de qué se puede nombrar: ¿el nombre de la universidad y de los clientes, o solo el sector?</li>
+          <li>Foto de perfil, si quieres que aparezca en el hero.</li>
+          <li>El PDF del CV que se descargará desde el botón.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 1. DIRECCIÓN VISUAL ═══ -->
+  <section style="margin-bottom:72px">
+    <div style="display:flex;gap:12px;align-items:baseline;margin-bottom:24px">
+      <span style="font:800 13px/1.6 var(--font-heading);color:var(--color-accent)">01</span>
+      <h2 style="font-size:30px;margin:0">Paleta y tipografía</h2>
+    </div>
+    <p style="max-width:62ch;color:var(--color-neutral-800)">El proyecto ya tiene el sistema Modernist vinculado, así que la propuesta no inventa colores: los aplica. Y el ajuste es afortunado para tu caso — el rojo bermellón sobre fondo hueso es exactamente el registro de Oracle sin ser una copia de su marca, y la retícula visible con reglas de 2px lee como documentación de arquitectura, no como plantilla de portafolio.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin:28px 0 12px">
+      <div><div style="height:96px;background:var(--color-bg);border:2px solid var(--color-divider)"></div><div style="font:800 11px/1.5 var(--font-heading);margin-top:8px">Fondo · #f3f2f2</div><div style="font-size:11px;color:var(--color-neutral-700)">Ground de toda la página</div></div>
+      <div><div style="height:96px;background:var(--color-text)"></div><div style="font:800 11px/1.5 var(--font-heading);margin-top:8px">Tinta · #201e1d</div><div style="font-size:11px;color:var(--color-neutral-700)">Texto, reglas, diagramas</div></div>
+      <div><div style="height:96px;background:var(--color-accent)"></div><div style="font:800 11px/1.5 var(--font-heading);margin-top:8px">Acento · #ec3013</div><div style="font-size:11px;color:var(--color-neutral-700)">CTA primario, énfasis mínimo</div></div>
+      <div><div style="height:96px;background:var(--color-accent-700)"></div><div style="font:800 11px/1.5 var(--font-heading);margin-top:8px">Acento 700 · #ae1800</div><div style="font-size:11px;color:var(--color-neutral-700)">Texto en rojo tamaño párrafo</div></div>
+      <div><div style="height:96px;background:var(--color-surface);border:2px solid var(--color-divider)"></div><div style="font:800 11px/1.5 var(--font-heading);margin-top:8px">Superficie · #eae9e9</div><div style="font-size:11px;color:var(--color-neutral-700)">Tarjetas y bloques de código</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--color-neutral-700);max-width:70ch">Regla de uso: el rojo aparece en un CTA por pantalla y en etiquetas de dos o tres palabras. El único lugar donde funciona como campo completo es la franja de cierre / contacto. Todo lo demás es tinta sobre hueso.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:36px;border-top:2px solid var(--color-divider);padding-top:28px">
+      <div>
+        <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:16px">Tipografía · Archivo</div>
+        <div style="font:800 46px/1.05 var(--font-heading);letter-spacing:-.03em">Ingeniero de integraciones</div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin:6px 0 20px">Archivo 800 · 46–64px · tracking −3% · titulares</div>
+        <div style="font:800 20px/1.15 var(--font-heading)">APEX Oracle ↔ Oracle ERP Cloud</div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin:6px 0 20px">Archivo 800 · 20–30px · títulos de sección y de caso</div>
+        <div style="font-size:15px;line-height:1.6;max-width:40ch">Diseño y sostengo el puente entre el ERP y los sistemas internos: procesos de conciliación que antes se movían a mano.</div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin:6px 0 20px">Archivo 400 · 15–19px · cuerpo, máx. 62 caracteres por línea</div>
+        <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">PL/SQL · REST · SOAP · BI PUBLISHER</div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin-top:6px">Archivo 800 · 11px · versalitas, tracking +9% · etiquetas y metadatos</div>
+      </div>
+      <div>
+        <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:16px">Excepción monoespaciada</div>
+        <p style="font-size:14px;color:var(--color-neutral-800);max-width:44ch">Archivo cubre todo el texto. Para fragmentos de código, nombres de paquetes, endpoints y los diagramas de flujo uso una monoespaciada de sistema: es la única tipografía adicional y su presencia es la señal de que lo que se ve es real, no decorativo.</p>
+        <pre style="font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--color-surface);border-left:2px solid var(--color-accent);padding:16px 18px;margin:16px 0 0;overflow-x:auto">PKG_ERP_SYNC.push_journal_batch(
+  p_batch_id   IN  NUMBER,
+  p_ledger     IN  VARCHAR2,
+  x_status     OUT VARCHAR2
+);
+-- POST /fscmRestApi/resources/11.13.18.05/
+--      erpintegrations</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. WIREFRAME ═══ -->
+  <section style="margin-bottom:72px">
+    <div style="display:flex;gap:12px;align-items:baseline;margin-bottom:24px">
+      <span style="font:800 13px/1.6 var(--font-heading);color:var(--color-accent)">02</span>
+      <h2 style="font-size:30px;margin:0">Wireframe por sección</h2>
+    </div>
+    <p style="max-width:62ch;color:var(--color-neutral-800)">Retícula de 12 columnas, ancho de contenido 1200px, todo alineado a la izquierda. Cada sección se separa con una regla de 2px y abre con un número de dos dígitos, como un plano.</p>
+
+    <!-- HERO -->
+    <div style="border:2px solid var(--color-divider);margin-top:28px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;border-bottom:2px solid var(--color-divider);background:var(--color-surface)">
+        <span style="font:800 12px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">01 · Hero</span>
+        <span style="font-size:11px;color:var(--color-neutral-700)">100vh máx. 820px · sin imagen de fondo</span>
+      </div>
+      <div style="padding:22px 18px">
+        <div style="border:1px dashed var(--color-neutral-500);padding:10px 12px;font:11px/1.4 ui-monospace,Menlo,monospace;margin-bottom:10px">NAV — nombre a la izquierda · anclas (Sobre mí · Skills · Casos · Certificados · Contacto) a la derecha · sticky, se contrae a 56px al hacer scroll</div>
+        <div style="display:grid;grid-template-columns:7fr 5fr;gap:10px">
+          <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+            <div style="border:1px dashed var(--color-neutral-500);padding:8px 12px;font:11px ui-monospace,Menlo,monospace">EYEBROW · «Bogotá, Colombia · Disponible para proyectos»</div>
+            <div style="border:1px dashed var(--color-neutral-500);padding:26px 12px;font:11px ui-monospace,Menlo,monospace;background:var(--color-surface)">H1 (64–88px, 3 líneas máx.) — nombre + rol principal</div>
+            <div style="border:1px dashed var(--color-neutral-500);padding:16px 12px;font:11px ui-monospace,Menlo,monospace">PROPUESTA DE VALOR · 2 frases, máx. 220 caracteres</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <div style="flex:0 0 auto;background:var(--color-accent);color:var(--color-bg);padding:10px 14px;font:800 11px var(--font-heading)">CTA PRIMARIO · Descargar CV (PDF)</div>
+              <div style="flex:0 0 auto;border:1px solid var(--color-divider);padding:10px 14px;font:800 11px var(--font-heading)">CTA SECUNDARIO · Contáctame</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="border:1px dashed var(--color-neutral-500);padding:8px 12px;font:11px ui-monospace,Menlo,monospace">FICHA TÉCNICA — 4 filas clave/valor separadas por regla: Años de experiencia · Stack principal · Dominio · Idiomas</div>
+            <div style="border:1px dashed var(--color-neutral-500);flex:1;min-height:120px;display:flex;align-items:center;justify-content:center;font:11px ui-monospace,Menlo,monospace;text-align:center;padding:12px">RETRATO B/N (.grayscale) — opcional.<br>Si no hay foto: bloque de código o diagrama de arquitectura en miniatura</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOBRE MI -->
+    <div style="border:2px solid var(--color-divider);border-top:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;border-bottom:2px solid var(--color-divider);background:var(--color-surface)">
+        <span style="font:800 12px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">02 · Sobre mí</span>
+        <span style="font-size:11px;color:var(--color-neutral-700)">2 columnas asimétricas · sin tarjetas</span>
+      </div>
+      <div style="padding:22px 18px;display:grid;grid-template-columns:4fr 8fr;gap:10px">
+        <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px ui-monospace,Menlo,monospace">TÍTULO DE SECCIÓN + una línea de resumen. Se queda fijo (sticky) mientras el texto de la derecha hace scroll.</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="border:1px dashed var(--color-neutral-500);padding:18px 12px;font:11px ui-monospace,Menlo,monospace">PÁRRAFO DE ENFOQUE · 3 párrafos cortos, máx. 900 caracteres en total: qué problema resuelves, cómo trabajas, con qué te gusta seguir creciendo.</div>
+          <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px ui-monospace,Menlo,monospace">TRES PRINCIPIOS · fila de 3 celdas iguales separadas por regla vertical: p.ej. «Trazabilidad antes que velocidad» + una frase cada uno</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div style="border:2px solid var(--color-divider);border-top:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;border-bottom:2px solid var(--color-divider);background:var(--color-surface)">
+        <span style="font:800 12px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">03 · Habilidades técnicas</span>
+        <span style="font-size:11px;color:var(--color-neutral-700)">Matriz 4 columnas · sin barras de porcentaje</span>
+      </div>
+      <div style="padding:22px 18px">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px dashed var(--color-neutral-500)">
+          <div style="padding:12px;border-right:1px dashed var(--color-neutral-500)"><div style="font:800 11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Lenguajes</div><div style="font:11px/1.8 ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">PL/SQL<br>SQL<br>JavaScript<br>…</div></div>
+          <div style="padding:12px;border-right:1px dashed var(--color-neutral-500)"><div style="font:800 11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Bases de datos</div><div style="font:11px/1.8 ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">Oracle DB<br>…</div></div>
+          <div style="padding:12px;border-right:1px dashed var(--color-neutral-500)"><div style="font:800 11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Herramientas</div><div style="font:11px/1.8 ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">APEX<br>SQL Developer<br>BI Publisher<br>…</div></div>
+          <div style="padding:12px"><div style="font:800 11px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Integración</div><div style="font:11px/1.8 ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">REST<br>SOAP<br>SFTP / FBDI<br>…</div></div>
+        </div>
+        <div style="border:1px dashed var(--color-neutral-500);border-top:0;padding:10px 12px;font:11px/1.5 ui-monospace,Menlo,monospace">Cada ítem es una etiqueta clicable: al pasar el cursor se resaltan los casos de estudio que la usaron (filtro cruzado skill → proyecto).</div>
+      </div>
+    </div>
+
+    <!-- CASOS -->
+    <div style="border:2px solid var(--color-divider);border-top:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;border-bottom:2px solid var(--color-divider);background:var(--color-surface)">
+        <span style="font:800 12px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">04 · Casos de estudio <span style="color:var(--color-accent)">— el núcleo</span></span>
+        <span style="font-size:11px;color:var(--color-neutral-700)">2 casos a ancho completo, apilados</span>
+      </div>
+      <div style="padding:22px 18px;display:flex;flex-direction:column;gap:10px">
+        <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px/1.6 ui-monospace,Menlo,monospace">CASO 01 — Integración APEX Oracle ↔ Oracle ERP Cloud. Molde completo en la sección 04 de este documento.</div>
+        <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px/1.6 ui-monospace,Menlo,monospace">CASO 02 — Soporte y evolución de módulos de contratación (rol: técnico administrativo, universidad). Mismo molde, distinto énfasis: operación y proceso en vez de arquitectura.</div>
+        <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px/1.6 ui-monospace,Menlo,monospace">CASO 03 — espacio reservado para el siguiente. El molde es repetible.</div>
+      </div>
+    </div>
+
+    <!-- TRAYECTORIA -->
+    <div style="border:2px solid var(--color-divider);border-top:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;border-bottom:2px solid var(--color-divider);background:var(--color-surface)">
+        <span style="font:800 12px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">05 · Trayectoria</span>
+        <span style="font-size:11px;color:var(--color-neutral-700)">Timeline de una columna · regla vertical</span>
+      </div>
+      <div style="padding:22px 18px;display:grid;grid-template-columns:2fr 10fr;gap:0">
+        <div style="border:1px dashed var(--color-neutral-500);border-right:0;padding:12px;font:11px/1.6 ui-monospace,Menlo,monospace">AÑOS<br>2023 — hoy<br><br>2021 — 2023</div>
+        <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px/1.6 ui-monospace,Menlo,monospace">CARGO · EMPRESA (o sector, si es confidencial)<br>2 líneas de alcance + 3 viñetas de resultado, sin cifras internas<br>Etiquetas de stack al pie<br><br>— repetir por cargo, del más reciente al más antiguo —</div>
+      </div>
+    </div>
+
+    <!-- CERTIFICADOS -->
+    <div style="border:2px solid var(--color-divider);border-top:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;border-bottom:2px solid var(--color-divider);background:var(--color-surface)">
+        <span style="font:800 12px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">06 · Educación y certificaciones</span>
+        <span style="font-size:11px;color:var(--color-neutral-700)">Grid 3 columnas · tarjetas con enlace a credencial</span>
+      </div>
+      <div style="padding:22px 18px">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+          <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px/1.7 ui-monospace,Menlo,monospace">[LOGO 32px]<br>NOMBRE DEL CURSO<br>Institución<br>Emitido: mes año<br>ID de credencial<br>→ Ver credencial (enlace real)</div>
+          <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px/1.7 ui-monospace,Menlo,monospace;color:var(--color-neutral-600)">idem</div>
+          <div style="border:1px dashed var(--color-neutral-500);padding:12px;font:11px/1.7 ui-monospace,Menlo,monospace;color:var(--color-neutral-600)">idem</div>
+        </div>
+        <div style="border:1px dashed var(--color-neutral-500);border-top:0;padding:10px 12px;font:11px/1.5 ui-monospace,Menlo,monospace;margin-top:10px">Filtros por emisor (Oracle · Universidad · Plataformas) como control segmentado. Educación formal va arriba, en dos filas de ancho completo, antes de la cuadrícula de cursos.</div>
+      </div>
+    </div>
+
+    <!-- CONTACTO -->
+    <div style="border:2px solid var(--color-divider);border-top:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 18px;border-bottom:2px solid var(--color-divider);background:var(--color-surface)">
+        <span style="font:800 12px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase">07 · Contacto</span>
+        <span style="font-size:11px;color:var(--color-neutral-700)">Franja roja a sangre · el único campo de color</span>
+      </div>
+      <div style="padding:22px 18px">
+        <div style="background:var(--color-accent);color:var(--color-bg);padding:28px 18px">
+          <div style="font:800 30px/1.1 var(--font-heading);letter-spacing:-.02em;max-width:20ch">Frase de cierre en tamaño display</div>
+          <div style="font:11px/1.8 ui-monospace,Menlo,monospace;margin-top:14px;opacity:.9">Correo · LinkedIn · GitHub · Descargar CV — como lista de enlaces alineada a la izquierda, no como iconos sueltos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. COMPONENTES ═══ -->
+  <section style="margin-bottom:72px">
+    <div style="display:flex;gap:12px;align-items:baseline;margin-bottom:24px">
+      <span style="font:800 13px/1.6 var(--font-heading);color:var(--color-accent)">03</span>
+      <h2 style="font-size:30px;margin:0">Componentes recomendados, y por qué</h2>
+    </div>
+    <p style="max-width:62ch;color:var(--color-neutral-800)">Tu pregunta directa: ¿timeline para la experiencia o tarjetas para los proyectos? La respuesta es las dos cosas, pero no en el mismo sitio — y eso resuelve el problema estructural del portafolio de un perfil de integraciones.</p>
+
+    <div style="border-top:2px solid var(--color-divider);margin-top:24px">
+      <div style="display:grid;grid-template-columns:3fr 4fr 5fr;gap:0;border-bottom:1px solid var(--color-divider);padding:16px 0">
+        <div style="font:800 15px/1.3 var(--font-heading);padding-right:20px">Timeline vertical<div style="font:400 11px var(--font-body);color:var(--color-accent-700);margin-top:4px">para Trayectoria</div></div>
+        <div style="font-size:13px;line-height:1.6;padding-right:20px;color:var(--color-neutral-800)">Una columna de años con regla vertical y entradas alineadas. Nunca en zigzag: es difícil de leer y no aporta nada.</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">El valor de la trayectoria está en la continuidad y la progresión. El timeline lo muestra de un vistazo; una cuadrícula de tarjetas destruye el orden temporal.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 4fr 5fr;gap:0;border-bottom:1px solid var(--color-divider);padding:16px 0">
+        <div style="font:800 15px/1.3 var(--font-heading);padding-right:20px">Caso de estudio a ancho completo<div style="font:400 11px var(--font-body);color:var(--color-accent-700);margin-top:4px">para Proyectos</div></div>
+        <div style="font-size:13px;line-height:1.6;padding-right:20px;color:var(--color-neutral-800)">No tarjetas: bloques largos, uno por caso, con su propio encabezado, diagrama y detalle técnico plegable.</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Tienes dos o tres proyectos profundos, no doce piezas visuales. Una cuadrícula de tarjetas promete un catálogo que no existe y obliga a resumir justo donde tú eres fuerte.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 4fr 5fr;gap:0;border-bottom:1px solid var(--color-divider);padding:16px 0">
+        <div style="font:800 15px/1.3 var(--font-heading);padding-right:20px">Diagrama de flujo en SVG/HTML<div style="font:400 11px var(--font-body);color:var(--color-accent-700);margin-top:4px">reemplaza las capturas</div></div>
+        <div style="font-size:13px;line-height:1.6;padding-right:20px;color:var(--color-neutral-800)">Cajas con reglas de 2px, flechas rectas, etiquetas de protocolo sobre cada tramo. Dibujado con HTML, no como imagen.</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Es la solución a tu restricción de confidencialidad: un diagrama de arquitectura no expone ni un dato contable y demuestra más criterio que un pantallazo de un reporte.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 4fr 5fr;gap:0;border-bottom:1px solid var(--color-divider);padding:16px 0">
+        <div style="font:800 15px/1.3 var(--font-heading);padding-right:20px">Detalle técnico plegable<div style="font:400 11px var(--font-body);color:var(--color-accent-700);margin-top:4px">dentro de cada caso</div></div>
+        <div style="font-size:13px;line-height:1.6;padding-right:20px;color:var(--color-neutral-800)">Acordeones «Ver el detalle de implementación»: fragmento de PL/SQL, contrato del endpoint, manejo de errores.</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Dos audiencias en una página: quien recluta lee el resumen en 40 segundos, quien es arquitecto abre el acordeón y encuentra sustancia. Nadie tiene que ceder.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 4fr 5fr;gap:0;border-bottom:1px solid var(--color-divider);padding:16px 0">
+        <div style="font:800 15px/1.3 var(--font-heading);padding-right:20px">Matriz de habilidades<div style="font:400 11px var(--font-body);color:var(--color-accent-700);margin-top:4px">para Skills</div></div>
+        <div style="font-size:13px;line-height:1.6;padding-right:20px;color:var(--color-neutral-800)">Cuatro columnas con encabezado (Lenguajes · Bases de datos · Herramientas · Integración). Sin barras de progreso, sin estrellas, sin nubes de etiquetas.</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Un «PL/SQL 85%» no significa nada y resta credibilidad. La prueba de nivel son los casos de estudio; aquí basta el inventario, cruzado con los proyectos al pasar el cursor.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 4fr 5fr;gap:0;border-bottom:1px solid var(--color-divider);padding:16px 0">
+        <div style="font:800 15px/1.3 var(--font-heading);padding-right:20px">Tarjeta de credencial<div style="font:400 11px var(--font-body);color:var(--color-accent-700);margin-top:4px">para Certificaciones</div></div>
+        <div style="font-size:13px;line-height:1.6;padding-right:20px;color:var(--color-neutral-800)">Logo del emisor, nombre, institución, fecha, ID y enlace «Ver credencial» que abre la verificación real en pestaña nueva.</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Aquí sí la cuadrícula es la forma correcta: son ítems equivalentes, comparables y escaneables. El enlace verificable es lo que las vuelve creíbles, igual que en LinkedIn.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 4fr 5fr;gap:0;padding:16px 0">
+        <div style="font:800 15px/1.3 var(--font-heading);padding-right:20px">Barra de progreso de lectura + nav sticky<div style="font:400 11px var(--font-body);color:var(--color-accent-700);margin-top:4px">global</div></div>
+        <div style="font-size:13px;line-height:1.6;padding-right:20px;color:var(--color-neutral-800)">Línea roja de 2px al borde superior y anclas que marcan la sección activa.</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Una sola página larga necesita orientación. Es el único adorno que se justifica.</div>
+      </div>
+    </div>
+
+    <div style="border:2px solid var(--color-divider);padding:18px 20px;margin-top:28px;background:var(--color-surface)">
+      <div style="font:800 11px/1 var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Lo que descarto a propósito</div>
+      <div style="font-size:13px;line-height:1.7;color:var(--color-neutral-800)">Barras de porcentaje de skills · nubes de etiquetas · animaciones de partículas o terminal falso escribiendo solo · modo oscuro con neón · logos de tecnologías a color (rompen la paleta; van en texto o en gris) · capturas de pantalla con datos reales, aunque estén difuminadas — un blur no es una anonimización y a un revisor técnico se le nota.</div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. CASO DE ESTUDIO ═══ -->
+  <section style="margin-bottom:72px">
+    <div style="display:flex;gap:12px;align-items:baseline;margin-bottom:24px">
+      <span style="font:800 13px/1.6 var(--font-heading);color:var(--color-accent)">04</span>
+      <h2 style="font-size:30px;margin:0">Molde del caso de estudio</h2>
+    </div>
+    <p style="max-width:62ch;color:var(--color-neutral-800)">Siete bloques fijos, siempre en el mismo orden. El principio que resuelve la confidencialidad: <strong>describe el sistema, no los datos</strong>. La arquitectura de una integración no es información reservada de tu cliente; los saldos, los nombres y los números de comprobante sí. Habla de contratos, volúmenes en órdenes de magnitud, protocolos y decisiones de diseño.</p>
+
+    <div style="border:2px solid var(--color-divider);margin-top:28px">
+      <div style="padding:20px 22px;border-bottom:2px solid var(--color-divider)">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+          <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;background:var(--color-accent);color:var(--color-bg);padding:6px 8px">Caso 01</span>
+          <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:6px 8px">Integración</span>
+          <span style="font:800 10px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-divider);padding:6px 8px">Sector financiero</span>
+        </div>
+        <div style="font:800 34px/1.08 var(--font-heading);letter-spacing:-.02em;max-width:24ch">Título orientado al resultado, no al nombre del sistema</div>
+        <div style="font-size:16px;line-height:1.5;max-width:58ch;margin-top:12px;color:var(--color-neutral-800)">Una frase de contexto: qué se movía a mano antes, qué se mueve solo ahora. Sin nombrar la empresa si no se puede.</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid var(--color-divider)">
+        <div style="padding:14px 16px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Rol</div><div style="font:800 15px var(--font-heading);margin-top:4px">Desarrollador</div></div>
+        <div style="padding:14px 16px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Periodo</div><div style="font:800 15px var(--font-heading);margin-top:4px">2023 — 2024</div></div>
+        <div style="padding:14px 16px;border-right:1px solid var(--color-divider)"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Stack</div><div style="font:800 15px var(--font-heading);margin-top:4px">APEX · PL/SQL · REST</div></div>
+        <div style="padding:14px 16px"><div style="font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">Escala</div><div style="font:800 15px var(--font-heading);margin-top:4px">~10⁴ registros/mes</div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--color-divider)">
+        <div style="padding:20px 22px;border-right:1px solid var(--color-divider)">
+          <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">01 · El problema</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--color-neutral-800)">Tres o cuatro líneas: el proceso manual, el punto de fricción, el riesgo operativo. Descrito en términos de proceso, no de dato.</div>
+        </div>
+        <div style="padding:20px 22px">
+          <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">02 · Restricciones</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--color-neutral-800)">Lo que no se podía tocar: ventanas de cierre contable, permisos del ERP, versiones, ausencia de ambiente de pruebas. Esto es lo que hace interesante una solución.</div>
+        </div>
+      </div>
+
+      <div style="padding:20px 22px;border-bottom:2px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:14px">03 · Arquitectura y flujo de datos <span style="color:var(--color-neutral-700);font-weight:400;text-transform:none;letter-spacing:0">— diagrama dibujado en HTML, no captura</span></div>
+        <div style="display:flex;align-items:stretch;gap:0;flex-wrap:wrap;font-family:ui-monospace,Menlo,monospace;font-size:11px">
+          <div style="border:2px solid var(--color-text);padding:14px 16px;min-width:130px"><div style="font:800 12px var(--font-heading)">Origen</div><div style="color:var(--color-neutral-700);margin-top:4px">Formulario APEX</div></div>
+          <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 10px;min-width:110px"><div style="font-size:10px;letter-spacing:.06em;color:var(--color-accent-700)">REST / JSON</div><div style="width:100%;height:2px;background:var(--color-text);margin-top:4px"></div><div style="font-size:10px;color:var(--color-neutral-700);margin-top:4px">OAuth 2.0</div></div>
+          <div style="border:2px solid var(--color-text);padding:14px 16px;min-width:130px;background:var(--color-surface)"><div style="font:800 12px var(--font-heading)">Capa de integración</div><div style="color:var(--color-neutral-700);margin-top:4px">Paquete PL/SQL<br>validación + cola</div></div>
+          <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 10px;min-width:110px"><div style="font-size:10px;letter-spacing:.06em;color:var(--color-accent-700)">SOAP / FBDI</div><div style="width:100%;height:2px;background:var(--color-text);margin-top:4px"></div><div style="font-size:10px;color:var(--color-neutral-700);margin-top:4px">lote nocturno</div></div>
+          <div style="border:2px solid var(--color-text);padding:14px 16px;min-width:130px"><div style="font:800 12px var(--font-heading)">Oracle ERP</div><div style="color:var(--color-neutral-700);margin-top:4px">Módulo destino</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin-top:12px;max-width:70ch">Cada tramo etiquetado con su protocolo y su modo (síncrono / lote). Debajo, una fila de «puntos de falla y cómo se manejan»: reintentos, idempotencia, bitácora de errores, conciliación.</div>
+      </div>
+
+      <div style="padding:20px 22px;border-bottom:2px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">04 · Decisiones de diseño</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--color-divider)">
+          <div style="padding:14px 16px;border-right:1px solid var(--color-divider)"><div style="font:800 13px var(--font-heading)">Decisión</div><div style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin-top:6px">«Cola intermedia en tabla en vez de llamada directa»</div></div>
+          <div style="padding:14px 16px;border-right:1px solid var(--color-divider)"><div style="font:800 13px var(--font-heading)">Alternativa descartada</div><div style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin-top:6px">«Invocación síncrona por registro»</div></div>
+          <div style="padding:14px 16px"><div style="font:800 13px var(--font-heading)">Por qué</div><div style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin-top:6px">Trazabilidad y reproceso sin bloquear al usuario en la ventana de cierre.</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin-top:10px">Tres filas como esta por caso. Es el bloque que más te diferencia: casi nadie escribe lo que descartó.</div>
+      </div>
+
+      <div style="padding:20px 22px;border-bottom:2px solid var(--color-divider)">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:12px">05 · Detalle de implementación <span style="color:var(--color-neutral-700);font-weight:400;text-transform:none;letter-spacing:0">— acordeón, cerrado por defecto</span></div>
+        <div style="border:1px solid var(--color-divider)">
+          <div style="display:flex;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--color-divider);font:800 13px var(--font-heading)"><span>Contrato del endpoint y payload de ejemplo</span><span style="color:var(--color-accent)">+</span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--color-divider);font:800 13px var(--font-heading)"><span>Firma del paquete PL/SQL y validaciones</span><span style="color:var(--color-accent)">+</span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 14px;font:800 13px var(--font-heading)"><span>Manejo de errores, reintentos y bitácora</span><span style="color:var(--color-accent)">+</span></div>
+        </div>
+        <div style="font-size:12px;color:var(--color-neutral-700);margin-top:10px;max-width:70ch">Todo el código con datos ficticios y nombres genéricos (<span style="font-family:ui-monospace,Menlo,monospace">CLIENTE_DEMO</span>, <span style="font-family:ui-monospace,Menlo,monospace">LEDGER_X</span>). Es una demostración de técnica, no una copia del repositorio.</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr">
+        <div style="padding:20px 22px;border-right:1px solid var(--color-divider)">
+          <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">06 · Resultado</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--color-neutral-800)">Tres métricas en órdenes de magnitud o porcentaje relativo: «el cierre pasó de días a horas», «se eliminó la digitación de N campos por registro». Nunca cifras absolutas del negocio.</div>
+        </div>
+        <div style="padding:20px 22px">
+          <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">07 · Qué aprendí</div>
+          <div style="font-size:13px;line-height:1.65;color:var(--color-neutral-800)">Dos frases honestas. Cierra el caso con criterio profesional y es lo que un líder técnico busca en una entrevista.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--color-divider);border:2px solid var(--color-divider);margin-top:28px">
+      <div style="background:var(--color-bg);padding:18px 20px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Reglas de anonimización</div>
+        <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:var(--color-neutral-800)">
+          <li>Nombra el sector, no el cliente: «entidad financiera», «universidad pública».</li>
+          <li>Datos siempre sintéticos y evidentemente ficticios.</li>
+          <li>Métricas relativas u órdenes de magnitud.</li>
+          <li>Nada de capturas de reportes, ni difuminadas.</li>
+          <li>Nota al pie del caso: «Diagramas y fragmentos reconstruidos con datos ficticios para fines ilustrativos.»</li>
+        </ul>
+      </div>
+      <div style="background:var(--color-bg);padding:18px 20px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Énfasis del Caso 02 (universidad)</div>
+        <ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:var(--color-neutral-800)">
+          <li>Mismo molde, pero el diagrama es de <strong>proceso</strong> (flujo de contratación) en vez de arquitectura.</li>
+          <li>El bloque «decisiones» habla de criterios de soporte: priorización, documentación, transferencia de conocimiento.</li>
+          <li>El resultado se mide en tiempos de atención y reincidencia de incidencias.</li>
+          <li>Muestra el puente entre lo administrativo y lo técnico: es un diferenciador, no un rol menor.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. FUENTES ═══ -->
+  <section style="margin-bottom:72px">
+    <div style="display:flex;gap:12px;align-items:baseline;margin-bottom:24px">
+      <span style="font:800 13px/1.6 var(--font-heading);color:var(--color-accent)">05</span>
+      <h2 style="font-size:30px;margin:0">Fuentes: qué pude verificar</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--color-divider);border:2px solid var(--color-divider);margin-bottom:28px">
+      <div style="background:var(--color-bg);padding:18px 20px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">LinkedIn — sin acceso</div>
+        <div style="font-size:13px;line-height:1.65;color:var(--color-neutral-800)">El perfil está detrás del muro de inicio de sesión de LinkedIn, así que no puedo leer fechas, cargos ni URLs de credenciales desde ahí. Necesito el PDF (en LinkedIn: <em>Más → Guardar en PDF</em>) o que pegues el texto en el chat.</div>
+      </div>
+      <div style="background:var(--color-bg);padding:18px 20px">
+        <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:8px">GitHub — leído</div>
+        <div style="font-size:13px;line-height:1.65;color:var(--color-neutral-800)"><a href="https://github.com/JpMurcia" target="_blank" rel="noopener">github.com/JpMurcia</a> · 20 repositorios públicos · logros Pull Shark ×2 y Arctic Code Vault Contributor · cuenta activa desde 2017.</div>
+      </div>
+    </div>
+
+    <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px">Repositorios destacados y cómo los usaría</div>
+    <div style="border-top:2px solid var(--color-divider)">
+      <div style="display:grid;grid-template-columns:3fr 2fr 5fr;padding:12px 0;border-bottom:1px solid var(--color-divider);font:800 10px var(--font-heading);letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-700)">
+        <div>Repositorio</div><div>Lenguaje</div><div>Lectura para el portafolio</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 2fr 5fr;padding:14px 0;border-bottom:1px solid var(--color-divider);gap:16px">
+        <div style="font:800 14px var(--font-heading)"><a href="https://github.com/JpMurcia/finance-backend" target="_blank" rel="noopener">finance-backend</a><div style="font:400 12px var(--font-body);color:var(--color-neutral-700);margin-top:2px">«prueba de la app finance»</div></div>
+        <div style="font:12px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">TypeScript</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">El más valioso: dominio financiero + backend, justo el puente con tu experiencia contable. Candidato a tercer caso de estudio con código propio y público, sin restricciones de confidencialidad.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 2fr 5fr;padding:14px 0;border-bottom:1px solid var(--color-divider);gap:16px">
+        <div style="font:800 14px var(--font-heading)"><a href="https://github.com/JpMurcia/Jp_asig_2018-S2" target="_blank" rel="noopener">Jp_asig_2018-S2</a><div style="font:400 12px var(--font-body);color:var(--color-neutral-700);margin-top:2px">asignaturas 2018-S2</div></div>
+        <div style="font:12px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">PLpgSQL</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Evidencia pública de SQL procedural: refuerza la columna «Bases de datos» de la matriz. No merece caso propio; va como enlace.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 2fr 5fr;padding:14px 0;border-bottom:1px solid var(--color-divider);gap:16px">
+        <div style="font:800 14px var(--font-heading)"><a href="https://github.com/JpMurcia/proyecto_web_2018" target="_blank" rel="noopener">proyecto_web_2018</a> · <a href="https://github.com/JpMurcia/Proyecto_WEB_vi" target="_blank" rel="noopener">Proyecto_WEB_vi</a> · <a href="https://github.com/JpMurcia/WEB_viewgroup" target="_blank" rel="noopener">WEB_viewgroup</a><div style="font:400 12px var(--font-body);color:var(--color-neutral-700);margin-top:2px">trabajos académicos</div></div>
+        <div style="font:12px/1.5 ui-monospace,Menlo,monospace;color:var(--color-neutral-700)">JavaScript · HTML</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--color-neutral-800)">Contexto de formación, no vitrina. Van agrupados en una línea («trabajos académicos 2018–2019») o quedan fuera: hoy compiten contra tu perfil senior de integraciones.</div>
+      </div>
+    </div>
+
+    <div style="border:2px solid var(--color-divider);background:var(--color-surface);padding:18px 20px;margin-top:24px">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent);margin-bottom:10px">Recomendación sobre GitHub</div>
+      <div style="font-size:13px;line-height:1.7;color:var(--color-neutral-800)">No incrusto la cuadrícula de contribuciones ni listo los 20 repositorios: con 1 seguidor y repos académicos, el volumen resta en vez de sumar. Mejor un bloque corto de tres repos elegidos, con una línea propia cada uno, y el enlace al perfil. Y una propuesta concreta: publica un repositorio de demostración —<span style="font-family:ui-monospace,Menlo,monospace">apex-erp-integration-demo</span>— con el paquete PL/SQL, el contrato REST y datos sintéticos. Eso convierte el Caso 01 de relato a código verificable sin exponer nada del cliente. Es lo que más movería tu portafolio.</div>
+    </div>
+  </section>
+
+  <!-- ═══ SIGUIENTE ═══ -->
+  <section>
+    <div style="background:var(--color-accent);color:var(--color-bg);padding:44px 40px">
+      <div style="font:800 11px var(--font-heading);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;opacity:.85">Siguiente paso</div>
+      <div style="font:800 40px/1.08 var(--font-heading);letter-spacing:-.025em;max-width:26ch">Sube el PDF y responde el formulario; con eso monto el hero y el Caso 01 en alta fidelidad.</div>
+      <div style="font-size:14px;line-height:1.7;margin-top:20px;max-width:56ch;opacity:.92">Entrego tres variantes del hero para que elijas, y el Caso 01 completo con su diagrama funcionando. El resto de las secciones se construyen sobre el molde ya aprobado.</div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>
