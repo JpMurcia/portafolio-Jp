@@ -1,6 +1,6 @@
 import { Download } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { contact } from '../data/es/contact'
+import { useContent } from '../context/useContent'
 
 function FooterCell({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -14,19 +14,18 @@ function FooterCell({ label, children }: { label: string; children: ReactNode })
 }
 
 export function Footer() {
+  const { contact, uiFooter, uiHero } = useContent()
+
   return (
     <footer id="contacto" className="bg-poster text-white">
       <div className="mx-auto max-w-[1200px] px-10 pt-[76px] pb-11">
         <h2 className="mb-6 max-w-[22ch] text-[clamp(36px,5.4vw,68px)] leading-[1.02] tracking-[-0.035em] text-white">
-          ¿Tiene un sistema que no se habla con otro? Hablemos.
+          {uiFooter.heading}
         </h2>
-        <p className="mb-11 max-w-[52ch] text-[17px] leading-[1.5] text-white/92">
-          Busco un equipo donde la integración entre sistemas sea parte del producto y no un parche. Respondo por
-          correo o LinkedIn.
-        </p>
+        <p className="mb-11 max-w-[52ch] text-[17px] leading-[1.5] text-white/92">{uiFooter.lead}</p>
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-[2px] border-2 border-white/30 bg-white/30">
-          <FooterCell label="Correo">
+          <FooterCell label={uiFooter.emailLabel}>
             <a
               href={`mailto:${contact.email}`}
               className="border-0 font-heading text-sm leading-[1.4] font-extrabold break-all text-white"
@@ -34,12 +33,12 @@ export function Footer() {
               {contact.email}
             </a>
           </FooterCell>
-          <FooterCell label="Teléfono">
+          <FooterCell label={uiFooter.phoneLabel}>
             <a href={`tel:${contact.phone}`} className="border-0 font-heading text-sm leading-[1.4] font-extrabold text-white">
               {contact.phoneDisplay}
             </a>
           </FooterCell>
-          <FooterCell label="LinkedIn">
+          <FooterCell label={uiFooter.linkedinLabel}>
             <a
               href={contact.linkedinUrl}
               target="_blank"
@@ -49,7 +48,7 @@ export function Footer() {
               {contact.linkedinLabel}
             </a>
           </FooterCell>
-          <FooterCell label="GitHub">
+          <FooterCell label={uiFooter.githubLabel}>
             <a
               href={contact.githubUrl}
               target="_blank"
@@ -59,7 +58,7 @@ export function Footer() {
               {contact.githubLabel}
             </a>
           </FooterCell>
-          <FooterCell label="Ubicación">
+          <FooterCell label={uiFooter.locationLabel}>
             <div className="font-heading text-sm leading-[1.4] font-extrabold text-white">
               {contact.location}
               <br />
@@ -73,14 +72,14 @@ export function Footer() {
               className="inline-flex items-center gap-2 border-0 bg-white px-4 py-3 font-heading text-xs leading-none font-extrabold text-poster"
             >
               <Download size={14} strokeWidth={2} />
-              Descargar CV
+              {uiHero.downloadCv}
             </a>
           </div>
         </div>
 
         <div className="mt-11 flex flex-wrap justify-between gap-5 border-t-2 border-white/30 pt-5 font-heading text-[11px] tracking-[.06em] text-white/75 uppercase">
-          <span>Juan Pablo Murcia Cortés · Desarrollador de Software</span>
-          <span>Diagramas y fragmentos de código con datos ficticios</span>
+          <span>{uiFooter.signature}</span>
+          <span>{uiFooter.disclaimer}</span>
         </div>
       </div>
     </footer>
