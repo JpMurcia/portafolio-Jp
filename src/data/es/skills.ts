@@ -1,4 +1,4 @@
-import type { SkillCategory } from '../types'
+import type { SkillCategory } from '../../types'
 
 // Agrupación real del prototipo (4 categorías) — ver specs/04-task-roadmap.md
 // Fase 0 sobre la posible reagrupación a 5 categorías, aún sin decidir.

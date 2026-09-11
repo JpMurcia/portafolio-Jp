@@ -1,23 +1,22 @@
-import { skillCategories } from '../data/skills'
 import { useSkillsHighlight } from '../context/useSkillsHighlight'
+import { useContent } from '../context/useContent'
 
 export function Skills() {
   // El chip solo dispara el estado — quien se atenúa es CaseStudyCard en
   // Projects (ver specs/03-component-architecture.md), no los chips entre sí.
   const { setHoveredSkill } = useSkillsHighlight()
+  const { skillCategories, uiSkills } = useContent()
 
   return (
     <section id="skills" className="mx-auto max-w-[1200px] px-10 py-16">
       <div className="mb-8 flex flex-wrap items-baseline justify-between gap-6">
         <div>
           <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.1em] text-accent uppercase">
-            02 — Stack
+            {uiSkills.eyebrow}
           </div>
-          <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">Habilidades técnicas</h2>
+          <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">{uiSkills.heading}</h2>
         </div>
-        <div className="max-w-[38ch] text-[13px] text-mute-700">
-          Pasa el cursor sobre una tecnología y se atenúan los casos donde no la usé.
-        </div>
+        <div className="max-w-[38ch] text-[13px] text-mute-700">{uiSkills.hint}</div>
       </div>
 
       <div
