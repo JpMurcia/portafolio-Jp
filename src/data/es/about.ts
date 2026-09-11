@@ -1,4 +1,4 @@
-import type { AboutContent } from '../types'
+import type { AboutContent } from '../../types'
 
 export const about: AboutContent = {
   paragraphs: [

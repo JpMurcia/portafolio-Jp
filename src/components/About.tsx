@@ -1,14 +1,16 @@
-import { about } from '../data/about'
+import { useContent } from '../context/useContent'
 
 export function About() {
+  const { about, uiAbout } = useContent()
+
   return (
     <section id="sobre" className="mx-auto max-w-[1200px] px-10 py-16">
       <div className="grid grid-cols-[minmax(0,4fr)_minmax(0,8fr)] gap-[48px]">
         <div className="min-w-0">
           <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.1em] text-accent uppercase">
-            01 — Perfil
+            {uiAbout.eyebrow}
           </div>
-          <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">Qué hago y cómo trabajo</h2>
+          <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">{uiAbout.heading}</h2>
         </div>
 
         <div className="min-w-0">
