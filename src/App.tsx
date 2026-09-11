@@ -9,6 +9,7 @@ import { ScrollProgressBar } from './components/ScrollProgressBar'
 import { Skills } from './components/Skills'
 import { TechNotes } from './components/TechNotes'
 import { SkillsHighlightProvider } from './context/SkillsHighlightContext'
+import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
 
 // Separador entre secciones de nivel superior (no hay uno entre Skills y
@@ -19,29 +20,31 @@ function SectionDivider() {
 
 function App() {
   return (
-    <ThemeProvider>
-      <SkillsHighlightProvider>
-        <ScrollProgressBar />
-        <Navbar />
+    <LanguageProvider>
+      <ThemeProvider>
+        <SkillsHighlightProvider>
+          <ScrollProgressBar />
+          <Navbar />
 
-        <Hero />
+          <Hero />
 
-        <main>
-          <About />
-          <SectionDivider />
-          <Skills />
-          <Projects />
-          <SectionDivider />
-          <Experience />
-          <SectionDivider />
-          <Education />
-          <SectionDivider />
-          <TechNotes />
-        </main>
+          <main>
+            <About />
+            <SectionDivider />
+            <Skills />
+            <Projects />
+            <SectionDivider />
+            <Experience />
+            <SectionDivider />
+            <Education />
+            <SectionDivider />
+            <TechNotes />
+          </main>
 
-        <Footer />
-      </SkillsHighlightProvider>
-    </ThemeProvider>
+          <Footer />
+        </SkillsHighlightProvider>
+      </ThemeProvider>
+    </LanguageProvider>
   )
 }
 
