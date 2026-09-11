@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import type { CaseStudy, CaseStudyCriterion, CaseStudyDecision } from '../../types'
 import { CodeBlock } from '../CodeBlock'
 import { useSkillsHighlight } from '../../context/useSkillsHighlight'
+import { useContent } from '../../context/useContent'
 
 function Eyebrow({ children }: { children: ReactNode }) {
   return (
@@ -11,13 +12,19 @@ function Eyebrow({ children }: { children: ReactNode }) {
   )
 }
 
-function DecisionsTable({ rows }: { rows: CaseStudyDecision[] }) {
+function DecisionsTable({
+  rows,
+  labels,
+}: {
+  rows: CaseStudyDecision[]
+  labels: { decision: string; discarded: string; why: string }
+}) {
   return (
     <div className="border border-divider">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] border-b border-divider font-heading text-[10px] font-extrabold tracking-[.08em] text-mute-700 uppercase">
-        <div className="border-r border-divider px-4 py-[11px]">Decisión</div>
-        <div className="border-r border-divider px-4 py-[11px]">Alternativa descartada</div>
-        <div className="px-4 py-[11px]">Por qué</div>
+        <div className="border-r border-divider px-4 py-[11px]">{labels.decision}</div>
+        <div className="border-r border-divider px-4 py-[11px]">{labels.discarded}</div>
+        <div className="px-4 py-[11px]">{labels.why}</div>
       </div>
       {rows.map((row, i) => (
         <div
@@ -75,6 +82,7 @@ export function CaseStudyCard({
   architectureDiagram: ReactNode
 }) {
   const { hoveredSkill } = useSkillsHighlight()
+  const { uiCaseStudyCard } = useContent()
   const dimmed = hoveredSkill !== null && !study.skills.includes(hoveredSkill)
 
   return (
@@ -118,12 +126,12 @@ export function CaseStudyCard({
       {study.problem && (
         <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] border-b-2 border-divider">
           <div className={`px-[30px] py-[26px] ${study.constraints ? 'border-r border-divider' : ''}`}>
-            <Eyebrow>El problema</Eyebrow>
+            <Eyebrow>{uiCaseStudyCard.problemLabel}</Eyebrow>
             <p className="text-sm leading-[1.65] text-mute-800">{study.problem}</p>
           </div>
           {study.constraints && (
             <div className="px-[30px] py-[26px]">
-              <Eyebrow>Restricciones</Eyebrow>
+              <Eyebrow>{uiCaseStudyCard.constraintsLabel}</Eyebrow>
               <ul className="list-disc pl-[17px] text-sm leading-[1.65] text-mute-800">
                 {study.constraints.map((c) => (
                   <li key={c}>{c}</li>
@@ -135,7 +143,7 @@ export function CaseStudyCard({
       )}
 
       <div className="border-b-2 border-divider px-[30px] py-7">
-        <Eyebrow>Casos de uso</Eyebrow>
+        <Eyebrow>{uiCaseStudyCard.useCasesLabel}</Eyebrow>
         <div className="mb-[18px] text-xs text-mute-700">{study.useCaseNote}</div>
         {useCaseDiagram}
       </div>
@@ -166,7 +174,9 @@ export function CaseStudyCard({
           <div className="mb-4 font-heading text-[11px] leading-none font-extrabold tracking-[.09em] text-accent uppercase">
             {study.decisionsHeading}
           </div>
-          {study.decisionsTable && <DecisionsTable rows={study.decisionsTable} />}
+          {study.decisionsTable && (
+            <DecisionsTable rows={study.decisionsTable} labels={uiCaseStudyCard.decisionsTable} />
+          )}
           {study.criteria && study.criteriaStyle === 'list' ? (
             <CriteriaList items={study.criteria} />
           ) : (
@@ -177,8 +187,8 @@ export function CaseStudyCard({
 
       {study.implementation.length > 0 && (
         <div className="border-b-2 border-divider px-[30px] py-7">
-          <Eyebrow>Detalle de implementación</Eyebrow>
-          <div className="mb-4 text-xs text-mute-700">Fragmentos ilustrativos con nombres y datos ficticios.</div>
+          <Eyebrow>{uiCaseStudyCard.implementationLabel}</Eyebrow>
+          <div className="mb-4 text-xs text-mute-700">{uiCaseStudyCard.implementationNote}</div>
           <div className="border border-divider">
             {study.implementation.map((impl, i) => (
               <details
@@ -218,7 +228,7 @@ export function CaseStudyCard({
             study.outcome && (
               <>
                 <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.09em] text-accent uppercase">
-                  Resultado
+                  {uiCaseStudyCard.resultLabel}
                 </div>
                 <ul className="list-disc pl-[17px] text-sm leading-[1.7] text-mute-800">
                   {study.outcome.map((item) => (
@@ -234,7 +244,7 @@ export function CaseStudyCard({
         </div>
         <div className="px-[30px] py-[26px]">
           <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.09em] text-accent uppercase">
-            Qué aprendí
+            {uiCaseStudyCard.learningsLabel}
           </div>
           {study.learnings.map((paragraph, i) => (
             <p
