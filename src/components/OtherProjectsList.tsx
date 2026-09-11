@@ -1,10 +1,12 @@
-import { otherProjects } from '../data/otherProjects'
+import { useContent } from '../context/useContent'
 
 export function OtherProjectsList() {
+  const { otherProjects, uiOtherProjects } = useContent()
+
   return (
     <div className="mt-12">
       <div className="mb-[18px] font-heading text-[11px] font-extrabold tracking-[.09em] uppercase">
-        Otros proyectos y publicaciones
+        {uiOtherProjects.heading}
       </div>
       <div className="border-t-2 border-divider">
         {otherProjects.map((project, i) => (

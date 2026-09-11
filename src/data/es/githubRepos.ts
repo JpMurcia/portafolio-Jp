@@ -1,4 +1,4 @@
-import type { Repo } from '../types'
+import type { Repo } from '../../types'
 
 // Sección oculta por defecto en el prototipo (showGithub: false) — ver
 // specs/04-task-roadmap.md Fase 0. El dato se deja listo por si se decide

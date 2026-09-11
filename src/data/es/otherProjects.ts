@@ -1,4 +1,4 @@
-import type { OtherProject } from '../types'
+import type { OtherProject } from '../../types'
 
 export const otherProjects: OtherProject[] = [
   {
