@@ -1,14 +1,15 @@
 import { Fragment } from 'react'
-import { experience } from '../data/experience'
+import { useContent } from '../context/useContent'
 
 export function Experience() {
+  const { experience, uiExperience } = useContent()
   return (
     <section id="trayectoria" className="mx-auto max-w-[1200px] px-10 py-16">
       <div className="mb-9">
         <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.1em] text-accent uppercase">
-          04 — Trayectoria
+          {uiExperience.eyebrow}
         </div>
-        <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">Experiencia laboral</h2>
+        <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">{uiExperience.heading}</h2>
       </div>
 
       <div className="border-t-2 border-divider">
@@ -28,7 +29,7 @@ export function Experience() {
               ))}
               {entry.current && (
                 <div className="mt-2 inline-block bg-poster px-[6px] py-1 font-heading text-[9px] leading-none font-extrabold tracking-[.08em] text-white uppercase">
-                  Actual
+                  {uiExperience.currentBadge}
                 </div>
               )}
             </div>
