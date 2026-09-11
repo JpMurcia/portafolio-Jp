@@ -14,7 +14,8 @@ el navegador, y se recuerda en `localStorage` una vez el usuario lo cambia manua
 Cubre **todo el texto visible del sitio**:
 
 - Contenido largo en `src/data/*.ts` (perfil, principios, experiencia, educación, casos de
-  estudio, notas técnicas, certificaciones, contacto, etc.) — 10 archivos, ~1300 líneas.
+  estudio, notas técnicas, certificaciones, contacto, repos de Github, etc.) — 11 archivos,
+  ~1300 líneas.
 - Strings de interfaz hoy hardcodeados dentro de los ~9 componentes (`src/components/*.tsx`):
   eyebrows de sección ("01 — Perfil"), headings, labels del `Navbar`, aria-labels, textos de
   botones.
@@ -84,9 +85,9 @@ se ajusta lo que no suene natural.
 ## 6. Archivos afectados (resumen)
 
 - Nuevos: `src/context/LanguageContext.tsx`, `language-context.ts`, `useLanguage.ts`,
-  `src/data/content.ts`, `src/data/es/*.ts` (10 archivos + `ui.ts` + `index.ts`),
-  `src/data/en/*.ts` (mismo set).
-- Movidos: los 10 archivos actuales de `src/data/*.ts` pasan a `src/data/es/*.ts`.
+  `src/data/content.ts`, `src/data/es/*.ts` (11 archivos + los `ui*.ts` por sección +
+  `index.ts`), `src/data/en/*.ts` (mismo set).
+- Movidos: los 11 archivos actuales de `src/data/*.ts` pasan a `src/data/es/*.ts`.
 - Modificados: los ~9 componentes de `src/components/` (cambian el import de datos a
   `useContent()` y mueven sus strings hardcodeados a `ui.ts`), `App.tsx` (envuelve en
   `LanguageProvider`), `Navbar.tsx` (botón de idioma nuevo).
