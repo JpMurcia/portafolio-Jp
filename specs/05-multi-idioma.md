@@ -43,8 +43,9 @@ correspondiente.
 ### 3.2 Strings de interfaz
 
 Los textos hoy hardcodeados en JSX (headings de sección, labels del nav, aria-labels, textos de
-botones) se extraen a `src/data/es/ui.ts` / `src/data/en/ui.ts`, mismo patrón que el contenido —
-no se introduce un sistema de claves tipo i18next; todo sigue siendo dato tipado.
+botones) se extraen a un archivo por sección — `src/data/es/uiNav.ts`, `uiHero.ts`, `uiAbout.ts`,
+etc. (uno por componente/sección, mismo patrón que el contenido) — en vez de un único `ui.ts`.
+No se introduce un sistema de claves tipo i18next; todo sigue siendo dato tipado.
 
 ### 3.3 `LanguageContext`
 
@@ -76,8 +77,10 @@ se ajusta lo que no suene natural.
 
 ## 5. Verificación
 
-- `tsc -b`: valida que cada `en/*.ts` tenga exactamente la misma forma que su `es/*.ts` (no se
-  puede omitir un campo).
+- `tsc -b`: valida que cada `en/*.ts` tenga la misma forma que su `es/*.ts` para los campos
+  **requeridos** del tipo (TypeScript no puede detectar si un campo **opcional** — `problem?`,
+  `constraints?`, `failureModes?`, etc. — se omitió solo en una de las dos versiones; eso hay
+  que verlo en la revisión manual).
 - `npm run lint` (oxlint).
 - Prueba visual manual: toggle ES↔EN y reload en el navegador, confirmando que cada sección
   renderiza el idioma correcto y que no queda ningún texto hardcodeado en el idioma equivocado.
@@ -91,6 +94,6 @@ se ajusta lo que no suene natural.
 - Modificados: los ~9 componentes de `src/components/` (cambian el import de datos a
   `useContent()` y mueven sus strings hardcodeados a `ui.ts`), `App.tsx` (envuelve en
   `LanguageProvider`), `Navbar.tsx` (botón de idioma nuevo).
+- Sin cambios: `public/diagrams/*.html`, `src/types.ts`.
 
 **Estado:** Implementado — 2026-09-11.
-- Sin cambios: `public/diagrams/*.html`, `src/types.ts`.

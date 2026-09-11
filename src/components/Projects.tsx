@@ -84,8 +84,8 @@ export function Projects() {
           <CaseStudyCard
             key={study.id}
             study={study}
-            useCaseDiagram={diagramsById[study.id].useCase}
-            architectureDiagram={diagramsById[study.id].architecture}
+            useCaseDiagram={diagramsById[study.id]?.useCase ?? null}
+            architectureDiagram={diagramsById[study.id]?.architecture ?? null}
           />
         ))}
       </div>
