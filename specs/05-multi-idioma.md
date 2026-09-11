@@ -91,4 +91,6 @@ se ajusta lo que no suene natural.
 - Modificados: los ~9 componentes de `src/components/` (cambian el import de datos a
   `useContent()` y mueven sus strings hardcodeados a `ui.ts`), `App.tsx` (envuelve en
   `LanguageProvider`), `Navbar.tsx` (botón de idioma nuevo).
+
+**Estado:** Implementado — 2026-09-11.
 - Sin cambios: `public/diagrams/*.html`, `src/types.ts`.
