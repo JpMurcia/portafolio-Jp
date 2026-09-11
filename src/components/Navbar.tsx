@@ -1,17 +1,12 @@
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '../context/useTheme'
-
-const NAV_LINKS = [
-  { href: '#sobre', label: 'Perfil' },
-  { href: '#skills', label: 'Stack' },
-  { href: '#casos', label: 'Casos' },
-  { href: '#trayectoria', label: 'Trayectoria' },
-  { href: '#formacion', label: 'Formación' },
-  { href: '#contacto', label: 'Contacto' },
-]
+import { useLanguage } from '../context/useLanguage'
+import { useContent } from '../context/useContent'
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
+  const { language, toggleLanguage } = useLanguage()
+  const { uiNav } = useContent()
 
   return (
     <nav className="sticky top-0 z-50 border-b-2 border-divider bg-bg">
@@ -24,7 +19,7 @@ export function Navbar() {
         </a>
 
         <div className="flex min-w-0 flex-wrap items-center justify-end gap-[22px]">
-          {NAV_LINKS.map((link) => (
+          {uiNav.links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -37,11 +32,21 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            aria-label="Cambiar tema"
-            title="Cambiar tema"
+            aria-label={uiNav.themeToggleLabel}
+            title={uiNav.themeToggleLabel}
             className="flex h-[34px] w-[34px] flex-none items-center justify-center border border-divider bg-transparent text-text transition-colors hover:bg-text/8"
           >
             {theme === 'dark' ? <Sun size={15} strokeWidth={2} /> : <Moon size={15} strokeWidth={2} />}
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            aria-label={uiNav.languageToggleLabel}
+            title={uiNav.languageToggleLabel}
+            className="flex h-[34px] w-auto min-w-[34px] flex-none items-center justify-center border border-divider bg-transparent px-2 font-heading text-[11px] font-extrabold text-text transition-colors hover:bg-text/8"
+          >
+            {language === 'es' ? 'EN' : 'ES'}
           </button>
         </div>
       </div>
