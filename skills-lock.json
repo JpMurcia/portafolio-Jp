@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "irac-practice": {
+      "source": "anthropics/claude-for-legal",
+      "sourceType": "github",
+      "skillPath": "law-student/skills/irac-practice/SKILL.md",
+      "computedHash": "a71e22d9c59dd5dd1083c350f0202a33c323c5e2eb125e476e4eb72f38d795f5"
+    }
+  }
+}
