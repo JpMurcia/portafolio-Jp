@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import { certifications, moreCourses } from '../data/certifications'
-import { degrees } from '../data/education'
+import { useContent } from '../context/useContent'
 
 export function Education() {
   const [showMoreCourses, setShowMoreCourses] = useState(true)
+  const { degrees, certifications, moreCourses, uiEducation } = useContent()
 
   return (
     <section id="formacion" className="mx-auto max-w-[1200px] px-10 py-16">
       <div className="mb-9">
         <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.1em] text-accent uppercase">
-          05 — Formación
+          {uiEducation.eyebrow}
         </div>
-        <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">Educación, cursos y certificaciones</h2>
+        <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">{uiEducation.heading}</h2>
       </div>
 
       <div className="mb-11 grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] border-t-2 border-b-2 border-divider">
@@ -34,14 +34,14 @@ export function Education() {
 
       <div className="mb-5 flex flex-wrap items-baseline justify-between gap-5">
         <div className="font-heading text-[11px] font-extrabold tracking-[.09em] uppercase">
-          Cursos y certificaciones
+          {uiEducation.coursesHeading}
         </div>
         <button
           type="button"
           onClick={() => setShowMoreCourses((v) => !v)}
           className="border-0 font-heading text-xs font-extrabold text-accent"
         >
-          {showMoreCourses ? 'Ocultar otros cursos' : 'Ver otros cursos'}
+          {showMoreCourses ? uiEducation.hideMoreCourses : uiEducation.showMoreCourses}
         </button>
       </div>
 
@@ -54,7 +54,7 @@ export function Education() {
               </div>
               {cert.featured && (
                 <span className="bg-poster px-[6px] py-1 font-heading text-[9px] leading-none font-extrabold tracking-[.08em] text-white uppercase">
-                  Certificación
+                  {uiEducation.certificationBadge}
                 </span>
               )}
             </div>
@@ -64,7 +64,7 @@ export function Education() {
             </div>
             {cert.credentialUrl && (
               <a href={cert.credentialUrl} target="_blank" rel="noopener" className="self-start border-0 font-heading text-xs font-extrabold">
-                Ver credencial →
+                {uiEducation.viewCredential}
               </a>
             )}
           </div>
@@ -74,7 +74,7 @@ export function Education() {
       {showMoreCourses && (
         <div className="mt-6 border border-divider px-[22px] py-5">
           <div className="mb-3 font-heading text-[11px] font-extrabold tracking-[.09em] text-mute-700 uppercase">
-            Otros cursos completados
+            {uiEducation.otherCoursesHeading}
           </div>
           <div className="flex flex-wrap gap-2">
             {moreCourses.map((course) => (

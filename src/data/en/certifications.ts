@@ -1,4 +1,4 @@
-import type { Certification } from '../types'
+import type { Certification } from '../../types'
 
 // TODO(specs/04-task-roadmap.md Fase 0): todos los `credentialUrl` son
 // placeholders (`href="#"` en el prototipo). Reemplazar por las URLs reales
@@ -9,7 +9,7 @@ export const certifications: Certification[] = [
     issuerInitials: 'AWS',
     title: 'AWS Cloud Practitioner Essentials (Second Edition)',
     issuer: 'Amazon Web Services',
-    date: 'Enero 2022',
+    date: 'January 2022',
     credentialUrl: null,
     featured: true,
   },
@@ -17,7 +17,7 @@ export const certifications: Certification[] = [
     issuerInitials: 'SCR',
     title: 'Scrum Fundamentals Certified',
     issuer: 'SCRUMstudy',
-    date: 'Enero 2022',
+    date: 'January 2022',
     credentialUrl: null,
     featured: true,
   },
@@ -25,49 +25,49 @@ export const certifications: Certification[] = [
     issuerInitials: 'UBA',
     title: 'Módulo Gobernanza de Datos',
     issuer: 'UBA IALAB',
-    date: 'Marzo 2022',
+    date: 'March 2022',
     credentialUrl: null,
   },
   {
     issuerInitials: 'PLZ',
     title: 'NestJS: Persistencia de Datos con TypeORM',
     issuer: 'Platzi',
-    date: 'Junio 2022',
+    date: 'June 2022',
     credentialUrl: null,
   },
   {
     issuerInitials: 'PLZ',
     title: 'Curso Profesional de Git y GitHub',
     issuer: 'Platzi',
-    date: 'Mayo 2022',
+    date: 'May 2022',
     credentialUrl: null,
   },
   {
     issuerInitials: 'PLZ',
     title: 'Fundamentos de Ingeniería de Software',
     issuer: 'Platzi',
-    date: 'Mayo 2022',
+    date: 'May 2022',
     credentialUrl: null,
   },
   {
     issuerInitials: 'IN',
     title: 'Power BI avanzado',
     issuer: 'LinkedIn Learning',
-    date: 'Marzo 2021',
+    date: 'March 2021',
     credentialUrl: null,
   },
   {
     issuerInitials: 'IN',
     title: 'Data scientist: Minería de datos esencial',
     issuer: 'LinkedIn Learning',
-    date: 'Abril 2021',
+    date: 'April 2021',
     credentialUrl: null,
   },
   {
     issuerInitials: 'IN',
     title: 'Fundamentos de programación: Diseño orientado a objetos',
     issuer: 'LinkedIn Learning',
-    date: 'Mayo 2021',
+    date: 'May 2021',
     credentialUrl: null,
   },
 ]

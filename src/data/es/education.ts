@@ -1,4 +1,4 @@
-import type { Degree } from '../types'
+import type { Degree } from '../../types'
 
 export const degrees: Degree[] = [
   {
