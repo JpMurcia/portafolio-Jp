@@ -1,7 +1,6 @@
 import { Download } from 'lucide-react'
 import { Fragment, type ReactNode } from 'react'
-import { contact } from '../data/contact'
-import { hero } from '../data/hero'
+import { useContent } from '../context/useContent'
 
 function HeroStatRow({
   label,
@@ -43,6 +42,7 @@ function HeroStatRow({
 }
 
 export function Hero() {
+  const { hero, contact, uiHero } = useContent()
   return (
     <header id="top" className="mx-auto max-w-[1200px] px-10 pt-[72px]">
       <div className="grid grid-cols-1 items-start gap-[48px] sm:grid-cols-[minmax(0,7fr)_minmax(0,4fr)]">
@@ -73,13 +73,13 @@ export function Hero() {
               className="inline-flex items-center gap-[9px] border-0 bg-poster px-5 py-[14px] font-heading text-[13px] font-extrabold tracking-[.02em] text-white hover:bg-accent-600"
             >
               <Download size={15} strokeWidth={2} />
-              Descargar CV
+              {uiHero.downloadCv}
             </a>
             <a
               href="#contacto"
               className="inline-flex items-center gap-[9px] border border-divider px-5 py-[14px] font-heading text-[13px] font-extrabold text-text hover:bg-text/7"
             >
-              Contáctame
+              {uiHero.contactMe}
             </a>
           </div>
         </div>
@@ -89,7 +89,7 @@ export function Hero() {
             <HeroStatRow key={stat.label} {...stat} />
           ))}
           <HeroStatRow
-            label="Enlaces"
+            label={uiHero.linksLabel}
             withDivider={false}
             value={
               <>

@@ -1,4 +1,4 @@
-import type { HeroContent } from '../types'
+import type { HeroContent } from '../../types'
 
 // La fila "Enlaces" (LinkedIn / GitHub) de la tabla de stats del prototipo se
 // arma en el componente Hero a partir de `contact.ts`, no se duplica aquí.

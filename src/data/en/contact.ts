@@ -1,4 +1,4 @@
-import type { ContactInfo } from '../types'
+import type { ContactInfo } from '../../types'
 
 export const contact: ContactInfo = {
   email: 'juanpablomurciacortes@gmail.com',
@@ -9,5 +9,5 @@ export const contact: ContactInfo = {
   githubUrl: 'https://github.com/JpMurcia',
   githubLabel: 'JpMurcia',
   location: 'Florencia, Caquetá',
-  locationNote: 'Colombia · abierto a remoto',
+  locationNote: 'Colombia · open to remote',
 }

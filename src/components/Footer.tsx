@@ -1,6 +1,6 @@
 import { Download } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { contact } from '../data/contact'
+import { contact } from '../data/es/contact'
 
 function FooterCell({ label, children }: { label: string; children: ReactNode }) {
   return (
