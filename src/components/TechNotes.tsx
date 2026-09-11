@@ -1,19 +1,18 @@
-import { techNotes } from '../data/techNotes'
+import { useContent } from '../context/useContent'
 
 export function TechNotes() {
+  const { techNotes, uiTechNotes } = useContent()
   return (
     <section id="notas" className="mx-auto max-w-[1200px] px-10 pb-16">
       <div className="border-t-2 border-divider pt-12">
         <div className="mb-7 flex flex-wrap items-baseline justify-between gap-6">
           <div>
             <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.1em] text-accent uppercase">
-              07 — Notas técnicas
+              {uiTechNotes.eyebrow}
             </div>
-            <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">Lo que estoy escribiendo</h2>
+            <h2 className="text-[34px] leading-[1.06] tracking-[-0.025em]">{uiTechNotes.heading}</h2>
           </div>
-          <div className="max-w-[34ch] text-xs text-mute-700">
-            Estructura lista. Los tres títulos son los temas que propongo; el contenido lo escribes tú.
-          </div>
+          <div className="max-w-[34ch] text-xs text-mute-700">{uiTechNotes.intro}</div>
         </div>
 
         <div className="border-t-2 border-divider">

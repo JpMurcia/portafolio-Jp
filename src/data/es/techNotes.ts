@@ -1,4 +1,4 @@
-import type { TechNote } from '../types'
+import type { TechNote } from '../../types'
 
 // Sección visible por defecto en el prototipo (showNotes: true). El propio
 // prototipo aclara: "Estructura lista. Los tres títulos son los temas que
