@@ -1,32 +1,40 @@
-# React + TypeScript + Vite
+# Portafolio — Juan Pablo Murcia
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Portafolio profesional de Juan Pablo Murcia, Ingeniero de Sistemas especializado en integraciones ERP, Oracle APEX, React y NestJS.
 
-Currently, two official plugins are available:
+🔗 **Sitio en vivo:** https://jpmurcia.github.io/portafolio-Jp/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Contenido
 
-## React Compiler
+- **Perfil, stack y trayectoria** — resumen de experiencia y habilidades técnicas.
+- **Tres casos de estudio detallados** — arquitectura, protocolos, decisiones de diseño y qué falló (y cómo se resolvió) en proyectos reales de industria, sector público e investigación. Los diagramas son reconstrucciones conceptuales y el código usa datos ficticios: no hay información operativa de ningún cliente.
+- **Formación, certificaciones y notas técnicas.**
+- **Selector de idioma ES/EN** y **tema claro/oscuro**, ambos persistidos en `localStorage`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack técnico
 
-## Expanding the Oxlint configuration
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) como build tool
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [oxlint](https://oxc.rs/) para linting
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Desarrollo local
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+El servidor de desarrollo queda disponible en `http://localhost:6300`.
+
+Otros scripts disponibles:
+
+```bash
+npm run build    # tsc -b && vite build — genera dist/
+npm run lint     # oxlint
+npm run preview  # sirve dist/ localmente
+```
+
+## Despliegue
+
+El sitio se publica automáticamente en GitHub Pages mediante [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) en cada push a `master`. Requiere que en **Settings → Pages** del repositorio la fuente esté configurada como "GitHub Actions".

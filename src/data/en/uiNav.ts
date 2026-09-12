@@ -9,4 +9,5 @@ export const uiNav = {
   ],
   themeToggleLabel: 'Toggle theme',
   languageToggleLabel: 'Switch language',
+  menuToggleLabel: 'Menu',
 }

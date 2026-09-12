@@ -170,6 +170,11 @@ export interface TechNote {
   status: string
 }
 
+export interface SiteMeta {
+  title: string
+  description: string
+}
+
 export interface ContactInfo {
   email: string
   phone: string

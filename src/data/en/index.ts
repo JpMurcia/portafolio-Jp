@@ -1,4 +1,5 @@
 export * from './uiNav'
+export * from './meta'
 export * from './hero'
 export * from './contact'
 export * from './uiHero'

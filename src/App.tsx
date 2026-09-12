@@ -1,4 +1,5 @@
 import { About } from './components/About'
+import { DocumentMeta } from './components/DocumentMeta'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
 import { Footer } from './components/Footer'
@@ -23,6 +24,7 @@ function App() {
     <LanguageProvider>
       <ThemeProvider>
         <SkillsHighlightProvider>
+          <DocumentMeta />
           <ScrollProgressBar />
           <Navbar />
 
