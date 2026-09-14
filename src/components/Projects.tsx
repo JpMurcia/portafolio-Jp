@@ -16,23 +16,31 @@ function DiagramLabel({ children }: { children: ReactNode }) {
   )
 }
 
+/** Antepone el base path del build (p. ej. `/portafolio-Jp/` en GitHub Pages) a los diagramas de `public/diagrams/`. */
+function diagramSrc(file: string) {
+  return `${import.meta.env.BASE_URL}diagrams/${file}`
+}
+
 export function Projects() {
   const { caseStudies, uiProjects } = useContent()
 
   const diagramsById: Record<string, { useCase: ReactNode; architecture: ReactNode }> = {
     'jp-caso-1': {
       useCase: (
-        <DiagramEmbed src="/diagrams/caso1-casos-de-uso.html" title={uiProjects.diagramTitles['jp-caso-1'].useCase} />
+        <DiagramEmbed
+          src={diagramSrc('caso1-casos-de-uso.html')}
+          title={uiProjects.diagramTitles['jp-caso-1'].useCase}
+        />
       ),
       architecture: (
         <StackedDiagrams>
           <DiagramEmbed
-            src="/diagrams/caso1-arquitectura.html"
+            src={diagramSrc('caso1-arquitectura.html')}
             title={uiProjects.diagramTitles['jp-caso-1'].architecture}
           />
           <DiagramLabel>{uiProjects.dataFlowLabel}</DiagramLabel>
           <DiagramEmbed
-            src="/diagrams/caso1-flujo-datos.html"
+            src={diagramSrc('caso1-flujo-datos.html')}
             title={uiProjects.diagramTitles['jp-caso-1'].dataFlow}
           />
         </StackedDiagrams>
@@ -40,28 +48,34 @@ export function Projects() {
     },
     'jp-caso-2': {
       useCase: (
-        <DiagramEmbed src="/diagrams/caso2-casos-de-uso.html" title={uiProjects.diagramTitles['jp-caso-2'].useCase} />
+        <DiagramEmbed
+          src={diagramSrc('caso2-casos-de-uso.html')}
+          title={uiProjects.diagramTitles['jp-caso-2'].useCase}
+        />
       ),
       architecture: (
         <DiagramEmbed
-          src="/diagrams/caso2-flujo-trabajo.html"
+          src={diagramSrc('caso2-flujo-trabajo.html')}
           title={uiProjects.diagramTitles['jp-caso-2'].architecture}
         />
       ),
     },
     'jp-caso-3': {
       useCase: (
-        <DiagramEmbed src="/diagrams/caso3-casos-de-uso.html" title={uiProjects.diagramTitles['jp-caso-3'].useCase} />
+        <DiagramEmbed
+          src={diagramSrc('caso3-casos-de-uso.html')}
+          title={uiProjects.diagramTitles['jp-caso-3'].useCase}
+        />
       ),
       architecture: (
         <StackedDiagrams>
           <DiagramEmbed
-            src="/diagrams/caso3-arquitectura.html"
+            src={diagramSrc('caso3-arquitectura.html')}
             title={uiProjects.diagramTitles['jp-caso-3'].architecture}
           />
           <DiagramLabel>{uiProjects.dataFlowLabel}</DiagramLabel>
           <DiagramEmbed
-            src="/diagrams/caso3-flujo-datos.html"
+            src={diagramSrc('caso3-flujo-datos.html')}
             title={uiProjects.diagramTitles['jp-caso-3'].dataFlow}
           />
         </StackedDiagrams>
