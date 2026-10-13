@@ -104,8 +104,11 @@ intensidad se controla con `--glow-strength` (9 % claro, 17 % oscuro).
 - **Casos de estudio:** `card` con cabecera en degradado, stats como `tile`, decisiones como
   tarjetas de tres campos (decisión / alternativa descartada / por qué) en lugar de una tabla,
   acordeón `<details>` para la implementación. El resaltado cruzado skills ↔ casos se mantiene.
-- **Producto destacado (SyTix):** `FeaturedProduct`. Rol, stack, highlights y enlace son
-  opcionales y solo se renderizan si tienen contenido (`data/{es,en}/featuredProduct.ts`).
+- **Producto destacado (SyTix):** `FeaturedProduct`. Rol, flujos, stack, highlights y enlace son
+  opcionales y solo se renderizan si tienen contenido (`data/{es,en}/featuredProduct.ts`). Los
+  flujos (`ProductFlow`) son cadenas de pasos con chips y chevrons: hoy "Proceso del ticket" y
+  "Cómo funciona el SLA", en dos tiles lado a lado desde `lg`. Solo descripción de alto nivel,
+  sin seguridad ni datos operativos.
 - **Trabajo con IA:** `AiWorkflow`, cuatro pasos (especificar → planificar → implementar →
   verificar). Cada paso cita evidencia real del repo; no describir nada que el repo no respalde.
 - **Experiencia:** línea de tiempo vertical con un punto por entrada (relleno si es la actual).
@@ -131,5 +134,5 @@ Los diagramas de `public/diagrams/*.html` **no se tocan** al cambiar el diseño 
 
 ## 9. Pendiente
 
-- Confirmar con Synergy Work qué se puede publicar de SyTix antes de rellenar la tarjeta.
+- Agregar `link` en la tarjeta de SyTix si algún día existe una versión pública.
 - Valorar syntax highlighting en `CodeBlock` (hoy es texto plano en mono).

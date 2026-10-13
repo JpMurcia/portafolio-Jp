@@ -187,6 +187,14 @@ export interface ContactInfo {
   locationNote: string
 }
 
+/** Cadena de pasos de un proceso (p. ej. el ciclo de vida de un ticket o cómo corre el SLA). */
+export interface ProductFlow {
+  title: string
+  steps: string[]
+  /** Aclaración bajo la cadena: reglas que no caben en un paso (pausas, excepciones). */
+  note?: string
+}
+
 /**
  * Producto propio de una empresa (p. ej. SyTix en Synergy Work). Todo lo que no
  * sea obligatorio se omite del render cuando falta: se completa editando
@@ -201,6 +209,8 @@ export interface FeaturedProduct {
   summary: string
   role?: string
   stack?: string[]
+  /** Procesos principales como cadenas de pasos: explican cómo funciona sin entrar en detalle técnico. */
+  flows?: ProductFlow[]
   highlights?: string[]
   link?: OtherProjectLink
 }

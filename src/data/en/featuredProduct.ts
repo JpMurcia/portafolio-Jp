@@ -1,15 +1,37 @@
 import type { FeaturedProduct } from '../../types'
 
-// TODO(SyTix): fill in `role`, `stack`, `highlights` and `link` once the case
-// study is written. Each optional field shows up in the card only when it has
-// content; the component needs no changes. Before publishing, confirm with
-// Synergy Work what can be shown.
+// High-level description of SyTix: general processes and how it works. It
+// deliberately does NOT include security (authentication, permissions,
+// infrastructure), client data or internal operational details. Juan Pablo
+// confirmed there is no problem with the app and the company being publicly known.
+// TODO(SyTix): add `link` if a public version ever exists.
 export const featuredProduct: FeaturedProduct = {
   id: 'sytix',
   name: 'SyTix',
-  tagline: 'Product built for Synergy Work',
+  tagline: 'Product of Synergy Work',
   company: 'Synergy Work',
-  status: 'Case study in progress',
+  status: 'Private access',
   summary:
-    "One of the applications I've built at Synergy Work. I'm preparing its case study with architecture, design decisions and conceptual diagrams using fictional data, just like the other cases on this page.",
+    "Internal ticketing and task-management system for Synergy Work's consulting team, which I've worked on. It organizes work from the client down to the subtask, tracks response times with SLAs that respect the team's real availability, and leaves an auditable history of every case. A general overview of how it works, with no operational data.",
+  role: 'System administrator and, at times, ticket Resolver.',
+  flows: [
+    {
+      title: 'Ticket process',
+      steps: ['New', 'Contact or Pre-analysis', 'In analysis', 'In execution', 'Resolved', 'Closed'],
+      note: 'Every status change is triggered by a structured comment, not free text, so the history is always consistent. If information is missing, the ticket moves to "Pending user" and carries on once the user replies.',
+    },
+    {
+      title: 'How the SLA works',
+      steps: ['Limit per project and priority', 'Contact phase', 'Analysis and execution phase', 'Met or Overdue'],
+      note: "The counter only runs while the assignee is available: it respects working hours, holidays and approved absences, and it pauses while the ticket waits for the user's reply.",
+    },
+  ],
+  stack: ['Python · Flask', 'PostgreSQL', 'Celery · Redis', 'React · TypeScript', 'Ant Design', 'Docker'],
+  highlights: [
+    "One place for the team's work: from the client → project → ticket hierarchy to the real time spent on each case.",
+    'Lifecycle driven by a state machine, with defined transitions and an auditable history of every change.',
+    'SLA per project and priority that only measures the time the assignee can actually work.',
+    "Assignment with suggestions based on each person's workload and availability.",
+    'Built with spec-driven development: 130+ specifications validated before implementation.',
+  ],
 }

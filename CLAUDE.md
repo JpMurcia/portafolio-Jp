@@ -42,10 +42,19 @@ Para probar el despliegue real: `GITHUB_ACTIONS=true npm run build` y servir con
 
 ## SyTix (producto de Synergy Work)
 
-La tarjeta vive en `data/{es,en}/featuredProduct.ts` y renderiza solo los campos con contenido.
-Hay un `TODO(SyTix)` con lo que falta (`role`, `stack`, `highlights`, `link`). No inventar
-funcionalidades: se completa desde el repositorio `jmurcia-syw/TICKET_SYW` o con lo que aporte
-Juan Pablo, y confirmando antes con Synergy Work qué se puede publicar.
+La tarjeta vive en `data/{es,en}/featuredProduct.ts` y renderiza solo los campos con contenido
+(rol, flujos, stack, highlights, enlace). Es una descripción de **alto nivel**: procesos generales
+y cómo funciona el sistema (proceso del ticket y SLA). Juan Pablo confirmó que no hay problema en
+que la app y la empresa sean conocidas.
+
+Reglas para tocar esa tarjeta:
+
+- **Nunca** incluir seguridad (autenticación, permisos, claves, infraestructura), datos de
+  clientes, nombres de personas, códigos de ticket, URLs internas ni detalles operativos.
+- No inventar funcionalidades: todo lo que se afirme debe salir de `jmurcia-syw/TICKET_SYW` o de
+  lo que Juan Pablo aporte. Del repo se lee solo documentación funcional (README y manual de
+  usuario); no se abren `.env*`, `docker-compose*`, guías de despliegue ni archivos de credenciales.
+- Pendiente (`TODO(SyTix)`): `link`, si algún día existe una versión pública.
 
 ## Git
 

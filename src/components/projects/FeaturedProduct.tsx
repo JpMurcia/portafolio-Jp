@@ -1,15 +1,17 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, ChevronRight } from 'lucide-react'
 import { useContent } from '../../context/useContent'
 import { Eyebrow } from '../ui/SectionHeader'
 
 /**
- * Tarjeta de producto destacado (SyTix). Todo lo opcional (rol, stack,
+ * Tarjeta de producto destacado (SyTix). Todo lo opcional (rol, stack, flujos,
  * highlights, enlace) se omite mientras no tenga contenido: se completa en
  * data/{es,en}/featuredProduct.ts.
  */
 export function FeaturedProduct() {
   const { featuredProduct: product, uiFeaturedProduct: ui } = useContent()
-  const hasDetails = Boolean(product.role || product.stack?.length || product.highlights?.length)
+  const hasFlows = Boolean(product.flows?.length)
+  const hasDetails = Boolean(product.role || product.stack?.length)
+  const hasHighlights = Boolean(product.highlights?.length)
 
   return (
     <article id={product.id} className="card relative mb-8 overflow-hidden">
@@ -42,8 +44,29 @@ export function FeaturedProduct() {
         <p className="mb-5 font-mono text-[13px] text-mute-700">{product.tagline}</p>
         <p className="max-w-[64ch] text-base leading-[1.65] text-mute-800">{product.summary}</p>
 
+        {hasFlows && (
+          <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
+            {product.flows?.map((flow) => (
+              <div key={flow.title} className="tile p-4 sm:p-5">
+                <Eyebrow className="mb-4">{flow.title}</Eyebrow>
+                <ol className="flex flex-wrap items-center gap-x-1 gap-y-2">
+                  {flow.steps.map((step, i) => (
+                    <li key={step} className="flex items-center gap-1">
+                      <span className="chip">{step}</span>
+                      {i < flow.steps.length - 1 && (
+                        <ChevronRight size={14} strokeWidth={2} className="flex-none text-mute-600" aria-hidden />
+                      )}
+                    </li>
+                  ))}
+                </ol>
+                {flow.note && <p className="mt-4 text-xs leading-[1.65] text-mute-700">{flow.note}</p>}
+              </div>
+            ))}
+          </div>
+        )}
+
         {hasDetails && (
-          <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+          <div className="mt-4 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
             {product.role && (
               <div className="tile p-4">
                 <Eyebrow className="mb-2">{ui.roleLabel}</Eyebrow>
@@ -62,16 +85,20 @@ export function FeaturedProduct() {
                 </div>
               </div>
             )}
-            {product.highlights && product.highlights.length > 0 && (
-              <div className="tile p-4">
-                <Eyebrow className="mb-2">{ui.highlightsLabel}</Eyebrow>
-                <ul className="list-disc space-y-1 pl-[17px] text-sm leading-[1.6] text-mute-800 marker:text-accent">
-                  {product.highlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          </div>
+        )}
+
+        {hasHighlights && (
+          <div className="tile mt-4 p-4 sm:p-5">
+            <Eyebrow className="mb-3">{ui.highlightsLabel}</Eyebrow>
+            <ul className="grid gap-x-8 gap-y-2.5 md:grid-cols-2">
+              {product.highlights?.map((item) => (
+                <li key={item} className="flex gap-2.5 text-sm leading-[1.6] text-mute-800">
+                  <span className="mt-[9px] h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
