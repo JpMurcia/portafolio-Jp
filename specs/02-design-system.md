@@ -108,7 +108,12 @@ intensidad se controla con `--glow-strength` (9 % claro, 17 % oscuro).
   opcionales y solo se renderizan si tienen contenido (`data/{es,en}/featuredProduct.ts`). Los
   flujos (`ProductFlow`) son cadenas de pasos con chips y chevrons: hoy "Proceso del ticket" y
   "Cómo funciona el SLA", en dos tiles lado a lado desde `lg`. Solo descripción de alto nivel,
-  sin seguridad ni datos operativos.
+  sin seguridad ni datos operativos. Debajo, un bloque "Diagramas" con pestañas (`role="tablist"`)
+  sobre cuatro diagramas archify 3.1 (`public/diagrams/sytix-*.html`: casos de uso, arquitectura,
+  proceso del ticket, SLA), definidos en `uiFeaturedProduct`. Solo se monta un `DiagramEmbed` a la
+  vez (cada HTML pesa ~800 KB) y recibe `heightClass` para ajustar su alto sin tocar la
+  sincronización de tema. Son reconstrucciones conceptuales, generadas con el CLI de archify
+  (`finalize --quality showcase`) y no deben editarse a mano.
 - **Trabajo con IA:** `AiWorkflow`, cuatro pasos (especificar → planificar → implementar →
   verificar). Cada paso cita evidencia real del repo; no describir nada que el repo no respalde.
 - **Experiencia:** línea de tiempo vertical con un punto por entrada (relleno si es la actual).
