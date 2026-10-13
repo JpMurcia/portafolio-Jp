@@ -1,8 +1,7 @@
 import type { TechNote } from '../../types'
 
-// Sección visible por defecto en el prototipo (showNotes: true). El propio
-// prototipo aclara: "Estructura lista. Los tres títulos son los temas que
-// propongo; el contenido lo escribes tú." — son placeholders intencionales.
+// Notas en borrador (estado "Borrador"): se publican como temas en preparación.
+// Cuando una se redacte, cambiar su `status` y enlazar el texto.
 export const techNotes: TechNote[] = [
   {
     category: 'Integración',
