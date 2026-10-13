@@ -1,5 +1,5 @@
 export const uiExperience = {
-  eyebrow: '04 — Trayectoria',
+  eyebrow: '05 — Trayectoria',
   heading: 'Experiencia laboral',
   currentBadge: 'Actual',
 }

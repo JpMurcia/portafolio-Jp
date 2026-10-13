@@ -17,7 +17,7 @@ export function ScrollProgressBar() {
   return (
     <div
       role="presentation"
-      className="fixed top-0 left-0 z-[60] h-[3px] bg-accent"
+      className="fixed top-0 left-0 z-[60] h-[2px] bg-linear-to-r from-accent to-glow"
       style={{ width: `${progress}%` }}
     />
   )

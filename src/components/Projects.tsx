@@ -3,6 +3,8 @@ import { useContent } from '../context/useContent'
 import { OtherProjectsList } from './OtherProjectsList'
 import { DiagramEmbed } from './projects/DiagramEmbed'
 import { CaseStudyCard } from './projects/CaseStudyCard'
+import { FeaturedProduct } from './projects/FeaturedProduct'
+import { SectionHeader } from './ui/SectionHeader'
 
 function StackedDiagrams({ children }: { children: ReactNode }) {
   return <div className="space-y-4">{children}</div>
@@ -10,7 +12,7 @@ function StackedDiagrams({ children }: { children: ReactNode }) {
 
 function DiagramLabel({ children }: { children: ReactNode }) {
   return (
-    <div className="font-heading text-[10px] font-extrabold tracking-[.08em] text-mute-700 uppercase">
+    <div className="font-mono text-[10px] tracking-[.08em] text-mute-700 uppercase">
       {children}
     </div>
   )
@@ -84,14 +86,12 @@ export function Projects() {
   }
 
   return (
-    <section id="casos" className="mx-auto max-w-[1200px] px-10 pt-6 pb-16">
-      <div className="mb-9">
-        <div className="mb-3 font-heading text-[11px] leading-none font-extrabold tracking-[.1em] text-accent uppercase">
-          {uiProjects.eyebrow}
-        </div>
-        <h2 className="mb-3 text-[34px] leading-[1.06] tracking-[-0.025em]">{uiProjects.heading}</h2>
-        <p className="max-w-[70ch] text-[15px] leading-[1.6] text-mute-800">{uiProjects.intro}</p>
-      </div>
+    <section id="casos" className="mx-auto max-w-[1200px] px-5 pt-6 pb-16 sm:px-10 sm:pb-20">
+      <SectionHeader eyebrow={uiProjects.eyebrow} heading={uiProjects.heading}>
+        {uiProjects.intro}
+      </SectionHeader>
+
+      <FeaturedProduct />
 
       <div className="space-y-8">
         {caseStudies.map((study) => (

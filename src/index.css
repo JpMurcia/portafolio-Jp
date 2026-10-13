@@ -1,5 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
+
+/*
+ * Fuentes autoalojadas (@fontsource-variable): sin petición a Google Fonts, sin
+ * render-blocking @import y con la misma familia en dev y producción. Solo el
+ * subconjunto latin (cubre ES/EN, tildes, ñ, —, ·); las flechas →/⌘ caen a la
+ * fuente del sistema.
+ */
+@font-face {
+  font-family: 'Geist Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(../node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Geist Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2)
+    format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /*
  * Tokens del design system — ver specs/02-design-system.md.
@@ -7,14 +33,20 @@
  * utilidades bg-*, text-*, border-* a partir de --color-*, y font-* a partir
  * de --font-*) y a la vez los emite tal cual en :root, así que redefinirlos bajo
  * [data-theme="dark"] hace que las utilidades cambien de valor en runtime sin
- * volver a compilar CSS — el mismo mecanismo que el prototipo original.
+ * volver a compilar CSS.
  *
- * --color-neutral-* del prototipo se renombra aquí a --color-mute-* para no
- * chocar con la escala "neutral" que Tailwind trae incorporada de fábrica.
+ * Paleta "slate" fría en ambos temas: coincide con la de los diagramas archify
+ * embebidos (public/diagrams, #020617 oscuro / #f8fafc claro), que son HTML
+ * independientes dentro de <iframe> y no heredan este CSS. Por eso el sitio es
+ * un poco más claro que el diagrama en oscuro: el diagrama se lee como panel
+ * inset, no como un hueco.
+ *
+ * --color-neutral-* del prototipo se llama aquí --color-mute-* para no chocar
+ * con la escala "neutral" que Tailwind trae de fábrica.
  */
 @theme {
-  /* Acento de marca — igual en ambos temas salvo el override de abajo */
-  --color-accent: #2f83cc;
+  /* Escala de acento de marca (azul) — tema claro; el oscuro sobrescribe abajo */
+  --color-accent: #1f6db3;
   --color-accent-100: #eef6fd;
   --color-accent-200: #d6e9f9;
   --color-accent-300: #b3d6f3;
@@ -25,50 +57,110 @@
   --color-accent-800: #154566;
   --color-accent-900: #123449;
 
-  /* Color "poster" (CTA primario / footer) — jp-poster en el prototipo */
-  --color-poster: #2779b4;
+  /* Segundo tono del brillo ambiental (cian) */
+  --color-glow: #22b8cf;
 
-  /* Tema claro (valores por defecto de :root) — PROVISIONAL, ver
-     specs/02-design-system.md §1.4: el prototipo no define el tema claro
-     inline, solo el oscuro. Ajustar cuando se confirme la paleta real. */
-  --color-bg: #faf9f8;
-  --color-surface: #f0eeec;
-  --color-text: #141312;
-  --color-divider: rgb(20 19 18 / 14%);
-  --color-mute-500: #8a8686;
-  --color-mute-600: #6b6767;
-  --color-mute-700: #4d4a4a;
-  --color-mute-800: #2c2a2a;
+  /* CTA primario y bloque de contacto */
+  --color-poster: #1f6db3;
 
-  /* Tipografía — PROVISIONAL, ver specs/02-design-system.md §2.1: el
-     prototipo no declara la familia real (viene del design system externo
-     "modernist"). Inter es un sustituto grotesco cercano al peso/tracking
-     observado, a reemplazar cuando se confirme la fuente real. */
-  --font-heading: 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Tema claro (valores por defecto de :root) */
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef2f8;
+  --color-text: #0b1220;
+  --color-divider: rgb(15 23 42 / 11%);
+  --color-mute-500: #94a3b8;
+  --color-mute-600: #64748b;
+  --color-mute-700: #475569;
+  --color-mute-800: #334155;
+
+  --font-heading: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-card: 1rem;
+  --radius-tile: 0.75rem;
 }
 
-/* Tema oscuro — es el default del portafolio (ver specs/02-design-system.md §1.3).
-   Valores extraídos literalmente del prototipo. */
+/* Variables propias (no generan utilidades): sombras y fondo ambiental. */
+:root {
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 5%), 0 12px 32px -16px rgb(15 23 42 / 20%);
+  --shadow-pop: 0 1px 2px rgb(15 23 42 / 8%), 0 24px 60px -20px rgb(15 23 42 / 35%);
+  --color-grid: rgb(15 23 42 / 5%);
+  --glow-strength: 9%;
+}
+
+/* Tema oscuro — es el default del portafolio. */
 [data-theme='dark'] {
-  --color-bg: #141312;
-  --color-surface: #242221;
-  --color-text: #f3f2f2;
-  --color-divider: color-mix(in srgb, #f3f2f2 32%, transparent);
-  --color-mute-500: #8a8686;
-  --color-mute-600: #a5a1a1;
-  --color-mute-700: #c2bfbf;
-  --color-mute-800: #e2dfdf;
-  --color-accent: #6cb2ea;
+  --color-bg: #090c14;
+  --color-surface: #0e1320;
+  --color-surface-2: #141b2b;
+  --color-text: #e7ebf3;
+  --color-divider: rgb(148 163 184 / 17%);
+  --color-mute-500: #64748b;
+  --color-mute-600: #8794a8;
+  --color-mute-700: #a3afc2;
+  --color-mute-800: #c3ccda;
+  --color-accent: #62b0ff;
   --color-accent-600: #4a97d8;
   --color-accent-700: #a6d2f4;
-  --color-poster: #1b5b8c;
+  --color-poster: #1f6aa5;
+
+  --shadow-card: 0 1px 0 rgb(255 255 255 / 4%) inset, 0 16px 40px -20px rgb(0 0 0 / 70%);
+  --shadow-pop: 0 1px 0 rgb(255 255 255 / 6%) inset, 0 30px 70px -24px rgb(0 0 0 / 85%);
+  --color-grid: rgb(148 163 184 / 6.5%);
+  --glow-strength: 17%;
+}
+
+/* Superficies y piezas reutilizables ---------------------------------------- */
+
+/** Tarjeta principal: superficie con borde fino, radio y sombra suave. */
+@utility card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/** Panel interior (dentro de una card): un escalón más elevado, sin sombra. */
+@utility tile {
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-tile);
+}
+
+/** Chip de tecnología / etiqueta. */
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-divider);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.1;
+  background-color: color-mix(in srgb, var(--color-surface-2) 55%, transparent);
+}
+
+/** Etiqueta de sección / metadato: mono, mayúsculas, acento. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  html[data-theme='dark'] {
+    color-scheme: dark;
   }
 
   body {
@@ -76,14 +168,67 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-body);
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     transition:
       background-color 0.2s linear,
       color 0.2s linear;
   }
 
-  /* Compensa el Navbar sticky al saltar a un ancla (ver specs/03 — Navbar). */
+  /* Fondo ambiental: brillo de acento arriba y rejilla que se desvanece. Va
+     detrás del contenido (z-index -1) y no intercepta eventos. */
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  body::before {
+    background:
+      radial-gradient(
+        52rem 28rem at 82% -8%,
+        color-mix(in srgb, var(--color-accent) var(--glow-strength), transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        38rem 22rem at -8% 12%,
+        color-mix(in srgb, var(--color-glow) calc(var(--glow-strength) * 0.7), transparent),
+        transparent 70%
+      );
+  }
+
+  body::after {
+    background-image:
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, #000 25%, transparent 78%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  /* Compensa el Navbar sticky al saltar a un ancla. */
   section[id] {
-    scroll-margin-top: 74px;
+    scroll-margin-top: 84px;
   }
 
   /* Acordeón de CaseStudyCard: el "+" gira a "×" cuando <details> está abierto. */
@@ -95,6 +240,10 @@
     color: var(--color-accent);
     text-decoration: none;
     border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease,
+      background-color 0.15s ease;
   }
 
   a:hover {
@@ -102,7 +251,34 @@
     border-bottom-color: var(--color-accent-700);
   }
 
-  /* Convención del design system: sin border-radius ni box-shadow en ningún
-     componente (estética "poster/swiss editorial"). No se sobreescribe la
-     escala de radios de Tailwind; es disciplina de uso en los componentes. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 0.375rem;
+  }
+}
+
+/* Entrada del hero: solo si el usuario no pidió reducir movimiento. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-up {
+    animation: fade-up 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--delay, 0ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

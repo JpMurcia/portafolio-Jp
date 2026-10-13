@@ -1,5 +1,5 @@
 export const uiEducation = {
-  eyebrow: '05 — Formación',
+  eyebrow: '06 — Formación',
   heading: 'Educación, cursos y certificaciones',
   coursesHeading: 'Cursos y certificaciones',
   showMoreCourses: 'Ver otros cursos',

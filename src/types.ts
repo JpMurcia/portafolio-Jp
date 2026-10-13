@@ -186,3 +186,29 @@ export interface ContactInfo {
   location: string
   locationNote: string
 }
+
+/**
+ * Producto propio de una empresa (p. ej. SyTix en Synergy Work). Todo lo que no
+ * sea obligatorio se omite del render cuando falta: se completa editando
+ * `data/{es,en}/featuredProduct.ts`, sin tocar el componente.
+ */
+export interface FeaturedProduct {
+  id: string
+  name: string
+  tagline: string
+  company: string
+  status: string
+  summary: string
+  role?: string
+  stack?: string[]
+  highlights?: string[]
+  link?: OtherProjectLink
+}
+
+export interface AiWorkflowStep {
+  number: string
+  title: string
+  body: string
+  /** Evidencia concreta en este repositorio (rutas, comandos). */
+  artifacts: string[]
+}

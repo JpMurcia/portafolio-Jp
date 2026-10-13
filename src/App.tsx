@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react'
 import { About } from './components/About'
+import { AiWorkflow } from './components/AiWorkflow'
+import { CommandPalette } from './components/CommandPalette'
 import { DocumentMeta } from './components/DocumentMeta'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
@@ -13,10 +16,43 @@ import { SkillsHighlightProvider } from './context/SkillsHighlightContext'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
 
-// Separador entre secciones de nivel superior (no hay uno entre Skills y
-// Projects — el prototipo tampoco lo tiene ahí, ver Portafolio JPMC.dc.html).
-function SectionDivider() {
-  return <hr className="mx-auto h-[2px] w-[calc(100%-80px)] max-w-[1200px] border-0 bg-divider" />
+/** Vive dentro de los providers: la paleta ⌘K usa tema, idioma y contenido. */
+function Shell() {
+  const [paletteOpen, setPaletteOpen] = useState(false)
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        setPaletteOpen((open) => !open)
+      }
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
+
+  return (
+    <>
+      <DocumentMeta />
+      <ScrollProgressBar />
+      <Navbar onOpenPalette={() => setPaletteOpen(true)} />
+      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
+
+      <Hero />
+
+      <main>
+        <About />
+        <Skills />
+        <Projects />
+        <AiWorkflow />
+        <Experience />
+        <Education />
+        <TechNotes />
+      </main>
+
+      <Footer />
+    </>
+  )
 }
 
 function App() {
@@ -24,26 +60,7 @@ function App() {
     <LanguageProvider>
       <ThemeProvider>
         <SkillsHighlightProvider>
-          <DocumentMeta />
-          <ScrollProgressBar />
-          <Navbar />
-
-          <Hero />
-
-          <main>
-            <About />
-            <SectionDivider />
-            <Skills />
-            <Projects />
-            <SectionDivider />
-            <Experience />
-            <SectionDivider />
-            <Education />
-            <SectionDivider />
-            <TechNotes />
-          </main>
-
-          <Footer />
+          <Shell />
         </SkillsHighlightProvider>
       </ThemeProvider>
     </LanguageProvider>

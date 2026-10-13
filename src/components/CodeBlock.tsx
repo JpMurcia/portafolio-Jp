@@ -1,6 +1,10 @@
 export function CodeBlock({ code }: { code: string }) {
   return (
-    <pre className="overflow-x-auto border-l-2 border-accent bg-surface px-[18px] py-4 font-mono text-xs leading-[1.7]">
+    // tabIndex: una región con scroll horizontal debe poder recorrerse con teclado.
+    <pre
+      tabIndex={0}
+      className="overflow-x-auto rounded-xl border border-divider bg-bg px-4 py-4 font-mono text-xs leading-[1.75] text-mute-800"
+    >
       {code}
     </pre>
   )

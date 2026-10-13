@@ -22,7 +22,7 @@ export function DiagramEmbed({ src, title }: { src: string; title: string }) {
   }, [syncTheme])
 
   return (
-    <div className="border border-divider">
+    <div className="overflow-hidden rounded-xl border border-divider bg-surface-2">
       <iframe
         ref={iframeRef}
         src={src}
