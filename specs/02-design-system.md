@@ -1,238 +1,135 @@
 # 02 — Design System
 
-Todo lo listado aquí se extrajo **literalmente** del CSS inline y las variables `:root` del
-prototipo (`Portafolio JPMC.dc.html`). Donde el prototipo depende de una hoja de estilos
-externa que no es accesible desde este repo (`_ds/modernist-.../styles.css`, cargada por el
-motor de Claude Design), se marca explícitamente como **⚠ pendiente de confirmar**.
+> **Revisado en el rediseño "dev-modern".** La versión anterior documentaba el estilo
+> "poster/swiss" del prototipo (esquinas rectas, bordes de 2 px, sin sombras, Inter 800).
+> Está en el historial de git. Esta versión describe lo que hay hoy en `src/index.css`, que es
+> la **fuente de verdad**: si un valor de este documento y el CSS difieren, manda el CSS.
 
-## 1. Paleta de colores
+## 1. Principios
 
-### 1.1 Acento de marca (definido en `:root`, válido en ambos temas salvo overrides)
+- **Oscuro por defecto, claro de primera clase.** Ambos temas se diseñan a la vez; ninguno es
+  una inversión automática del otro.
+- **Paleta fría "slate"** en los dos temas. Coincide con la de los diagramas archify embebidos
+  (`public/diagrams/`, `#020617` oscuro / `#f8fafc` claro), que son HTML independientes dentro
+  de un `<iframe>` y **no heredan el CSS del sitio**. Por eso el sitio oscuro (`#090c14`) es un
+  poco más claro que el diagrama: el diagrama se lee como un panel inset.
+- **Profundidad por superficie, no por color plano:** tarjetas con borde fino, radio y una sombra
+  suave; un fondo ambiental discreto (brillo de acento + rejilla que se desvanece).
+- **Mono para metadatos.** Etiquetas, chips, periodos y rótulos en Geist Mono; contenido en Geist.
+- **Movimiento mínimo y respetuoso:** solo la entrada del hero y transiciones de color/elevación,
+  siempre bajo `prefers-reduced-motion`.
 
-| Token | Hex |
-|---|---|
-| `--color-accent` | `#2f83cc` |
-| `--color-accent-100` | `#eef6fd` |
-| `--color-accent-200` | `#d6e9f9` |
-| `--color-accent-300` | `#b3d6f3` |
-| `--color-accent-400` | `#7ab6e8` |
-| `--color-accent-500` | `#4a97d8` |
-| `--color-accent-600` | `#256fb0` |
-| `--color-accent-700` | `#1a5789` |
-| `--color-accent-800` | `#154566` |
-| `--color-accent-900` | `#123449` |
+## 2. Tokens (en `@theme` y `[data-theme='dark']`)
 
-### 1.2 Color "poster" (CTA primario / footer — no es parte de la escala accent)
+Tailwind v4 emite estos custom properties en `:root`; redefinirlos bajo `[data-theme='dark']`
+cambia las utilidades en runtime. `--color-neutral-*` del prototipo se llama `--color-mute-*`
+para no chocar con la escala `neutral` de Tailwind.
 
-| Token | Light | Dark |
+| Token | Claro | Oscuro |
 |---|---|---|
-| `--jp-poster` | `#2779b4` | `#1b5b8c` |
+| `--color-bg` | `#f5f7fb` | `#090c14` |
+| `--color-surface` (tarjetas) | `#ffffff` | `#0e1320` |
+| `--color-surface-2` (paneles internos, código) | `#eef2f8` | `#141b2b` |
+| `--color-text` | `#0b1220` | `#e7ebf3` |
+| `--color-divider` | `rgb(15 23 42 / 11%)` | `rgb(148 163 184 / 17%)` |
+| `--color-mute-500…800` | `#94a3b8 · #64748b · #475569 · #334155` | `#64748b · #8794a8 · #a3afc2 · #c3ccda` |
+| `--color-accent` | `#1f6db3` | `#62b0ff` |
+| `--color-accent-600` | `#256fb0` | `#4a97d8` |
+| `--color-accent-700` (hover de enlace, empresa) | `#1a5789` | `#a6d2f4` |
+| `--color-poster` (CTA, bloque de contacto) | `#1f6db3` | `#1f6aa5` |
+| `--color-glow` (segundo tono, cian) | `#22b8cf` | igual |
 
-### 1.3 Tema oscuro (`body[data-theme="dark"]` — es el tema por defecto del prototipo)
+La escala `accent-100…900` (azul de marca) es idéntica en ambos temas salvo los overrides de la
+tabla. Contraste: el acento claro `#1f6db3` sobre `#ffffff` ≈ 5.4:1 y `mute-700` sobre el fondo
+oscuro supera 7:1, así que las etiquetas de 11 px cumplen AA.
 
-| Token | Valor |
+Variables propias (no generan utilidades): `--shadow-card`, `--shadow-pop`, `--color-grid`,
+`--glow-strength`, además de `--radius-card: 1rem` y `--radius-tile: .75rem`.
+
+## 3. Tipografía
+
+Fuentes **autoalojadas** con `@fontsource-variable` (sin petición a Google Fonts); solo el
+subconjunto `latin`, que cubre ES/EN. Las flechas `→` y `⌘` caen a la fuente del sistema.
+
+- `--font-heading` / `--font-body`: **Geist Variable**. Titulares con peso 600 y tracking negativo.
+- `--font-mono`: **Geist Mono Variable**.
+
+| Uso | Estilo |
 |---|---|
-| `--color-bg` | `#141312` |
-| `--color-surface` | `#242221` |
-| `--color-text` | `#f3f2f2` |
-| `--color-divider` | `color-mix(in srgb, #f3f2f2 32%, transparent)` ≈ `rgba(243,242,242,.32)` |
-| `--color-neutral-500` | `#8a8686` |
-| `--color-neutral-600` | `#a5a1a1` |
-| `--color-neutral-700` | `#c2bfbf` |
-| `--color-neutral-800` | `#e2dfdf` |
-| `--color-accent` (override) | `#6cb2ea` |
-| `--color-accent-600` (override) | `#4a97d8` |
-| `--color-accent-700` (override) | `#a6d2f4` |
+| H1 hero | `clamp(44px, 7.2vw, 88px)`, 600, `-0.045em`, última línea con degradado acento→cian |
+| H2 de sección | `clamp(28px, 4vw, 38px)`, 600, `-0.03em` |
+| H3 de caso | `clamp(26px, 3.6vw, 40px)` |
+| Cuerpo | 15–17 px, `line-height` 1.6–1.7 |
+| Eyebrow / metadato | mono 11 px, 500, mayúsculas, `0.08em` (utilidad `eyebrow`) |
 
-### 1.4 Tema claro — ⚠ pendiente de confirmar
+## 4. Superficies y piezas reutilizables
 
-El HTML del prototipo **no define** los valores de `--color-bg`, `--color-surface`,
-`--color-text`, `--color-divider` ni la escala `--color-neutral-*` para el tema claro; solo
-sobrescribe esas variables dentro de `body[data-theme="dark"]`. Los valores base para claro
-viven en la hoja de estilos externa del "design system" de Claude Design
-(`_ds/modernist-944dcd56.../styles.css`), que no es accesible fuera del canvas.
+Definidas con `@utility` en `index.css`:
 
-Propuesta de valores claros (espejo estructural del tema oscuro, a validar visualmente antes
-de darlos por definitivos):
-
-| Token | Valor propuesto |
+| Utilidad | Qué es |
 |---|---|
-| `--color-bg` | `#faf9f8` |
-| `--color-surface` | `#f0eeec` |
-| `--color-text` | `#141312` |
-| `--color-divider` | `rgba(20,19,18,.14)` |
-| `--color-neutral-500` | `#8a8686` |
-| `--color-neutral-600` | `#6b6767` |
-| `--color-neutral-700` | `#4d4a4a` |
-| `--color-neutral-800` | `#2c2a2a` |
+| `card` | Superficie principal: `surface`, borde `divider`, `radius-card`, `shadow-card`. |
+| `tile` | Panel interior dentro de una card: `surface-2`, borde, `radius-tile`, sin sombra. |
+| `chip` | Etiqueta de tecnología: mono 12 px, borde, radio 8 px. |
+| `eyebrow` | Rótulo de sección en acento (ver §3). |
 
-**Acción recomendada:** confirmar estos valores contra el mockup real (inspeccionar los
-estilos computados en el navegador sobre el canvas de Claude Design, o pedir al diseño que
-exporte la paleta) antes de fijarlos en `tailwind.config`.
+Componentes compartidos: `SectionHeader` y `Eyebrow` en `src/components/ui/SectionHeader.tsx`.
+No vuelvas a copiar el bloque "eyebrow + h2" en cada sección.
 
-### 1.5 Opacidades sobre el bloque "poster" (footer/CTA, texto blanco)
+### Fondo ambiental
 
-| Uso | Valor |
-|---|---|
-| Texto secundario | `rgba(255,255,255,.92)` |
-| Labels de contacto | `rgba(255,255,255,.75)` / `.8` |
-| Bordes/divisores sobre poster | `rgba(255,255,255,.3)` / `.45` |
+`body::before` (dos brillos radiales, acento y cian) y `body::after` (rejilla de 56 px con
+máscara radial) van fijos detrás del contenido (`z-index: -1`, `pointer-events: none`). La
+intensidad se controla con `--glow-strength` (9 % claro, 17 % oscuro).
 
-## 2. Tipografía
+## 5. Layout y responsive
 
-### 2.1 Familias — ⚠ pendiente de confirmar
+- Contenedor: `max-width: 1200px`, padding horizontal `px-5` en móvil y `sm:px-10` desde 640 px.
+- Padding vertical de sección: `py-12 sm:py-16` (el perfil y los casos usan `sm:py-20`).
+- Las grillas multi-columna **siempre** tienen versión de una columna:
+  `grid-cols-1 lg:grid-cols-[…]`, o `repeat(auto-fit, minmax(N, 1fr))` donde el contenido lo permite.
+  (El diseño anterior no tenía fallback y "Perfil" quedaba apretado en móvil.)
+- Verificado sin desborde horizontal en 320, 390 y 768 px, ES y EN, ambos temas.
+- La navbar es sticky con `backdrop-blur`; por debajo de 360 px se oculta el nombre y queda el logo.
 
-`--font-heading` y `--font-body` se referencian en todo el HTML pero **no se declaran** en el
-archivo (vienen del design system externo "modernist"). Por el peso tipográfico (800
-predominante, tracking negativo en titulares, uppercase con letter-spacing amplio en labels),
-el estilo es un grotesco "swiss/editorial" bold. Sustitutos recomendados mientras se confirma
-la fuente real:
+## 6. Componentes
 
-- `--font-heading`: `"Inter", "Sora", system-ui, sans-serif` (weights 600/800)
-- `--font-body`: `"Inter", system-ui, sans-serif` (weights 400/600)
-- Monoespaciada (sí está definida explícitamente): `ui-monospace, SFMono-Regular, Menlo, monospace`
+- **Navbar:** logo "JP" + nombre, enlaces con sección activa (`useActiveSection`, IntersectionObserver),
+  botón de búsqueda (abre la paleta), tema, idioma y menú móvil (< `lg`).
+- **Hero:** pill de ubicación, H1 con degradado, CTA primario (`poster`) y secundario, y una
+  tarjeta tipo ventana de editor (`perfil.ts`) con las stats del perfil.
+- **Paleta de comandos (⌘K / Ctrl+K):** secciones, tema, idioma, descarga de CV y enlaces. El
+  diálogo se monta solo al abrir (`CommandPalette` → `PaletteDialog`), así su estado nace limpio.
+  Teclado: ↑↓ navegan, Enter ejecuta, Esc cierra. ARIA: `dialog`, `combobox`, `listbox`/`option`.
+- **Casos de estudio:** `card` con cabecera en degradado, stats como `tile`, decisiones como
+  tarjetas de tres campos (decisión / alternativa descartada / por qué) en lugar de una tabla,
+  acordeón `<details>` para la implementación. El resaltado cruzado skills ↔ casos se mantiene.
+- **Producto destacado (SyTix):** `FeaturedProduct`. Rol, stack, highlights y enlace son
+  opcionales y solo se renderizan si tienen contenido (`data/{es,en}/featuredProduct.ts`).
+- **Trabajo con IA:** `AiWorkflow`, cuatro pasos (especificar → planificar → implementar →
+  verificar). Cada paso cita evidencia real del repo; no describir nada que el repo no respalde.
+- **Experiencia:** línea de tiempo vertical con un punto por entrada (relleno si es la actual).
+- **Footer / contacto:** tarjeta grande con degradado `poster → accent-800` y celdas translúcidas.
 
-### 2.2 Escala tipográfica (tal como aparece en el HTML)
+## 7. Diagramas embebidos (regla de oro)
 
-| Uso | font-size | line-height | letter-spacing | weight |
-|---|---|---|---|---|
-| H1 Hero | `clamp(44px,6.2vw,82px)` | 1 | `-.035em` | 800 |
-| H2 CTA footer | `clamp(36px,5.4vw,68px)` | 1.02 | `-.035em` | 800 |
-| H2 sección | `34px` | 1.06 | `-.025em` | 800 (por defecto del heading) |
-| H3 título de caso | `clamp(26px,3.4vw,40px)` | 1.04 | `-.025em` | 800 |
-| H3 timeline / rol | `23px` | normal | `-.015em` | 800 |
-| H3 educación | `22px` | normal | `-.015em` | 800 |
-| Subcopy hero | `20px` | 1.45 | — | 400 |
-| Body destacado | `16–17px` | 1.55–1.6 | — | 400 |
-| Body pequeño | `14–15px` | 1.55–1.7 | — | 400 |
-| Eyebrow / label sección (`"01 — Perfil"`) | `11px` | 1 | `.1em` | 800, uppercase |
-| Nav links | `11px` | 1 | `.08em` | 800, uppercase |
-| Meta / stat label | `9–10px` | 1.4 | `.07–.09em` | 800, uppercase |
-| Código (`<pre>`) | `12px` | 1.7 | — | monospace |
+Los diagramas de `public/diagrams/*.html` **no se tocan** al cambiar el diseño del sitio:
 
-## 3. Espaciado y layout
+1. Son documentos independientes con su propio CSS y su propio tema.
+2. `ThemeContext` escribe `archify-theme` en `localStorage` (lo lee el diagrama al cargar) y
+   `DiagramEmbed` llama a `Archify.theme.toggle()` para seguir el cambio en vivo. No modificar
+   esa sincronización sin volver a probarla.
+3. En `DiagramEmbed` solo el contenedor (`rounded-xl`, borde) pertenece al diseño del sitio.
+4. Las rutas usan `import.meta.env.BASE_URL`: bajo GitHub Pages el sitio vive en `/portafolio-Jp/`.
 
-### 3.1 Contenedor
+## 8. Accesibilidad
 
-- `max-width: 1200px`, `margin: 0 auto`, `padding: 0 40px` (horizontal constante en todas las
-  secciones).
-- Padding vertical de sección: `64px` (estándar), `72px` para el hero (arriba), `76px/44px`
-  para el footer (arriba/abajo).
+- `:focus-visible` global con anillo de acento.
+- `<pre>` con scroll horizontal tiene `tabIndex={0}` para recorrerlo con teclado.
+- Botones solo-icono con `aria-label`; el menú móvil con `aria-expanded`.
+- Animaciones de entrada solo bajo `prefers-reduced-motion: no-preference`.
 
-### 3.2 Sin breakpoints fijos
+## 9. Pendiente
 
-El prototipo **no usa `@media queries`**. La responsividad se logra con:
-
-- `clamp()` para tamaños de titulares.
-- `grid-template-columns: repeat(auto-fit, minmax(Npx, 1fr))` para todas las grillas
-  (skills, stats de caso, certificaciones, repos, footer).
-- `flex-wrap: wrap` en filas de badges/botones.
-
-**Implicación para React/Tailwind:** replicar este patrón con utilidades arbitrarias
-(`grid-cols-[repeat(auto-fit,minmax(220px,1fr))]`) o un helper de Tailwind, en vez de definir
-breakpoints `sm/md/lg` tradicionales. Esto debe probarse en viewport real (ver `04-task-roadmap.md`).
-
-### 3.3 Escala de espaciado observada
-
-Valores de `padding`/`gap`/`margin` recurrentes en el HTML (no es una escala estricta de 4/8pt,
-es una escala ajustada a mano, mayormente par):
-
-```
-6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 44, 48, 64, 72, 76 (px)
-```
-
-Recomendación: mapear los valores más frecuentes (8, 12, 16, 20, 24, 32, 40, 48, 64) a la
-escala default de Tailwind y usar valores arbitrarios (`p-[34px]`, `gap-[22px]`) para el resto
-en vez de forzar una escala nueva.
-
-## 4. Bordes, radios y elevación
-
-- **`border-radius: 0` en absolutamente todo el prototipo.** Estética tipo "poster
-  editorial/swiss", esquinas rectas sin excepción.
-- **Sin `box-shadow` en ningún elemento.** La separación visual es 100% por bordes sólidos y
-  bloques de color plano.
-- Grosores de borde: `1px` (divisores internos, celdas de tabla) y `2px` (contenedores
-  principales: nav, `<article>` de caso, separadores `<hr>` entre secciones, cajas de
-  diagrama de arquitectura — estas últimas usan `var(--color-text)` en vez de
-  `var(--color-divider)` para más contraste).
-- **Técnica "hairline grid"**: en certificaciones y repos de GitHub, el grid tiene
-  `gap: 2px` y `background: var(--color-divider)`, mientras cada celda tiene
-  `background: var(--color-bg)` — el fondo del gap simula líneas finas de tabla sin usar
-  `border` en cada celda.
-
-## 5. Estilos de componentes comunes
-
-### 5.1 Botones
-
-| Variante | Estilo |
-|---|---|
-| **Primario** (`jp-poster`) | `background: var(--jp-poster)`, `color: #fff`, `padding: 14px 20px`, `font: 800 13px heading`, sin borde, hover → `background: var(--color-accent-600)`. Icono opcional a la izquierda, `gap: 9px`. |
-| **Secundario** (outline) | `border: 1px solid var(--color-divider)`, `color: var(--color-text)`, mismo padding, hover → tinte de fondo al 7% sobre el color de texto (`color-mix`). |
-| **Invertido** (sobre footer) | `background: #fff`, `color: var(--jp-poster)` — mismo botón primario con colores intercambiados. |
-
-### 5.2 Badges / etiquetas
-
-| Tipo | Estilo |
-|---|---|
-| Badge sólido (número de caso, "Certificación", "Actual") | `background: var(--jp-poster)`, `color: #fff`, `padding: 4–7px 6–9px`, `font: 800 9–10px heading`, `uppercase`, `letter-spacing: .08em` |
-| Badge outline (categoría de caso) | `border: 1px solid var(--color-divider)`, mismo tipo tipográfico |
-| Chip de skill (interactivo, `data-skill`) | `border: 1px solid var(--color-divider)`, `padding: 7px 9px`, `font: 600 12px body`, `cursor: default` |
-| Tag de tecnología (timeline) | `border: 1px solid var(--color-divider)`, `padding: 6px 8px`, `font: 600 11px body`, `color: var(--color-neutral-800)` |
-
-### 5.3 Tarjetas
-
-- **Tarjeta de caso de estudio** (`<article>`): `border: 2px solid var(--color-divider)`,
-  sin padding propio — cada bloque interno (header, stats, problema, diagramas, decisiones,
-  implementación, resultado) tiene su propio padding y un `border-bottom: 2px solid
-  var(--color-divider)` que lo separa del siguiente.
-- **Tarjeta de certificación**: dentro del grid "hairline", `padding: 20px 22px`, logo/mono
-  box de `34×34px` con borde, badge opcional "Certificación", título `800 15px`, meta
-  `12px` en `neutral-700`, enlace `"Ver credencial →"`.
-- **Caja de diagrama de arquitectura**: `border: 2px solid var(--color-text)` (no divider),
-  `padding: 16–18px`, fondo alterna entre transparente y `var(--color-surface)` para
-  diferenciar capas del flujo.
-
-### 5.4 Enlaces
-
-- Subrayado vía `border-bottom: 1px solid color-mix(accent 40%, transparent)`, color
-  `var(--color-accent)`; hover → `color-accent-700` + borde `accent-700`.
-- Enlaces de navegación: `border: 0` (sin subrayado), uppercase `11px 800`.
-
-### 5.5 Tabla comparativa de decisiones
-
-Grid de 3 columnas (`auto-fit, minmax(200px,1fr)`): encabezado `800 10px uppercase
-neutral-700`, celdas separadas por `border: 1px solid var(--color-divider)` en ambos ejes.
-
-### 5.6 Acordeón de implementación
-
-`<details>`/`<summary>` nativo. El ícono `+` (`.jp-plus`) rota 45° (→ forma de "×") cuando
-`details[open]` vía CSS puro, sin JS. En React puede mantenerse como `<details>` semántico
-(accesible por defecto, sin necesidad de gestionar estado) o reimplementarse con
-`useState` + ícono Lucide `Plus`/`X` si se necesita animación adicional.
-
-### 5.7 Bloques de código
-
-`<pre>`: `font: 12px/1.7 monospace`, `background: var(--color-surface)`,
-`border-left: 2px solid var(--color-accent)`, `padding: 16px 18px`, `overflow-x: auto`. Texto
-plano, sin syntax highlighting en el prototipo — candidato a componente `<CodeBlock>`
-reutilizable.
-
-### 5.8 Iconografía
-
-- Iconos de **interfaz** (descarga, toggle de tema): SVG inline `stroke="currentColor"`,
-  `stroke-width="2"`, sin relleno → mapean 1:1 a **Lucide React** (`Download`,
-  `Sun`/`Moon`, etc.) manteniendo `strokeWidth={2}`.
-- Los **diagramas de arquitectura y de casos de uso** (SVG grandes, dibujados a mano por cada
-  caso de estudio) **no son iconos** — son ilustraciones a medida por caso. Se documentan como
-  parte de la arquitectura de `Projects` en `03-component-architecture.md`, no como parte del
-  sistema de iconos.
-
-## 6. Interacciones / estado visual global
-
-| Interacción | Descripción |
-|---|---|
-| Barra de progreso de scroll | Fija arriba, `3px` alto, `background: var(--color-accent)`, ancho = `% scroll` de la página. |
-| Cross-highlight skills ↔ casos | Al pasar el cursor sobre un chip `data-skill`, los `<article data-skills="...">` que **no** incluyen esa skill bajan a `opacity: .22` (clase `.jp-dim`, transición `.18s`). |
-| Toggle de tema | `body[data-theme]` alterna `"dark"`/`"light"`; **oscuro es el valor por defecto**. |
-| Sección "Otros cursos" | Colapsable — en el prototipo es un booleano de Claude Design (`showAllCourses`); en producción será un botón "Ver más". |
-| Secciones opcionales | `showGithub` (repos de GitHub) — **oculta por defecto**. `showNotes` (notas técnicas) — **visible por defecto**. Ambas eran flags de contenido del canvas de diseño; hay que decidir si se vuelven fijas o configurables en `04-task-roadmap.md`. |
+- Confirmar con Synergy Work qué se puede publicar de SyTix antes de rellenar la tarjeta.
+- Valorar syntax highlighting en `CodeBlock` (hoy es texto plano en mono).

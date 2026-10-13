@@ -9,13 +9,16 @@ Portafolio profesional de Juan Pablo Murcia, Ingeniero de Sistemas especializado
 - **Perfil, stack y trayectoria** — resumen de experiencia y habilidades técnicas.
 - **Tres casos de estudio detallados** — arquitectura, protocolos, decisiones de diseño y qué falló (y cómo se resolvió) en proyectos reales de industria, sector público e investigación. Los diagramas son reconstrucciones conceptuales y el código usa datos ficticios: no hay información operativa de ningún cliente.
 - **Formación, certificaciones y notas técnicas.**
-- **Selector de idioma ES/EN** y **tema claro/oscuro**, ambos persistidos en `localStorage`.
+- **Producto destacado SyTix** (Synergy Work): tarjeta con estructura lista; su caso de estudio está en preparación.
+- **Cómo trabajo con IA:** el flujo con Claude Code (especificar → planificar → implementar → verificar), con evidencia en este mismo repositorio.
+- **Paleta de comandos** (`⌘K` / `Ctrl+K`), **selector de idioma ES/EN** y **tema claro/oscuro**, persistidos en `localStorage`.
 
 ## Stack técnico
 
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vite.dev/) como build tool
 - [Tailwind CSS 4](https://tailwindcss.com/)
+- [Geist](https://vercel.com/font) (sans y mono), autoalojada con `@fontsource-variable`
 - [oxlint](https://oxc.rs/) para linting
 
 ## Desarrollo local
