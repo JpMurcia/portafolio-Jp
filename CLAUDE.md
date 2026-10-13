@@ -22,7 +22,7 @@ Para probar el despliegue real: `GITHUB_ACTIONS=true npm run build` y servir con
 - `src/components/` — una sección por componente; `ui/SectionHeader.tsx` es el encabezado compartido.
 - `src/data/{es,en}/` — **todo el texto**. Los componentes no llevan copy: lo leen con `useContent()`.
 - `src/index.css` — tokens del design system y utilidades (`card`, `tile`, `chip`, `eyebrow`).
-- `public/diagrams/` — diagramas archify (HTML independiente) embebidos por `iframe`.
+- `public/diagrams/` — diagramas archify (HTML independiente) embebidos por `iframe`. `sytix-*.html` (casos de uso, arquitectura, proceso del ticket, SLA) se generaron con la skill archify 3.1 y se muestran como pestañas en la tarjeta de SyTix (un solo `iframe` montado a la vez).
 - `specs/` — especificaciones; `specs/02-design-system.md` describe el diseño vigente.
 
 ## Reglas que no se rompen
@@ -31,7 +31,7 @@ Para probar el despliegue real: `GITHUB_ACTIONS=true npm run build` y servir con
    (`typeof es` tipa a `en`). Nunca texto fijo en un componente.
 2. **Diagramas:** no editar `public/diagrams/*`, ni la sincronización de tema de
    `ThemeContext` + `DiagramEmbed`. Un cambio de diseño solo toca el contenedor del `iframe`.
-   Tras cualquier cambio de tema, comprobar que los 8 `iframe` siguen el tema del sitio en vivo.
+   Tras cualquier cambio de tema, comprobar que los 8 `iframe` de casos de estudio y el diagrama de SyTix activo (9 en total) siguen el tema del sitio en vivo.
 3. **Rutas:** usar `import.meta.env.BASE_URL` para assets de `public/` (diagramas, CV).
 4. **Diseño:** usar los tokens y utilidades de `index.css`; no hex sueltos en componentes.
    Toda grilla multi-columna lleva versión de una columna. Verificar sin scroll horizontal a 320 px.

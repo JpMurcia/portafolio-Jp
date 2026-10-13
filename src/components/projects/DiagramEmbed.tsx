@@ -3,7 +3,18 @@ import { useTheme } from '../../context/useTheme'
 
 type ArchifyWindow = Window & { Archify?: { theme?: { toggle: () => void } } }
 
-export function DiagramEmbed({ src, title }: { src: string; title: string }) {
+const DEFAULT_HEIGHT = 'h-[520px] sm:h-[680px] lg:h-[840px]'
+
+/** `heightClass` solo cambia el alto del iframe; la sincronización de tema no se toca. */
+export function DiagramEmbed({
+  src,
+  title,
+  heightClass = DEFAULT_HEIGHT,
+}: {
+  src: string
+  title: string
+  heightClass?: string
+}) {
   const { theme } = useTheme()
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
@@ -29,7 +40,7 @@ export function DiagramEmbed({ src, title }: { src: string; title: string }) {
         title={title}
         loading="lazy"
         onLoad={syncTheme}
-        className="h-[520px] w-full sm:h-[680px] lg:h-[840px]"
+        className={`${heightClass} w-full`}
       />
     </div>
   )

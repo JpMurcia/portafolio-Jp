@@ -1,6 +1,13 @@
 import { ArrowUpRight, ChevronRight } from 'lucide-react'
+import { useState } from 'react'
 import { useContent } from '../../context/useContent'
 import { Eyebrow } from '../ui/SectionHeader'
+import { DiagramEmbed } from './DiagramEmbed'
+
+/** Antepone el base path del build (p. ej. `/portafolio-Jp/` en GitHub Pages) a los diagramas de `public/diagrams/`. */
+function diagramSrc(file: string) {
+  return `${import.meta.env.BASE_URL}diagrams/${file}`
+}
 
 /**
  * Tarjeta de producto destacado (SyTix). Todo lo opcional (rol, stack, flujos,
@@ -12,6 +19,9 @@ export function FeaturedProduct() {
   const hasFlows = Boolean(product.flows?.length)
   const hasDetails = Boolean(product.role || product.stack?.length)
   const hasHighlights = Boolean(product.highlights?.length)
+  // Un solo diagrama montado a la vez: cada uno es un iframe de ~800 KB con su propio motor.
+  const [activeDiagramId, setActiveDiagramId] = useState(ui.diagrams[0]?.id)
+  const activeDiagram = ui.diagrams.find((diagram) => diagram.id === activeDiagramId) ?? ui.diagrams[0]
 
   return (
     <article id={product.id} className="card relative mb-8 overflow-hidden">
@@ -99,6 +109,46 @@ export function FeaturedProduct() {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {activeDiagram && (
+          <div className="mt-8">
+            <div className="mb-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+              <div>
+                <Eyebrow className="mb-1.5">{ui.diagramsLabel}</Eyebrow>
+                <p className="text-xs text-mute-700">{ui.diagramsNote}</p>
+              </div>
+              <div role="tablist" aria-label={ui.diagramsLabel} className="flex flex-wrap gap-2">
+                {ui.diagrams.map((diagram) => {
+                  const selected = diagram.id === activeDiagram.id
+                  return (
+                    <button
+                      key={diagram.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={selected}
+                      onClick={() => setActiveDiagramId(diagram.id)}
+                      className={`rounded-lg border px-3 py-1.5 text-[13px] font-medium transition-colors ${
+                        selected
+                          ? 'border-accent/60 bg-accent/12 text-text'
+                          : 'border-divider text-mute-700 hover:bg-text/6 hover:text-text'
+                      }`}
+                    >
+                      {diagram.tab}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+            <div role="tabpanel" aria-label={activeDiagram.title}>
+              <DiagramEmbed
+                key={activeDiagram.id}
+                src={diagramSrc(activeDiagram.file)}
+                title={activeDiagram.title}
+                heightClass="h-[380px] sm:h-[480px] lg:h-[580px]"
+              />
+            </div>
           </div>
         )}
 
