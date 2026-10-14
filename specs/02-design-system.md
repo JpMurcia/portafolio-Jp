@@ -114,9 +114,10 @@ intensidad se controla con `--glow-strength` (9 % claro, 17 % oscuro).
   vez (cada HTML pesa ~800 KB) y recibe `heightClass` para ajustar su alto sin tocar la
   sincronización de tema. Son reconstrucciones conceptuales, generadas con el CLI de archify
   (`finalize --quality showcase`) y no deben editarse a mano.
-- **Descarga de CV:** `CvDownload` (Hero y Footer) abre un menú con dos PDF en el idioma activo —
-  Harvard (serif, educación primero) y ATS (una columna, texto plano, sin tablas ni iconos)—;
-  la paleta ⌘K ofrece las mismas dos. Los PDF salen de `npm run cv`, a partir de los datos del sitio.
+- **Descarga de CV:** `CvDownload` (Hero y Footer) abre un menú con tres PDF en el idioma activo —
+  Harvard (serif, educación primero), ATS (una columna, texto plano, sin tablas ni iconos) y
+  Visual (diseño del CV original con foto y columna azul, actualizado)—, más un enlace a la primera
+  versión del CV sin cambios; la paleta ⌘K ofrece las tres. Los PDF salen de `npm run cv`, a partir de los datos del sitio.
 - **Trabajo con IA:** `AiWorkflow`, cuatro pasos (especificar → planificar → implementar →
   verificar). Cada paso cita evidencia real del repo; no describir nada que el repo no respalde.
 - **Experiencia:** línea de tiempo vertical con un punto por entrada (relleno si es la actual).

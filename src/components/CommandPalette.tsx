@@ -74,10 +74,10 @@ function PaletteDialog({ onClose }: { onClose: () => void }) {
         icon: Languages,
         run: toggleLanguage,
       },
-      ...(['harvard', 'ats'] as const).map((format) => ({
+      ...(['harvard', 'ats', 'visual'] as const).map((format) => ({
         id: `cv-${format}`,
         group: copy.actions,
-        label: `${uiHero.downloadCv} · ${format === 'harvard' ? uiHero.cvHarvardName : uiHero.cvAtsName}`,
+        label: `${uiHero.downloadCv} · ${{ harvard: uiHero.cvHarvardName, ats: uiHero.cvAtsName, visual: uiHero.cvVisualName }[format]}`,
         icon: Download,
         run: () => {
           const link = document.createElement('a')

@@ -5,7 +5,7 @@
 //
 // Requiere un Chromium: usa CHROME_PATH si existe, si no el que Playwright
 // tenga instalado (PLAYWRIGHT_BROWSERS_PATH) o /opt/pw-browsers/chromium.
-import { existsSync, mkdirSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright-core'
@@ -229,6 +229,105 @@ ${list(m.certifications.map((x) => `${x.title} - ${x.issuer}, ${x.date}`))}
 </body></html>`
 }
 
+
+/* ----------------------------------------------------------------- Visual */
+// Diseño del CV original (foto, columna azul, nombre grande), con contenido
+// actualizado. Sin estrellas de nivel (no hay dato que las respalde) ni datos
+// personales sensibles (dirección, nacimiento, estado civil).
+
+const dataUri = (path, mime) => `data:${mime};base64,${readFileSync(join(root, path)).toString('base64')}`
+const photoUri = () => dataUri('scripts/assets/photo.png', 'image/png')
+const fontUri = () => dataUri('node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2', 'font/woff2')
+
+const visualCss = () => `
+  @font-face { font-family: "GeistCV"; src: url(${fontUri()}) format("woff2"); font-weight: 100 900; }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font: 8.9pt/1.38 "GeistCV", "Liberation Sans", Arial, sans-serif; color: #2b2b2b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: inherit; text-decoration: none; }
+  .bg { position: fixed; top: 0; left: 0; bottom: 0; width: 36%; background: #a7c9ee; z-index: 0; }
+  .side { position: absolute; top: 0; left: 0; width: 36%; z-index: 1; }
+  .photo-block { height: 262pt; background: #2f2f2f; clip-path: polygon(0 0, 100% 0, 100% 86%, 50% 100%, 0 86%); display: flex; justify-content: center; padding-top: 36pt; }
+  .photo-block img { width: 150pt; height: 150pt; }
+  .side-body { padding: 14pt 20pt 24pt 22pt; color: #1d2a3a; }
+  .side h3 { margin: 12pt 0 5pt; font-size: 9.6pt; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; }
+  .side h3:first-child { margin-top: 0; }
+  .side .item { margin-bottom: 4.5pt; overflow-wrap: anywhere; }
+  .side .item b { display: block; font-size: 7.4pt; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; opacity: .75; }
+  .side .grp { margin-bottom: 5pt; }
+  .side .grp b { display: block; font-weight: 800; font-size: 8.6pt; }
+  .main-table { position: relative; z-index: 1; margin-left: 36%; width: 64%; border-collapse: collapse; }
+  .main-table td { padding: 0 34pt 0 28pt; }
+  .spacer { height: 30pt; }
+  h1 { margin: 0 0 14pt; font-size: 31pt; line-height: 1.12; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; color: #8db7e6; }
+  h2 { margin: 15pt 0 5pt; padding-bottom: 3pt; border-bottom: 1.4pt solid #2b2b2b; font-size: 11pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; color: #1c1c1c; }
+  h1 + h2 { margin-top: 0; }
+  .entry { margin-bottom: 8pt; break-inside: avoid; }
+  .role { font-weight: 800; font-size: 10pt; color: #1c1c1c; }
+  .meta { color: #4a5a6e; font-weight: 500; margin-bottom: 2pt; }
+  ul { margin: 2pt 0 0; padding-left: 12pt; }
+  li { margin-bottom: 1.4pt; }
+  p { margin: 0 0 3pt; }
+`
+
+function visualHtml(m) {
+  const c = m.contact
+  const l = m.labels
+  const item = (label, value) => `<div class="item"><b>${esc(label)}</b>${esc(value)}</div>`
+  return `<!doctype html><html lang="${m.lang}"><head><meta charset="utf-8"><title>${esc(m.name)} — CV</title><style>${visualCss()}</style></head><body>
+<div class="bg"></div>
+<aside class="side">
+  <div class="photo-block"><img src="${photoUri()}" alt=""></div>
+  <div class="side-body">
+    <h3>${esc(l.contact)}</h3>
+    ${item('Email', c.email)}
+    ${item(m.lang === 'es' ? 'Teléfono' : 'Phone', c.phone)}
+    ${item(m.lang === 'es' ? 'Ubicación' : 'Location', c.location)}
+    ${item('LinkedIn', c.linkedin)}
+    ${item('GitHub', c.github)}
+    ${item(l.portfolio, c.portfolio)}
+    <h3>${esc(l.skills)}</h3>
+    ${m.skills.map((g) => `<div class="grp"><b>${esc(g.title)}</b>${esc(g.items.join(', '))}</div>`).join('')}
+  </div>
+</aside>
+<table class="main-table">
+  <thead><tr><td><div class="spacer"></div></td></tr></thead>
+  <tfoot><tr><td><div class="spacer"></div></td></tr></tfoot>
+  <tbody><tr><td>
+    <h1>${esc(m.name)}</h1>
+    <h2>${esc(l.summary)}</h2>
+    <p>${esc(m.summary)}</p>
+
+    <h2>${esc(l.experience)}</h2>
+    ${m.experience
+      .map(
+        (j) => `<div class="entry"><div class="role">${esc(j.role)}</div><div class="meta">${esc(j.company)} | ${esc(j.period)}</div>${list(j.bullets)}</div>`,
+      )
+      .join('')}
+
+    <h2>${esc(m.aiTitle)}</h2>
+    ${list(m.aiBullets)}
+
+    <h2>${esc(l.projects)}</h2>
+    ${m.projects
+      .map((p) => `<div class="entry"><div class="role">${esc(p.name)}</div>${p.url ? `<div class="meta">${esc(p.url)}</div>` : ''}<p>${esc(p.detail)}</p></div>`)
+      .join('')}
+
+    <h2>${esc(l.education)}</h2>
+    ${m.education
+      .map(
+        (e) => `<div class="entry"><div class="role">${esc(e.title)}</div><div class="meta">${esc(e.institution)}, ${esc(e.location)} | ${esc(e.dates)}</div></div>`,
+      )
+      .join('')}
+
+    <h2>${esc(l.certifications)}</h2>
+    ${list(m.certifications.map((x) => `${x.title} — ${x.issuer}, ${x.date}`))}
+  </td></tr></tbody>
+</table>
+</body></html>`
+}
+
 /* -------------------------------------------------------------------- run */
 
 function findChrome() {
@@ -241,14 +340,14 @@ let browser
 try {
   const { content } = await server.ssrLoadModule('/src/data/content.ts')
   browser = await chromium.launch({ executablePath: findChrome() })
-  const formats = { harvard: harvardHtml, ats: atsHtml }
+  const formats = { harvard: harvardHtml, ats: atsHtml, visual: visualHtml }
   for (const lang of ['es', 'en']) {
     const model = buildModel(content[lang], lang)
     for (const [format, render] of Object.entries(formats)) {
       const page = await browser.newPage()
       await page.setContent(render(model), { waitUntil: 'load' })
       const file = join(outDir, `CV-Juan-Pablo-Murcia-${format}-${lang}.pdf`)
-      await page.pdf({ path: file, format: 'Letter', printBackground: true, preferCSSPageSize: true })
+      await page.pdf({ path: file, printBackground: true, preferCSSPageSize: true })
       await page.close()
       console.log(`✔ ${file.replace(root + '/', '')}`)
     }

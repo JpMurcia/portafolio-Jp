@@ -46,5 +46,6 @@ export const cv: CvContent = {
     projects: 'Projects',
     present: 'Present',
     portfolio: 'Portfolio',
+    contact: 'Contact',
   },
 }

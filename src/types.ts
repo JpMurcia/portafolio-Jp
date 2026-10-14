@@ -261,5 +261,6 @@ export interface CvContent {
     projects: string
     present: string
     portfolio: string
+    contact: string
   }
 }

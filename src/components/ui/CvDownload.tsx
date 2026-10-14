@@ -2,7 +2,7 @@ import { ChevronDown, Download } from 'lucide-react'
 import { useEffect, useId, useRef, useState } from 'react'
 import { useContent } from '../../context/useContent'
 import { useLanguage } from '../../context/useLanguage'
-import { cvHref, type CvFormat } from '../../utils/cv'
+import { cvHref, ORIGINAL_CV_HREF, type CvFormat } from '../../utils/cv'
 
 const buttonStyles = {
   primary:
@@ -52,6 +52,7 @@ export function CvDownload({
   const options: { format: CvFormat; name: string; hint: string }[] = [
     { format: 'harvard', name: uiHero.cvHarvardName, hint: uiHero.cvHarvardHint },
     { format: 'ats', name: uiHero.cvAtsName, hint: uiHero.cvAtsHint },
+    { format: 'visual', name: uiHero.cvVisualName, hint: uiHero.cvVisualHint },
   ]
 
   return (
@@ -95,6 +96,16 @@ export function CvDownload({
               <span className="text-xs leading-[1.5] text-mute-700">{option.hint}</span>
             </a>
           ))}
+          <a
+            role="menuitem"
+            href={ORIGINAL_CV_HREF}
+            download
+            onClick={() => setOpen(false)}
+            className="mt-1 flex items-center gap-2 rounded-lg border-t border-divider px-3 py-2.5 text-xs text-mute-700 hover:bg-text/6 hover:text-text"
+          >
+            <Download size={12} strokeWidth={2} aria-hidden />
+            {uiHero.cvOriginalLabel} · PDF
+          </a>
         </div>
       )}
     </div>
