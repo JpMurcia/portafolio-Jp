@@ -15,7 +15,7 @@ esta lista se ejecuta todavía — es la hoja de ruta a aprobar antes de tocar c
       UBA IALAB) para reemplazar los `href="#"` de `CertificationCard`.
 - [ ] Decidir si se publican las secciones opcionales `GithubRepos` (oculta por defecto en el
       prototipo) y `TechNotes` (visible por defecto, actualmente contenido placeholder "Borrador").
-- [ ] Conseguir el PDF real del CV (`CV-Juan-Pablo-Murcia-Cortes.pdf`) para `public/`.
+- [x] CV en PDF (Harvard y ATS, ES/EN) generado con `npm run cv` en `public/assets/cv/`.
 - [ ] Decidir si las categorías de `Skills` siguen la agrupación real del prototipo (4
       categorías) o se reagrupan a 5 como se mencionó inicialmente.
 - [ ] Decidir el enfoque para los diagramas SVG de cada caso de estudio: datos estructurados +

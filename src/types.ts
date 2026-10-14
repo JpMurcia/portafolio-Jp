@@ -222,3 +222,44 @@ export interface AiWorkflowStep {
   /** Evidencia concreta en este repositorio (rutas, comandos). */
   artifacts: string[]
 }
+
+export interface CvSkillGroup {
+  title: string
+  items: string[]
+}
+
+export interface CvProject {
+  name: string
+  detail: string
+  /** Texto del enlace tal como se imprime en el PDF (sin esquema). */
+  url?: string
+}
+
+/**
+ * Contenido propio del CV (PDF Harvard / ATS). El resto de datos — experiencia,
+ * formación, certificaciones, contacto — se reutiliza de los demás módulos de
+ * `data/{es,en}/` para que el sitio y el CV no se desincronicen.
+ */
+export interface CvContent {
+  /** Titular bajo el nombre. */
+  headline: string
+  summary: string
+  /** Viñetas extra para el puesto actual (experiencia que no entra en el sitio web). */
+  currentRoleExtra: string[]
+  aiTitle: string
+  aiBullets: string[]
+  /** Grupos de habilidades adicionales a los de `skills.ts` (p. ej. desarrollo asistido por IA). */
+  extraSkillGroups: CvSkillGroup[]
+  projects: CvProject[]
+  labels: {
+    summary: string
+    experience: string
+    education: string
+    skills: string
+    ai: string
+    certifications: string
+    projects: string
+    present: string
+    portfolio: string
+  }
+}

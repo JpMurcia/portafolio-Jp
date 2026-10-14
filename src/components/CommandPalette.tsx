@@ -11,6 +11,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
+import { cvHref } from '../utils/cv'
 import { useContent } from '../context/useContent'
 import { useLanguage } from '../context/useLanguage'
 import { useTheme } from '../context/useTheme'
@@ -73,18 +74,18 @@ function PaletteDialog({ onClose }: { onClose: () => void }) {
         icon: Languages,
         run: toggleLanguage,
       },
-      {
-        id: 'cv',
+      ...(['harvard', 'ats'] as const).map((format) => ({
+        id: `cv-${format}`,
         group: copy.actions,
-        label: uiHero.downloadCv,
+        label: `${uiHero.downloadCv} · ${format === 'harvard' ? uiHero.cvHarvardName : uiHero.cvAtsName}`,
         icon: Download,
         run: () => {
           const link = document.createElement('a')
-          link.href = `${import.meta.env.BASE_URL}assets/CV-Juan-Pablo-Murcia-Cortes.pdf`
+          link.href = cvHref(format, language)
           link.download = ''
           link.click()
         },
-      },
+      })),
       {
         id: 'email',
         group: copy.links,
@@ -97,7 +98,7 @@ function PaletteDialog({ onClose }: { onClose: () => void }) {
       { id: 'linkedin', group: copy.links, label: 'LinkedIn', icon: ExternalLink, run: openUrl(contact.linkedinUrl) },
       { id: 'github', group: copy.links, label: 'GitHub', icon: ExternalLink, run: openUrl(contact.githubUrl) },
     ]
-  }, [uiNav.links, copy, theme, toggleTheme, language, toggleLanguage, uiHero.downloadCv, contact])
+  }, [uiNav.links, copy, theme, toggleTheme, language, toggleLanguage, uiHero, contact])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()

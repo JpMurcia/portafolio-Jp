@@ -1,6 +1,6 @@
-import { Download } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { useContent } from '../context/useContent'
+import { CvDownload } from './ui/CvDownload'
 
 const linkClass = 'border-0 text-sm leading-[1.4] font-semibold text-white hover:text-white hover:underline'
 
@@ -22,7 +22,7 @@ function FooterCell({
 }
 
 export function Footer() {
-  const { contact, uiFooter, uiHero } = useContent()
+  const { contact, uiFooter } = useContent()
 
   return (
     <footer id="contacto" className="mx-auto max-w-[1200px] px-5 pt-8 pb-10 sm:px-10">
@@ -71,14 +71,7 @@ export function Footer() {
               </div>
             </FooterCell>
             <div className="flex items-center sm:col-span-2 lg:col-span-2 lg:justify-end">
-              <a
-                href={`${import.meta.env.BASE_URL}assets/CV-Juan-Pablo-Murcia-Cortes.pdf`}
-                download
-                className="inline-flex items-center gap-2 rounded-xl border-0 bg-white px-4 py-3 text-xs leading-none font-semibold text-poster transition-transform hover:-translate-y-px hover:text-poster"
-              >
-                <Download size={14} strokeWidth={2} />
-                {uiHero.downloadCv}
-              </a>
+              <CvDownload variant="light" placement="top" alignEndOnDesktop />
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ npm run dev      # http://localhost:6300
 npm run build    # tsc -b && vite build  → dist/
 npm run lint     # oxlint (ignora las advertencias de "Portafolio profesional Juan Pablo Murcia/", es el prototipo viejo)
 npm run preview
+npm run cv       # regenera los 4 PDF del CV (Harvard/ATS × ES/EN) en public/assets/cv/
 ```
 
 Antes de dar algo por terminado: `npx tsc -b`, `npm run lint` y `npm run build` limpios.
@@ -23,6 +24,7 @@ Para probar el despliegue real: `GITHUB_ACTIONS=true npm run build` y servir con
 - `src/data/{es,en}/` — **todo el texto**. Los componentes no llevan copy: lo leen con `useContent()`.
 - `src/index.css` — tokens del design system y utilidades (`card`, `tile`, `chip`, `eyebrow`).
 - `public/diagrams/` — diagramas archify (HTML independiente) embebidos por `iframe`. `sytix-*.html` (casos de uso, arquitectura, proceso del ticket, SLA) se generaron con la skill archify 3.1 y se muestran como pestañas en la tarjeta de SyTix (un solo `iframe` montado a la vez).
+- `public/assets/cv/` — PDF del CV, **generados** por `scripts/build-cv.mjs` desde `src/data/{es,en}/` (+ `cv.ts`, contenido solo del CV). No se editan a mano: al cambiar experiencia, formación, habilidades o `cv.ts`, correr `npm run cv` y commitear los PDF.
 - `specs/` — especificaciones; `specs/02-design-system.md` describe el diseño vigente.
 
 ## Reglas que no se rompen

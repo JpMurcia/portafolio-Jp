@@ -1,6 +1,7 @@
-import { ArrowUpRight, Download } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Fragment, type CSSProperties, type ReactNode } from 'react'
 import { useContent } from '../context/useContent'
+import { CvDownload } from './ui/CvDownload'
 
 /** Retardo escalonado de la animación de entrada (ver .animate-fade-up en index.css). */
 const delay = (ms: number) => ({ '--delay': `${ms}ms` }) as CSSProperties
@@ -86,15 +87,8 @@ export function Hero() {
             {hero.subcopy}
           </p>
 
-          <div className="animate-fade-up flex flex-wrap gap-3" style={delay(280)}>
-            <a
-              href={`${import.meta.env.BASE_URL}assets/CV-Juan-Pablo-Murcia-Cortes.pdf`}
-              download
-              className="inline-flex items-center gap-2 rounded-xl border-0 bg-poster px-5 py-3 text-[13px] font-semibold text-white shadow-[0_10px_28px_-10px] shadow-accent/70 transition-all hover:-translate-y-px hover:bg-accent-600 hover:text-white"
-            >
-              <Download size={15} strokeWidth={2} />
-              {uiHero.downloadCv}
-            </a>
+          <div className="animate-fade-up relative z-20 flex flex-wrap gap-3" style={delay(280)}>
+            <CvDownload />
             <a
               href="#contacto"
               className="inline-flex items-center gap-2 rounded-xl border border-divider bg-surface/60 px-5 py-3 text-[13px] font-semibold text-text backdrop-blur transition-colors hover:border-accent/50 hover:bg-text/6 hover:text-text"
